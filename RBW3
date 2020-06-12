@@ -670,8 +670,6 @@ local function ControlScript()
 			if Autoguard then return end
 			wait(1)
 			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
-			wait(0.5)
-			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", false)
 		end
 	end
 	
