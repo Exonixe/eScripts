@@ -693,7 +693,7 @@ local function ControlScript()
 			or v.Name == "Stands"
 			or v.Name == "Boards"
 			or v.Name == "Hoop Stands"
-			or v.Name == "Upper Floors"
+			or v.Name == "Upper Floor"
 			or v.Name == "Pictures" then v:Destroy() end end
 		else
 		game.workspace.Terrain:Clear()
