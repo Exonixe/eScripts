@@ -665,23 +665,16 @@ local function ControlScript()
 		end
 	end)
 	
-	local function AutoguardFunction()
-		while not Autoguard do
-			if Autoguard then return end
-			wait(1)
-			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
-		end
-	end
-	
 	Autoguard = true
 	Toggles[2].MouseButton1Up:Connect(function()
 		if not Autoguard then
 			Sliders[2]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
 			Autoguard = true
+			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", false)
 		else
 			Sliders[2]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
 			Autoguard = false
-			AutoguardFunction()
+			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
 		end
 	end)
 	
