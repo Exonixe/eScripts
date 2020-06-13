@@ -1,691 +1,364 @@
-local Main = Instance.new("ScreenGui")
-local Main_2 = Instance.new("Frame")
-local UIBase = Instance.new("ImageLabel")
-local Heading = Instance.new("TextLabel")
-local MainOptions = Instance.new("Frame")
-local Aimbot = Instance.new("TextLabel")
+local RBW3 = Instance.new("ScreenGui")
+local Base = Instance.new("Frame")
+local Main = Instance.new("ImageLabel")
+local MainUI = Instance.new("ImageLabel")
+local Aimbot = Instance.new("ImageLabel")
 local Select = Instance.new("TextButton")
-local BG = Instance.new("Frame")
-local Slider = Instance.new("Frame")
-local Autoguard = Instance.new("TextLabel")
-local BG_2 = Instance.new("Frame")
-local Slider_2 = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Autoguard = Instance.new("ImageLabel")
 local Select_2 = Instance.new("TextButton")
-local Objects = Instance.new("TextLabel")
-local ImageLabel = Instance.new("ImageLabel")
+local Title_2 = Instance.new("TextLabel")
+local Objects = Instance.new("ImageLabel")
 local Select_3 = Instance.new("TextButton")
-local OOB = Instance.new("TextLabel")
-local ImageLabel_2 = Instance.new("ImageLabel")
+local Title_3 = Instance.new("TextLabel")
+local OOB = Instance.new("ImageLabel")
 local Select_4 = Instance.new("TextButton")
-local Main_3 = Instance.new("Frame")
-local TabSelect = Instance.new("TextButton")
-local Misc = Instance.new("Frame")
-local TabSelect_2 = Instance.new("TextButton")
-local MiscOptions = Instance.new("Frame")
-local SelfPass = Instance.new("TextLabel")
-local BG_3 = Instance.new("Frame")
-local Slider_3 = Instance.new("Frame")
+local Title_4 = Instance.new("TextLabel")
+local Pass = Instance.new("ImageLabel")
 local Select_5 = Instance.new("TextButton")
-local Teleport = Instance.new("TextLabel")
-local BG_4 = Instance.new("Frame")
-local Slider_4 = Instance.new("Frame")
-local Select_6 = Instance.new("TextButton")
-local Speed = Instance.new("TextLabel")
-local BG_5 = Instance.new("Frame")
-local Slider_5 = Instance.new("Frame")
-local Select_7 = Instance.new("TextButton")
-local Way = Instance.new("ImageLabel")
-local Way_2 = Instance.new("ImageLabel")
-local Detach = Instance.new("TextButton")
-local Create = Instance.new("TextLabel")
-local ImageLabel_3 = Instance.new("ImageLabel")
-local Select_8 = Instance.new("TextButton")
-local Speed_2 = Instance.new("ImageLabel")
-local Speed_3 = Instance.new("ImageLabel")
-local Create_2 = Instance.new("TextLabel")
-local ImageLabel_4 = Instance.new("ImageLabel")
-local Select_9 = Instance.new("TextButton")
-local Speed_4 = Instance.new("TextLabel")
-local ImageLabel_5 = Instance.new("ImageLabel")
-local SpeedValue = Instance.new("TextBox")
+local Title_5 = Instance.new("TextLabel")
+local Expand = Instance.new("ImageButton")
+local Title_6 = Instance.new("TextButton")
 local HS = game:GetService("HttpService")
-Main.Name = HS:GenerateGUID(false)
-Main.Parent = game.CoreGui
 
-Main_2.Name = "Main"
-Main_2.Parent = Main
-Main_2.AnchorPoint = Vector2.new(0.5, 0.5)
-Main_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Main_2.BackgroundTransparency = 1.000
-Main_2.Position = UDim2.new(0.499570817, 0, 0.5, 0)
-Main_2.Size = UDim2.new(1, 0, 1, 0)
+RBW3.Name = HS:GenerateGUID(false)
+RBW3.Parent = game.CoreGui
 
-UIBase.Name = "UIBase"
-UIBase.Parent = Main_2
-UIBase.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-UIBase.BackgroundTransparency = 1.000
-UIBase.Position = UDim2.new(0, 25, 0, 25)
-UIBase.Size = UDim2.new(0, 291, 0, 199)
-UIBase.Image = "rbxassetid://3570695787"
-UIBase.ImageColor3 = Color3.fromRGB(25, 25, 25)
-UIBase.ScaleType = Enum.ScaleType.Slice
-UIBase.SliceCenter = Rect.new(100, 100, 100, 100)
-UIBase.SliceScale = 0.060
+Base.Name = "Base"
+Base.Parent = RBW3
+Base.AnchorPoint = Vector2.new(0.5, 0.5)
+Base.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Base.BackgroundTransparency = 1.000
+Base.Position = UDim2.new(0.499557137, 0, 0.498933911, 0)
+Base.Size = UDim2.new(1, 0, 1, 0)
 
-Heading.Name = "Heading"
-Heading.Parent = UIBase
-Heading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Heading.BackgroundTransparency = 1.000
-Heading.Position = UDim2.new(0.0339999385, 0, 0, 0)
-Heading.Size = UDim2.new(0, 78, 0, 25)
-Heading.Font = Enum.Font.SourceSansBold
-Heading.Text = "RBW3 Hub"
-Heading.TextColor3 = Color3.fromRGB(255, 255, 255)
-Heading.TextSize = 14.000
-Heading.TextXAlignment = Enum.TextXAlignment.Left
+Main.Name = "Main"
+Main.Parent = Base
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.Position = UDim2.new(0, 11, 0, 0)
+Main.Selectable = true
+Main.Size = UDim2.new(0, 178, 0, 46)
+Main.Image = "rbxassetid://3570695787"
+Main.ImageColor3 = Color3.fromRGB(45, 45, 45)
+Main.ScaleType = Enum.ScaleType.Slice
+Main.SliceCenter = Rect.new(100, 100, 100, 100)
+Main.SliceScale = 0.060
 
-MainOptions.Name = "MainOptions"
-MainOptions.Parent = UIBase
-MainOptions.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-MainOptions.BorderColor3 = Color3.fromRGB(255, 32, 117)
-MainOptions.Position = UDim2.new(0.0340000018, 0, 0.245000005, 0)
-MainOptions.Size = UDim2.new(0, 270, 0, 135)
+MainUI.Name = "MainUI"
+MainUI.Parent = Main
+MainUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainUI.BackgroundTransparency = 1.000
+MainUI.Position = UDim2.new(0, 0, 0, 27)
+MainUI.Size = UDim2.new(0, 178, 0, 173)
+MainUI.Image = "rbxassetid://3570695787"
+MainUI.ImageColor3 = Color3.fromRGB(30, 30, 30)
+MainUI.ScaleType = Enum.ScaleType.Slice
+MainUI.SliceCenter = Rect.new(100, 100, 100, 100)
+MainUI.SliceScale = 0.060
 
 Aimbot.Name = "Aimbot"
-Aimbot.Parent = MainOptions
+Aimbot.Parent = MainUI
 Aimbot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Aimbot.BackgroundTransparency = 1.000
-Aimbot.Position = UDim2.new(0.199953541, 0, 0.0732640028, 0)
-Aimbot.Size = UDim2.new(0, 106, 0, 29)
-Aimbot.Font = Enum.Font.SourceSans
-Aimbot.LineHeight = 1.200
-Aimbot.Text = "Aimbot"
-Aimbot.TextColor3 = Color3.fromRGB(255, 255, 255)
-Aimbot.TextSize = 14.000
-Aimbot.TextXAlignment = Enum.TextXAlignment.Left
+Aimbot.Position = UDim2.new(0, 10, 0, 20)
+Aimbot.Size = UDim2.new(0, 24, 0, 12)
+Aimbot.Image = "rbxassetid://3570695787"
+Aimbot.ScaleType = Enum.ScaleType.Slice
+Aimbot.SliceCenter = Rect.new(100, 100, 100, 100)
+Aimbot.SliceScale = 0.060
 
 Select.Name = "Select"
 Select.Parent = Aimbot
 Select.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Select.BackgroundTransparency = 1.000
-Select.Position = UDim2.new(-0.427557588, 0, -0.068965517, 0)
-Select.Size = UDim2.new(0, 33, 0, 29)
+Select.Position = UDim2.new(0, 5, 0, -7)
+Select.Size = UDim2.new(0, 25, 0, 25)
 Select.Font = Enum.Font.SourceSans
 Select.Text = " "
 Select.TextColor3 = Color3.fromRGB(0, 0, 0)
 Select.TextSize = 14.000
 
-BG.Name = "BG"
-BG.Parent = Aimbot
-BG.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-BG.BorderColor3 = Color3.fromRGB(255, 32, 117)
-BG.Position = UDim2.new(-0.40867734, 0, 0.172413796, 0)
-BG.Size = UDim2.new(0, 26, 0, 14)
-
-Slider.Name = "Slider"
-Slider.Parent = BG
-Slider.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Slider.BorderColor3 = Color3.fromRGB(255, 32, 117)
-Slider.Position = UDim2.new(-0.0126501014, 0, 0, 0)
-Slider.Size = UDim2.new(0, 12, 0, 14)
+Title.Name = "Title"
+Title.Parent = Aimbot
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0, -10, 0, 0)
+Title.Size = UDim2.new(0, 178, 0, 12)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Aimbot"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14.000
 
 Autoguard.Name = "Autoguard"
-Autoguard.Parent = MainOptions
+Autoguard.Parent = MainUI
 Autoguard.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Autoguard.BackgroundTransparency = 1.000
-Autoguard.Position = UDim2.new(0.199953541, 0, 0.28176111, 0)
-Autoguard.Size = UDim2.new(0, 106, 0, 29)
-Autoguard.Font = Enum.Font.SourceSans
-Autoguard.LineHeight = 1.400
-Autoguard.Text = "Autoguard"
-Autoguard.TextColor3 = Color3.fromRGB(255, 255, 255)
-Autoguard.TextSize = 14.000
-Autoguard.TextXAlignment = Enum.TextXAlignment.Left
-
-BG_2.Name = "BG"
-BG_2.Parent = Autoguard
-BG_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-BG_2.BorderColor3 = Color3.fromRGB(255, 32, 117)
-BG_2.Position = UDim2.new(-0.409000009, 0, 0.172000006, 0)
-BG_2.Size = UDim2.new(0, 26, 0, 14)
-
-Slider_2.Name = "Slider"
-Slider_2.Parent = BG_2
-Slider_2.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Slider_2.BorderColor3 = Color3.fromRGB(255, 32, 117)
-Slider_2.Position = UDim2.new(-0.0126501014, 0, 0, 0)
-Slider_2.Size = UDim2.new(0, 12, 0, 14)
+Autoguard.Position = UDim2.new(0, 10, 0, 50)
+Autoguard.Size = UDim2.new(0, 24, 0, 12)
+Autoguard.Image = "rbxassetid://3570695787"
+Autoguard.ScaleType = Enum.ScaleType.Slice
+Autoguard.SliceCenter = Rect.new(100, 100, 100, 100)
+Autoguard.SliceScale = 0.060
 
 Select_2.Name = "Select"
 Select_2.Parent = Autoguard
 Select_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Select_2.BackgroundTransparency = 1.000
-Select_2.Position = UDim2.new(-0.425826907, 0, -0.068965517, 0)
-Select_2.Size = UDim2.new(0, 33, 0, 29)
+Select_2.Position = UDim2.new(0, 5, 0, -7)
+Select_2.Size = UDim2.new(0, 25, 0, 25)
 Select_2.Font = Enum.Font.SourceSans
 Select_2.Text = " "
 Select_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Select_2.TextSize = 14.000
 
-Objects.Name = "Objects"
-Objects.Parent = MainOptions
-Objects.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Objects.BackgroundTransparency = 1.000
-Objects.BorderSizePixel = 0
-Objects.Position = UDim2.new(0.622222185, 0, 0.0890691653, 0)
-Objects.Size = UDim2.new(0, 90, 0, 20)
-Objects.Font = Enum.Font.SourceSans
-Objects.Text = " "
-Objects.TextColor3 = Color3.fromRGB(0, 0, 0)
-Objects.TextSize = 14.000
+Title_2.Name = "Title"
+Title_2.Parent = Autoguard
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.Position = UDim2.new(0, -10, 0, -1)
+Title_2.Size = UDim2.new(0, 178, 0, 12)
+Title_2.Font = Enum.Font.SourceSans
+Title_2.Text = "Autoguard"
+Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.TextSize = 14.000
 
-ImageLabel.Name = ""
-ImageLabel.Parent = Objects
-ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
-ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel.Size = UDim2.new(1, 0, 1, 0)
-ImageLabel.Image = "rbxassetid://3570695787"
-ImageLabel.ImageColor3 = Color3.fromRGB(255, 32, 117)
-ImageLabel.ScaleType = Enum.ScaleType.Slice
-ImageLabel.SliceCenter = Rect.new(100, 100, 100, 100)
-ImageLabel.SliceScale = 0.050
+Objects.Name = "Objects"
+Objects.Parent = MainUI
+Objects.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Objects.BackgroundTransparency = 1.000
+Objects.Position = UDim2.new(0, 10, 0, 80)
+Objects.Size = UDim2.new(0, 24, 0, 12)
+Objects.Image = "rbxassetid://3570695787"
+Objects.ScaleType = Enum.ScaleType.Slice
+Objects.SliceCenter = Rect.new(100, 100, 100, 100)
+Objects.SliceScale = 0.060
 
 Select_3.Name = "Select"
 Select_3.Parent = Objects
 Select_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Select_3.BackgroundTransparency = 1.000
-Select_3.Size = UDim2.new(0, 90, 0, 20)
+Select_3.Position = UDim2.new(0, 5, 0, -7)
+Select_3.Size = UDim2.new(0, 25, 0, 25)
 Select_3.Font = Enum.Font.SourceSans
-Select_3.Text = "Clear Objects"
-Select_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Select_3.Text = " "
+Select_3.TextColor3 = Color3.fromRGB(0, 0, 0)
 Select_3.TextSize = 14.000
 
-OOB.Name = "OOB"
-OOB.Parent = MainOptions
-OOB.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-OOB.BackgroundTransparency = 1.000
-OOB.BorderSizePixel = 0
-OOB.Position = UDim2.new(0.622222185, 0, 0.30388397, 0)
-OOB.Size = UDim2.new(0, 90, 0, 20)
-OOB.Font = Enum.Font.SourceSans
-OOB.Text = " "
-OOB.TextColor3 = Color3.fromRGB(0, 0, 0)
-OOB.TextSize = 14.000
+Title_3.Name = "Title"
+Title_3.Parent = Objects
+Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.BackgroundTransparency = 1.000
+Title_3.Position = UDim2.new(0, -10, 0, -1)
+Title_3.Size = UDim2.new(0, 178, 0, 12)
+Title_3.Font = Enum.Font.SourceSans
+Title_3.Text = "No Objects"
+Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.TextSize = 14.000
 
-ImageLabel_2.Name = ""
-ImageLabel_2.Parent = OOB
-ImageLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel_2.BackgroundTransparency = 1.000
-ImageLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel_2.Size = UDim2.new(1, 0, 1, 0)
-ImageLabel_2.Image = "rbxassetid://3570695787"
-ImageLabel_2.ImageColor3 = Color3.fromRGB(255, 32, 117)
-ImageLabel_2.ScaleType = Enum.ScaleType.Slice
-ImageLabel_2.SliceCenter = Rect.new(100, 100, 100, 100)
-ImageLabel_2.SliceScale = 0.050
+OOB.Name = "OOB"
+OOB.Parent = MainUI
+OOB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OOB.BackgroundTransparency = 1.000
+OOB.Position = UDim2.new(0, 10, 0, 110)
+OOB.Size = UDim2.new(0, 24, 0, 12)
+OOB.Image = "rbxassetid://3570695787"
+OOB.ScaleType = Enum.ScaleType.Slice
+OOB.SliceCenter = Rect.new(100, 100, 100, 100)
+OOB.SliceScale = 0.060
 
 Select_4.Name = "Select"
 Select_4.Parent = OOB
 Select_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Select_4.BackgroundTransparency = 1.000
-Select_4.Size = UDim2.new(0, 90, 0, 20)
+Select_4.Position = UDim2.new(0, 5, 0, -7)
+Select_4.Size = UDim2.new(0, 25, 0, 25)
 Select_4.Font = Enum.Font.SourceSans
-Select_4.Text = "No OOB"
-Select_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Select_4.Text = " "
+Select_4.TextColor3 = Color3.fromRGB(0, 0, 0)
 Select_4.TextSize = 14.000
 
-Main_3.Name = "Main"
-Main_3.Parent = UIBase
-Main_3.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Main_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Main_3.Position = UDim2.new(0.0289999992, 0, 0.126000002, 0)
-Main_3.Size = UDim2.new(0, 81, 0, 21)
+Title_4.Name = "Title"
+Title_4.Parent = OOB
+Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.BackgroundTransparency = 1.000
+Title_4.Position = UDim2.new(0, -10, 0, -1)
+Title_4.Size = UDim2.new(0, 178, 0, 12)
+Title_4.Font = Enum.Font.SourceSans
+Title_4.Text = "No OOB"
+Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.TextSize = 14.000
 
-TabSelect.Name = "TabSelect"
-TabSelect.Parent = Main_3
-TabSelect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabSelect.BackgroundTransparency = 1.000
-TabSelect.Position = UDim2.new(0.0126429424, 0, -0.29333967, 0)
-TabSelect.Size = UDim2.new(0, 80, 0, 30)
-TabSelect.Font = Enum.Font.SourceSans
-TabSelect.LineHeight = 1.200
-TabSelect.Text = "Main"
-TabSelect.TextColor3 = Color3.fromRGB(255, 255, 255)
-TabSelect.TextSize = 14.000
-
-Misc.Name = "Misc"
-Misc.Parent = UIBase
-Misc.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Misc.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Misc.Position = UDim2.new(0.307350516, 0, 0.126000002, 0)
-Misc.Size = UDim2.new(0, 81, 0, 21)
-
-TabSelect_2.Name = "TabSelect"
-TabSelect_2.Parent = Misc
-TabSelect_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabSelect_2.BackgroundTransparency = 1.000
-TabSelect_2.Position = UDim2.new(0.0126429424, 0, -0.376849234, 0)
-TabSelect_2.Size = UDim2.new(0, 80, 0, 32)
-TabSelect_2.Font = Enum.Font.SourceSans
-TabSelect_2.LineHeight = 1.200
-TabSelect_2.Text = "Misc"
-TabSelect_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TabSelect_2.TextSize = 14.000
-
-MiscOptions.Name = "MiscOptions"
-MiscOptions.Parent = UIBase
-MiscOptions.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-MiscOptions.BorderColor3 = Color3.fromRGB(255, 32, 117)
-MiscOptions.Position = UDim2.new(0.0340000018, 0, 0.245000005, 0)
-MiscOptions.Size = UDim2.new(0, 270, 0, 135)
-MiscOptions.Visible = false
-
-SelfPass.Name = "SelfPass"
-SelfPass.Parent = MiscOptions
-SelfPass.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SelfPass.BackgroundTransparency = 1.000
-SelfPass.Position = UDim2.new(0.195458531, 0, 0.0603333637, 0)
-SelfPass.Size = UDim2.new(0, 187, 0, 29)
-SelfPass.Font = Enum.Font.SourceSans
-SelfPass.Text = "Self Pass"
-SelfPass.TextColor3 = Color3.fromRGB(255, 255, 255)
-SelfPass.TextSize = 14.000
-SelfPass.TextXAlignment = Enum.TextXAlignment.Left
-
-BG_3.Name = "BG"
-BG_3.Parent = SelfPass
-BG_3.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-BG_3.BorderColor3 = Color3.fromRGB(255, 32, 117)
-BG_3.Position = UDim2.new(-0.22176145, 0, 0.241379306, 0)
-BG_3.Size = UDim2.new(0, 26, 0, 14)
-
-Slider_3.Name = "Slider"
-Slider_3.Parent = BG_3
-Slider_3.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Slider_3.BorderColor3 = Color3.fromRGB(255, 32, 117)
-Slider_3.Position = UDim2.new(-0.0126501014, 0, 0, 0)
-Slider_3.Size = UDim2.new(0, 12, 0, 14)
+Pass.Name = "Pass"
+Pass.Parent = MainUI
+Pass.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Pass.BackgroundTransparency = 1.000
+Pass.Position = UDim2.new(0, 10, 0, 140)
+Pass.Size = UDim2.new(0, 24, 0, 12)
+Pass.Image = "rbxassetid://3570695787"
+Pass.ScaleType = Enum.ScaleType.Slice
+Pass.SliceCenter = Rect.new(100, 100, 100, 100)
+Pass.SliceScale = 0.060
 
 Select_5.Name = "Select"
-Select_5.Parent = SelfPass
+Select_5.Parent = Pass
 Select_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Select_5.BackgroundTransparency = 1.000
-Select_5.Position = UDim2.new(-0.240641713, 0, 0, 0)
-Select_5.Size = UDim2.new(0, 33, 0, 29)
+Select_5.Position = UDim2.new(0, 5, 0, -7)
+Select_5.Size = UDim2.new(0, 25, 0, 25)
 Select_5.Font = Enum.Font.SourceSans
 Select_5.Text = " "
 Select_5.TextColor3 = Color3.fromRGB(0, 0, 0)
 Select_5.TextSize = 14.000
 
-Teleport.Name = "Teleport"
-Teleport.Parent = MiscOptions
-Teleport.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Teleport.BackgroundTransparency = 1.000
-Teleport.Position = UDim2.new(0.195458531, 0, 0.260333359, 0)
-Teleport.Size = UDim2.new(0, 187, 0, 29)
-Teleport.Font = Enum.Font.SourceSans
-Teleport.Text = "Fake Lag"
-Teleport.TextColor3 = Color3.fromRGB(255, 255, 255)
-Teleport.TextSize = 14.000
-Teleport.TextXAlignment = Enum.TextXAlignment.Left
+Title_5.Name = "Title"
+Title_5.Parent = Pass
+Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_5.BackgroundTransparency = 1.000
+Title_5.Position = UDim2.new(0, -10, 0, -1)
+Title_5.Size = UDim2.new(0, 178, 0, 12)
+Title_5.Font = Enum.Font.SourceSans
+Title_5.Text = "Self Pass"
+Title_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_5.TextSize = 14.000
 
-BG_4.Name = "BG"
-BG_4.Parent = Teleport
-BG_4.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-BG_4.BorderColor3 = Color3.fromRGB(255, 32, 117)
-BG_4.Position = UDim2.new(-0.22176145, 0, 0.241379306, 0)
-BG_4.Size = UDim2.new(0, 26, 0, 14)
+Expand.Name = "Expand"
+Expand.Parent = Main
+Expand.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Expand.BackgroundTransparency = 1.000
+Expand.Position = UDim2.new(0.865168512, 0, 0, 0)
+Expand.Rotation = 90.000
+Expand.Size = UDim2.new(0, 24, 0, 27)
+Expand.Image = "rbxassetid://4726772330"
 
-Slider_4.Name = "Slider"
-Slider_4.Parent = BG_4
-Slider_4.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Slider_4.BorderColor3 = Color3.fromRGB(255, 32, 117)
-Slider_4.Position = UDim2.new(-0.0126501014, 0, 0, 0)
-Slider_4.Size = UDim2.new(0, 12, 0, 14)
+Title_6.Name = "Title"
+Title_6.Parent = Main
+Title_6.Active = false
+Title_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_6.BackgroundTransparency = 1.000
+Title_6.Selectable = false
+Title_6.Size = UDim2.new(0, 40, 0, 27)
+Title_6.Font = Enum.Font.SourceSansBold
+Title_6.Text = "Main"
+Title_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_6.TextSize = 14.000
 
-Select_6.Name = "Select"
-Select_6.Parent = Teleport
-Select_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Select_6.BackgroundTransparency = 1.000
-Select_6.Position = UDim2.new(-0.240641713, 0, 0, 0)
-Select_6.Size = UDim2.new(0, 33, 0, 29)
-Select_6.Font = Enum.Font.SourceSans
-Select_6.Text = " "
-Select_6.TextColor3 = Color3.fromRGB(0, 0, 0)
-Select_6.TextSize = 14.000
+local function ScriptControl()
+	local script = Instance.new('LocalScript', RBW3)
 
-Speed.Name = "Speed"
-Speed.Parent = MiscOptions
-Speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Speed.BackgroundTransparency = 1.000
-Speed.Position = UDim2.new(0.195458531, 0, 0.467740774, 0)
-Speed.Size = UDim2.new(0, 187, 0, 29)
-Speed.Font = Enum.Font.SourceSans
-Speed.Text = "Speed"
-Speed.TextColor3 = Color3.fromRGB(255, 255, 255)
-Speed.TextSize = 14.000
-Speed.TextXAlignment = Enum.TextXAlignment.Left
-
-BG_5.Name = "BG"
-BG_5.Parent = Speed
-BG_5.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-BG_5.BorderColor3 = Color3.fromRGB(255, 32, 117)
-BG_5.Position = UDim2.new(-0.22176145, 0, 0.241379306, 0)
-BG_5.Size = UDim2.new(0, 26, 0, 14)
-
-Slider_5.Name = "Slider"
-Slider_5.Parent = BG_5
-Slider_5.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Slider_5.BorderColor3 = Color3.fromRGB(255, 32, 117)
-Slider_5.Position = UDim2.new(-0.0126501014, 0, 0, 0)
-Slider_5.Size = UDim2.new(0, 12, 0, 14)
-
-Select_7.Name = "Select"
-Select_7.Parent = Speed
-Select_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Select_7.BackgroundTransparency = 1.000
-Select_7.Position = UDim2.new(-0.240641713, 0, 0, 0)
-Select_7.Size = UDim2.new(0, 33, 0, 29)
-Select_7.Font = Enum.Font.SourceSans
-Select_7.Text = " "
-Select_7.TextColor3 = Color3.fromRGB(0, 0, 0)
-Select_7.TextSize = 14.000
-
-Way.Name = "Way"
-Way.Parent = UIBase
-Way.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Way.BackgroundTransparency = 1.000
-Way.Position = UDim2.new(0, 298, 0, 0)
-Way.Size = UDim2.new(0, 131, 0, 55)
-Way.Visible = false
-Way.Image = "rbxassetid://3570695787"
-Way.ImageColor3 = Color3.fromRGB(25, 25, 25)
-Way.ScaleType = Enum.ScaleType.Slice
-Way.SliceCenter = Rect.new(100, 100, 100, 100)
-Way.SliceScale = 0.050
-
-Way_2.Name = "Way"
-Way_2.Parent = Way
-Way_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Way_2.BackgroundTransparency = 1.000
-Way_2.Size = UDim2.new(0, 131, 0, 14)
-Way_2.Image = "rbxassetid://3570695787"
-Way_2.ImageColor3 = Color3.fromRGB(255, 32, 117)
-Way_2.ScaleType = Enum.ScaleType.Slice
-Way_2.SliceCenter = Rect.new(100, 100, 100, 100)
-Way_2.SliceScale = 0.050
-
-Detach.Name = "Detach"
-Detach.Parent = Way_2
-Detach.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Detach.BackgroundTransparency = 1.000
-Detach.Size = UDim2.new(0, 131, 0, 14)
-Detach.Font = Enum.Font.SourceSans
-Detach.Text = "Detach"
-Detach.TextColor3 = Color3.fromRGB(255, 255, 255)
-Detach.TextSize = 11.000
-
-Create.Name = "Create"
-Create.Parent = Way
-Create.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Create.BackgroundTransparency = 1.000
-Create.BorderSizePixel = 0
-Create.Position = UDim2.new(0.148939729, 0, 0.44742465, 0)
-Create.Size = UDim2.new(0, 90, 0, 20)
-Create.Font = Enum.Font.SourceSans
-Create.Text = " "
-Create.TextColor3 = Color3.fromRGB(0, 0, 0)
-Create.TextSize = 14.000
-
-ImageLabel_3.Name = ""
-ImageLabel_3.Parent = Create
-ImageLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel_3.BackgroundTransparency = 1.000
-ImageLabel_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-ImageLabel_3.Size = UDim2.new(1, 0, 1, 0)
-ImageLabel_3.Image = "rbxassetid://3570695787"
-ImageLabel_3.ImageColor3 = Color3.fromRGB(255, 32, 117)
-ImageLabel_3.ScaleType = Enum.ScaleType.Slice
-ImageLabel_3.SliceCenter = Rect.new(100, 100, 100, 100)
-ImageLabel_3.SliceScale = 0.050
-
-Select_8.Name = "Select"
-Select_8.Parent = Create
-Select_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Select_8.BackgroundTransparency = 1.000
-Select_8.Size = UDim2.new(0, 90, 0, 20)
-Select_8.Font = Enum.Font.SourceSans
-Select_8.Text = "Create"
-Select_8.TextColor3 = Color3.fromRGB(255, 255, 255)
-Select_8.TextSize = 14.000
-
-Speed_2.Name = "Speed"
-Speed_2.Parent = UIBase
-Speed_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Speed_2.BackgroundTransparency = 1.000
-Speed_2.Position = UDim2.new(0, 299, 0, 64)
-Speed_2.Size = UDim2.new(0, 131, 0, 55)
-Speed_2.Visible = false
-Speed_2.Image = "rbxassetid://3570695787"
-Speed_2.ImageColor3 = Color3.fromRGB(25, 25, 25)
-Speed_2.ScaleType = Enum.ScaleType.Slice
-Speed_2.SliceCenter = Rect.new(100, 100, 100, 100)
-Speed_2.SliceScale = 0.050
-
-Speed_3.Name = "Speed"
-Speed_3.Parent = Speed_2
-Speed_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Speed_3.BackgroundTransparency = 1.000
-Speed_3.Size = UDim2.new(0, 131, 0, 14)
-Speed_3.Image = "rbxassetid://3570695787"
-Speed_3.ImageColor3 = Color3.fromRGB(255, 32, 117)
-Speed_3.ScaleType = Enum.ScaleType.Slice
-Speed_3.SliceCenter = Rect.new(100, 100, 100, 100)
-Speed_3.SliceScale = 0.050
-
-Create_2.Name = "Create"
-Create_2.Parent = Speed_2
-Create_2.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Create_2.BackgroundTransparency = 1.000
-Create_2.BorderSizePixel = 0
-Create_2.Position = UDim2.new(0.148939759, 0, 0.447424591, 0)
-Create_2.Size = UDim2.new(0, 48, 0, 20)
-Create_2.Font = Enum.Font.SourceSans
-Create_2.Text = " "
-Create_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Create_2.TextSize = 14.000
-
-ImageLabel_4.Name = ""
-ImageLabel_4.Parent = Create_2
-ImageLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel_4.BackgroundTransparency = 1.000
-ImageLabel_4.Position = UDim2.new(0.489795923, 0, 0.5, 0)
-ImageLabel_4.Size = UDim2.new(0.979591846, 0, 1, 0)
-ImageLabel_4.Image = "rbxassetid://3570695787"
-ImageLabel_4.ImageColor3 = Color3.fromRGB(255, 32, 117)
-ImageLabel_4.ScaleType = Enum.ScaleType.Slice
-ImageLabel_4.SliceCenter = Rect.new(100, 100, 100, 100)
-ImageLabel_4.SliceScale = 0.050
-
-Select_9.Name = "Select"
-Select_9.Parent = Create_2
-Select_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Select_9.BackgroundTransparency = 1.000
-Select_9.Size = UDim2.new(0, 48, 0, 20)
-Select_9.Font = Enum.Font.SourceSans
-Select_9.Text = "Speed"
-Select_9.TextColor3 = Color3.fromRGB(255, 255, 255)
-Select_9.TextSize = 14.000
-
-Speed_4.Name = "Speed"
-Speed_4.Parent = Speed_2
-Speed_4.BackgroundColor3 = Color3.fromRGB(255, 32, 117)
-Speed_4.BackgroundTransparency = 1.000
-Speed_4.BorderSizePixel = 0
-Speed_4.Position = UDim2.new(0.576420665, 0, 0.44742462, 0)
-Speed_4.Size = UDim2.new(0, 33, 0, 20)
-Speed_4.Font = Enum.Font.SourceSans
-Speed_4.Text = " "
-Speed_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-Speed_4.TextSize = 14.000
-
-ImageLabel_5.Name = ""
-ImageLabel_5.Parent = Speed_4
-ImageLabel_5.AnchorPoint = Vector2.new(0.5, 0.5)
-ImageLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel_5.BackgroundTransparency = 1.000
-ImageLabel_5.Position = UDim2.new(0.489796042, 0, 0.5, 0)
-ImageLabel_5.Size = UDim2.new(0.979591846, 0, 1, 0)
-ImageLabel_5.Image = "rbxassetid://3570695787"
-ImageLabel_5.ImageColor3 = Color3.fromRGB(255, 32, 117)
-ImageLabel_5.ScaleType = Enum.ScaleType.Slice
-ImageLabel_5.SliceCenter = Rect.new(100, 100, 100, 100)
-ImageLabel_5.SliceScale = 0.050
-
-SpeedValue.Name = "SpeedValue"
-SpeedValue.Parent = Speed_4
-SpeedValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SpeedValue.BackgroundTransparency = 1.000
-SpeedValue.Size = UDim2.new(0, 32, 0, 20)
-SpeedValue.Font = Enum.Font.SourceSans
-SpeedValue.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-SpeedValue.PlaceholderText = "0"
-SpeedValue.Text = ""
-SpeedValue.TextColor3 = Color3.fromRGB(255, 255, 255)
-SpeedValue.TextSize = 14.000
-SpeedValue.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
-SpeedValue.TextWrapped = true
-
-local function ControlScript()
-	local script = Instance.new('LocalScript', Main)
-
-	local Main = script.Parent.Main.UIBase
-	local UIS = game:GetService("UserInputService")
+	local Main = script.Parent.Base.Main
 	local CAS = game:GetService("ContextActionService")
-	local HS = game:GetService("HttpService")
-	
-	local Tabs = {
-	Main.Main.TabSelect;
-	Main.Misc.TabSelect
-	}
-	
-	local Options = {
-	Main.MainOptions;
-	Main.MiscOptions;
-	Main.Way;
-	Main.Speed
-	}
-	
-	local Toggles = {
-	Options[1].Aimbot.Select;
-	Options[1].Autoguard.Select;
-	Options[1].Objects.Select;
-	Options[1].OOB.Select;
-	Options[2].SelfPass.Select;
-	Options[2].Teleport.Select;
-	Options[3].Create.Select;
-	Options[4].Create.Select;
-	Options[2].Speed.Select
-	}
-	
-	local Sliders = {
-	Options[1].Aimbot.BG.Slider;
-	Options[1].Autoguard.BG.Slider;
-	Options[2].SelfPass.BG.Slider;
-	Options[2].Teleport.BG.Slider;
-	Options[2].Speed.BG.Slider
-	}
+	local UIS = game:GetService("UserInputService")
+	local Exp = Main.Expand
 	
 	Main.Active = true
 	Main.Selectable = true
 	Main.Draggable = true
 	
-	Tabs[1].MouseButton1Up:Connect(function()
-		Options[2].Visible = false
-		Options[1].Visible = true
-	end)
-	Tabs[1].MouseEnter:Connect(function()
-		Main.Main:TweenPosition(UDim2.new(0.029, 0, 0.116, 0), "Out", "Quad", 0.1, true)
-	end)
-	Tabs[1].MouseLeave:Connect(function()
-		Main.Main:TweenPosition(UDim2.new(0.029, 0, 0.126, 0), "Out", "Quad", 0.1, true)
-	end)
-	
-	Tabs[2].MouseButton1Up:Connect(function()
-		Options[1].Visible = false
-		Options[2].Visible = true
-	end)
-	Tabs[2].MouseEnter:Connect(function()
-		Main.Misc:TweenPosition(UDim2.new(0.307, 0, 0.116, 0), "Out", "Quad", 0.1, true)
-	end)
-	Tabs[2].MouseLeave:Connect(function()
-		Main.Misc:TweenPosition(UDim2.new(0.307, 0, 0.126, 0), "Out", "Quad", 0.1, true)
-	end)
-	
-	TabsVisible = false
+	ShowUI = false
 	UIS.InputBegan:Connect(function(input)
 		if input.KeyCode == Enum.KeyCode.RightShift then
-			if TabsVisible then
+			if ShowUI then
 				Main.Visible = true
-				TabsVisible = false
+				ShowUI = false
 			else
 				Main.Visible = false
-				TabsVisible = true
+				ShowUI = true
 			end
 		end
 	end)
 	
+	UIS.InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.BackSlash then
+			Main:TweenPosition(UDim2.new(0, 11, 0, 0), "Out", "Quad", 0.5, true)
+		end
+	end)
+	
+	local Options = {
+		Main.MainUI.Aimbot.Select;
+		Main.MainUI.Autoguard.Select;
+		Main.MainUI.Objects.Select;
+		Main.MainUI.OOB.Select;
+		Main.MainUI.Pass.Select;
+	}
+	
+	local ToggleBG = {
+		Main.MainUI.Aimbot;
+		Main.MainUI.Autoguard;
+		Main.MainUI.Objects;
+		Main.MainUI.OOB;
+		Main.MainUI.Pass;
+	}
+	Expanded = true
+	Exp.MouseButton1Up:Connect(function()
+		if Expanded then
+			Main:TweenSize(UDim2.new(0, 178, 0, 29), "Out", "Quad", 0.5, true)
+			Main.MainUI:TweenSize(UDim2.new(0, 178, 0, 0), "Out", "Quad", 0.5, true)
+			Exp.Rotation = 270
+			for _,v in pairs(Main.MainUI:GetDescendants()) do
+				v.Visible = false
+			end
+			Expanded = false
+		else
+			Main:TweenSize(UDim2.new(0, 178, 0, 46), "Out", "Quad", 0.5, true)
+			Main.MainUI:TweenSize(UDim2.new(0, 178, 0, 173), "Out", "Quad", 0.5, true)
+			Exp.Rotation = 90
+			wait(0.3)
+			for _,v in pairs(Main.MainUI:GetDescendants()) do
+				v.Visible = true
+			end
+			Expanded = true
+		end
+	end)
+	
+	
 	AimbotToggle = true
-	Toggles[1].MouseButton1Up:Connect(function()
-			local Aimbot = coroutine.create(function()
+	Options[1].MouseButton1Up:Connect(function()
+		local Aimbot = coroutine.create(function()
 			while wait() do
 				if _G.AimbotDisabled then return end
 				local ShotAccuracy = game.Players.LocalPlayer.Character:WaitForChild("ShotAccuracy")
 				if ShotAccuracy.Value >= .733 then
-	   				game:GetService("ReplicatedStorage").Remotes.Action:FireServer("Shoot", {false})
+		   			game:GetService("ReplicatedStorage").Remotes.Action:FireServer("Shoot", {false})
 					wait(1)
-	    		end
+		    	end
 			end
 		end)
-	
+		
 		if AimbotToggle then
 			coroutine.resume(Aimbot)
 			_G.AimbotDisabled = false
-			Sliders[1]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
+			ToggleBG[1].ImageColor3 = Color3.fromRGB(15, 255, 143)
 			AimbotToggle = false
 		else
-			Sliders[1]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
 			_G.AimbotDisabled = true
+			ToggleBG[1].ImageColor3 = Color3.fromRGB(255, 255, 255)
 			AimbotToggle = true
 		end
 	end)
 	
-	Autoguard = true
-	Toggles[2].MouseButton1Up:Connect(function()
+	Autoguard = false
+	Options[2].MouseButton1Up:Connect(function()
 		if not Autoguard then
-			Sliders[2]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
+			ToggleBG[2].ImageColor3 = Color3.fromRGB(15, 255, 143)
 			Autoguard = true
 			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", false)
 		else
-			Sliders[2]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
+			ToggleBG[2].ImageColor3 = Color3.fromRGB(255, 255, 255)
 			Autoguard = false
 			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
 		end
 	end)
 	
-	Toggles[3].MouseButton1Up:Connect(function()
-	if game.PlaceId == 3499530718 then
+	Options[3].MouseButton1Up:Connect(function()
+		if game.PlaceId == 3499530718 then
 		for _, v in pairs(workspace:GetDescendants()) do
 			if v.Name == "Stairs"
 			or v.Name == "Railings"
 			or v.Name == "Trash Cans"
 			or v.Name == "Pads" 
-		   	or v.Name == "Roof"
+			or v.Name == "Roof"
 			or v.Name == "Walls"
 			or v.Name == "Gates"
 			or v.Name == "Doors"
@@ -703,14 +376,18 @@ local function ControlScript()
 			or v.Name == "Rec Center"
 			or v.Name == "Fences" then v:Destroy() end end
 		end
+		ToggleBG[3].ImageColor3 = Color3.fromRGB(15, 255, 143)
 	end)
 	
-	Toggles[4].MouseButton1Up:Connect(function()
+	Options[4].MouseButton1Up:Connect(function()
 		for _, v in pairs(workspace:GetDescendants()) do
 			if v.Name == "OOB1"
 			or v.Name == "OOB2"
 			or v.Name == "OOB3"
-			or v.Name == "OOB4" then v:Destroy() end end
+			or v.Name == "OOB4"
+			then v:Destroy() end
+		end
+		ToggleBG[4].ImageColor3 = Color3.fromRGB(15, 255, 143)
 	end)
 	
 	local function SP()
@@ -720,158 +397,20 @@ local function ControlScript()
 			Pass = true,
 			Char = Plr,
 			PassTo = Player
-			}
-		)
+		})
 	end
 	
 	SelfPass = false
-	Toggles[5].MouseButton1Up:Connect(function()
+	Options[5].MouseButton1Up:Connect(function()
 		if SelfPass then
 			CAS:UnbindAction("SelfPass")
-			Sliders[3]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
+			ToggleBG[5].ImageColor3 = Color3.fromRGB(255, 255, 255)
 			SelfPass = false
 		else
 			CAS:BindAction("SelfPass", SP, false, "b")
-			Sliders[3]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
+			ToggleBG[5].ImageColor3 = Color3.fromRGB(15, 255, 143)
 			SelfPass = true
 		end
 	end)
-	
-	local Plr = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-	Toggles[7].MouseButton1Up:Connect(function()
-		local ifPart = game.Workspace:FindFirstChild("newPart")
-		if ifPart then
-			ifPart:Destroy()
-		end
-					
-		local newPart = Instance.new("Part")
-		newPart.Name = "newPart"
-		newPart.Parent = game.Workspace
-		newPart.Anchored = true
-		newPart.CanCollide = false
-		newPart.Transparency = 1
-		newPart.Position = Plr.Position
-			
-		local WPT = Instance.new("BillboardGui")
-		WPT.Parent = newPart
-		WPT.Size = UDim2.new(0, 7, 0, 7)
-		
-		local WPTUI = Instance.new("TextLabel")
-		WPTUI.Parent = WPT
-		WPTUI.Size = UDim2.new(0, 7, 0, 7)
-		WPTUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		WPTUI.BorderSizePixel = 2
-		WPTUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		WPTUI.Rotation = 45
-		WPTUI.Text = ("")
-	end)
-	
-	local function TP()
-		local newPart = game.Workspace:FindFirstChild("newPart")
-		local Torso = game.Players.LocalPlayer.Character:FindFirstChild("UpperTorso")
-		if Torso.Anchored == true then
-			Torso.Anchored = false
-			Plr.CFrame = newPart.CFrame
-		else
-			Torso.Anchored = true		
-		end
-	end
-	Options[3].Active = true
-	Options[3].Selectable = true
-	Options[3].Draggable= true
-	
-	Teleport = false
-	Toggles[6].MouseButton1Up:Connect(function()
-		if Teleport then
-			CAS:UnbindAction("TPActive")
-			Sliders[4]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
-			Options[3].Visible = false
-			Teleport = false
-		else	
-			CAS:BindAction("TPActive", TP, false, "f")
-			local ifPart = game.Workspace:FindFirstChild("newPart")
-			if ifPart then
-				ifPart:Destroy()
-			end
-			Sliders[4]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
-			Options[3].Visible = true
-			Teleport = true
-		end
-	end)
-	
-	Speed = false
-	Toggles[9].MouseButton1Up:Connect(function()
-		if Speed then
-			Sliders[5]:TweenPosition(UDim2.new(0.013, 0, 0, 0), "Out", "Quad", 0.3, true)
-			Options[4].Visible = false
-			Speed = false
-		else
-			Sliders[5]:TweenPosition(UDim2.new(0.526, 0, 0, 0), "Out", "Quad", 0.3, true)
-			Options[4].Visible = true
-			Speed = true
-		end
-	end)
-	
-	Toggles[8].MouseButton1Up:Connect(function()
-		local Down = false
-		local SpeedFunction = coroutine.create(function()
-		while wait() do
-				for _, v in pairs(Options[4]:GetDescendants()) do
-					wait()
-					if v.Name == "SpeedValue" then
-						WalkSpeed = tonumber(v.Text)
-					end
-				end
-			end
-		end)
-		coroutine.resume(SpeedFunction)
-		
-		down = false
-		velocity = Instance.new("BodyVelocity")
-		velocity.maxForce = Vector3.new(100000, 0, 100000)
-		
-		gyro = Instance.new("BodyGyro")
-		gyro.maxTorque = Vector3.new(100000, 0, 100000)
-		
-		local hum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
-		
-		function onButton1Down(mouse)
-		down = true
-		velocity.Parent = game.Players.LocalPlayer.Character.UpperTorso
-		velocity.velocity = (hum.MoveDirection) * WalkSpeed
-		gyro.Parent = game.Players.LocalPlayer.Character.UpperTorso
-		while down do
-		if not down then break end
-		velocity.velocity = (hum.MoveDirection) * WalkSpeed
-		local refpos = gyro.Parent.Position + (gyro.Parent.Position - workspace.CurrentCamera.CoordinateFrame.p).unit * 5
-		gyro.cframe = CFrame.new(gyro.Parent.Position, Vector3.new(refpos.x, gyro.Parent.Position.y, refpos.z))
-		wait(0.1)
-		end
-		end
-		
-		function onButton1Up(mouse)
-		velocity.Parent = nil
-		gyro.Parent = nil
-		down = false
-		end
-		function _G.onSelected(mouse)
-		mouse.KeyDown:connect(function(k) if k:lower()=="q"then onButton1Down(mouse)end end)
-		mouse.KeyUp:connect(function(k) if k:lower()=="q"then onButton1Up(mouse)end end)
-		end
-		_G.onSelected(game.Players.LocalPlayer:GetMouse())
-	end)
-	
-	Detach = true
-	Options[3].Way.Detach.MouseButton1Up:Connect(function()
-		if Detach then
-			Options[3].Parent = script.Parent.Main
-			Options[3].Way.Detach.Text = ("Attach")
-			Detach = false
-		else
-			Options[3].Parent = Main
-			Options[3].Way.Detach.Text = ("Detach")
-			Detach = true
-		end
-	end)
 end
-coroutine.wrap(ControlScript)()
+coroutine.wrap(ScriptControl)()
