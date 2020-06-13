@@ -646,9 +646,9 @@ local function ControlScript()
 			while wait() do
 				if _G.AimbotDisabled then return end
 				local ShotAccuracy = game.Players.LocalPlayer.Character:WaitForChild("ShotAccuracy")
-				if ShotAccuracy.Value >= .745 then
+				if ShotAccuracy.Value >= .73 then
 	   				game:GetService("ReplicatedStorage").Remotes.Action:FireServer("Shoot", {false})
-					wait(0.05)
+					wait(1)
 	    		end
 			end
 		end)
