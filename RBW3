@@ -343,11 +343,11 @@ local function ScriptControl()
 		if not Autoguard then
 			ToggleBG[2].ImageColor3 = Color3.fromRGB(15, 255, 143)
 			Autoguard = true
-			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", false)
+			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
 		else
 			ToggleBG[2].ImageColor3 = Color3.fromRGB(255, 255, 255)
 			Autoguard = false
-			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", true)
+			game.ReplicatedStorage.Remotes.Action:FireServer("Guard", false)
 		end
 	end)
 	
