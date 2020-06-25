@@ -1070,7 +1070,7 @@ local function ControlScript()
 					local Plat = Instance.new("Part", game.Workspace)
 					Plat.Anchored = true
 					Plat.Transparency = 1
-					Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
+					Plat.CFrame = v:WaitForChild("HumanoidRootPart").CFrame*CFrame.new(0, -18, 0)
 					
 					repeat wait(0.1)
 						StartTime = StartTime + 1
