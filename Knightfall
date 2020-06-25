@@ -1,0 +1,1618 @@
+local eScriptsKnightFall = Instance.new("ScreenGui")
+local Base = Instance.new("Frame")
+local Main = Instance.new("ImageLabel")
+local Holder = Instance.new("Frame")
+local Autofarm = Instance.new("ImageLabel")
+local Select = Instance.new("TextButton")
+local Text = Instance.new("TextLabel")
+local Splitter = Instance.new("Frame")
+local KillAura = Instance.new("ImageLabel")
+local Select_2 = Instance.new("TextButton")
+local Text_2 = Instance.new("TextLabel")
+local MineAura = Instance.new("ImageLabel")
+local Select_3 = Instance.new("TextButton")
+local Text_3 = Instance.new("TextLabel")
+local TreeAura = Instance.new("ImageLabel")
+local Select_4 = Instance.new("TextButton")
+local Text_4 = Instance.new("TextLabel")
+local Splitter_2 = Instance.new("Frame")
+local RockESP = Instance.new("ImageLabel")
+local Select_5 = Instance.new("TextButton")
+local Text_5 = Instance.new("TextLabel")
+local TreeESP = Instance.new("ImageLabel")
+local Select_6 = Instance.new("TextButton")
+local Text_6 = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+local Teleport = Instance.new("ImageLabel")
+local Holder_2 = Instance.new("Frame")
+local Worlds = Instance.new("ScrollingFrame")
+local UIGridLayout = Instance.new("UIGridLayout")
+local MainWorld = Instance.new("TextButton")
+local VolcanoIsland = Instance.new("TextButton")
+local Dungeon = Instance.new("TextButton")
+local Title_2 = Instance.new("TextLabel")
+local Secondary = Instance.new("ImageLabel")
+local Holder_3 = Instance.new("Frame")
+local Splitter_3 = Instance.new("Frame")
+local MineFarm = Instance.new("ImageLabel")
+local Text_7 = Instance.new("TextLabel")
+local Select_7 = Instance.new("TextButton")
+local Overrides = Instance.new("ImageLabel")
+local Text_8 = Instance.new("TextLabel")
+local Select_8 = Instance.new("TextButton")
+local TreeFarm = Instance.new("ImageLabel")
+local Select_9 = Instance.new("TextButton")
+local Text_9 = Instance.new("TextLabel")
+local Title_3 = Instance.new("TextLabel")
+local Settings = Instance.new("ImageLabel")
+local Holder_4 = Instance.new("Frame")
+local Splitter_4 = Instance.new("Frame")
+local Rocks = Instance.new("ScrollingFrame")
+local UIGridLayout_2 = Instance.new("UIGridLayout")
+local Amethyst = Instance.new("TextButton")
+local Cobalt = Instance.new("TextButton")
+local Diamond = Instance.new("TextButton")
+local Emerald = Instance.new("TextButton")
+local EngulfedThermite = Instance.new("TextButton")
+local Gold = Instance.new("TextButton")
+local HardenedMagma = Instance.new("TextButton")
+local InfractedGolemCore = Instance.new("TextButton")
+local Kranite = Instance.new("TextButton")
+local Magmatite = Instance.new("TextButton")
+local Marble = Instance.new("TextButton")
+local Obisidian = Instance.new("TextButton")
+local Phiodide = Instance.new("TextButton")
+local Ruby = Instance.new("TextButton")
+local Sandstone = Instance.new("TextButton")
+local Silver = Instance.new("TextButton")
+local Stone = Instance.new("TextButton")
+local Toxinite = Instance.new("TextButton")
+local Trees = Instance.new("ScrollingFrame")
+local UIGridLayout_3 = Instance.new("UIGridLayout")
+local DeadTree = Instance.new("TextButton")
+local GhostTree = Instance.new("TextButton")
+local JungleTree = Instance.new("TextButton")
+local GoldPalmTree = Instance.new("TextButton")
+local LavaTree = Instance.new("TextButton")
+local MagmaPalmTree = Instance.new("TextButton")
+local PalmTree = Instance.new("TextButton")
+local PineTree = Instance.new("TextButton")
+local SpruceTree = Instance.new("TextButton")
+local Trees_2 = Instance.new("TextLabel")
+local Rocks_2 = Instance.new("TextLabel")
+local Title_4 = Instance.new("TextLabel")
+local AxeEquipped = Instance.new("TextLabel")
+local PickEquipped = Instance.new("TextLabel")
+local SwordEquipped = Instance.new("TextLabel")
+
+eScriptsKnightFall.Name = "eScripts/KnightFall"
+eScriptsKnightFall.Parent = game.CoreGui
+eScriptsKnightFall.ResetOnSpawn = false
+
+Base.Name = "Base"
+Base.Parent = eScriptsKnightFall
+Base.AnchorPoint = Vector2.new(0.5, 0.5)
+Base.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Base.BackgroundTransparency = 1.000
+Base.BorderSizePixel = 0
+Base.Position = UDim2.new(0.5, 0, 0.498933911, 0)
+Base.Size = UDim2.new(1, 0, 1, 0)
+
+Main.Name = "Main"
+Main.Parent = Base
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.Size = UDim2.new(0, 163, 0, 42)
+Main.Image = "rbxassetid://3570695787"
+Main.ImageColor3 = Color3.fromRGB(255, 14, 78)
+Main.ScaleType = Enum.ScaleType.Slice
+Main.SliceCenter = Rect.new(100, 100, 100, 100)
+Main.SliceScale = 0.060
+
+Holder.Name = "Holder"
+Holder.Parent = Main
+Holder.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Holder.BorderSizePixel = 0
+Holder.Position = UDim2.new(0, 0, 0, 26)
+Holder.Size = UDim2.new(0, 163, 0, 196)
+
+Autofarm.Name = "Autofarm"
+Autofarm.Parent = Holder
+Autofarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Autofarm.BackgroundTransparency = 1.000
+Autofarm.Position = UDim2.new(0, 10, 0, 15)
+Autofarm.Size = UDim2.new(0, 19, 0, 8)
+Autofarm.Image = "rbxassetid://3570695787"
+Autofarm.ScaleType = Enum.ScaleType.Slice
+Autofarm.SliceCenter = Rect.new(100, 100, 100, 100)
+Autofarm.SliceScale = 0.060
+
+Select.Name = "Select"
+Select.Parent = Autofarm
+Select.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select.BackgroundTransparency = 1.000
+Select.Position = UDim2.new(0, -7, 0, -6)
+Select.Size = UDim2.new(0, 32, 0, 19)
+Select.Font = Enum.Font.SourceSans
+Select.Text = " "
+Select.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select.TextSize = 14.000
+
+Text.Name = "Text"
+Text.Parent = Autofarm
+Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text.BackgroundTransparency = 1.000
+Text.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text.Size = UDim2.new(0, 42, 0, 8)
+Text.Font = Enum.Font.SourceSans
+Text.Text = "Autofarm"
+Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text.TextSize = 15.000
+
+Splitter.Name = "Splitter"
+Splitter.Parent = Holder
+Splitter.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+Splitter.BorderSizePixel = 0
+Splitter.Position = UDim2.new(0, 0, 0, 35)
+Splitter.Size = UDim2.new(0, 163, 0, 2)
+
+KillAura.Name = "KillAura"
+KillAura.Parent = Holder
+KillAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KillAura.BackgroundTransparency = 1.000
+KillAura.Position = UDim2.new(0, 10, 0, 50)
+KillAura.Size = UDim2.new(0, 19, 0, 8)
+KillAura.Image = "rbxassetid://3570695787"
+KillAura.ScaleType = Enum.ScaleType.Slice
+KillAura.SliceCenter = Rect.new(100, 100, 100, 100)
+KillAura.SliceScale = 0.060
+
+Select_2.Name = "Select"
+Select_2.Parent = KillAura
+Select_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_2.BackgroundTransparency = 1.000
+Select_2.Position = UDim2.new(0, -7, 0, -6)
+Select_2.Size = UDim2.new(0, 32, 0, 19)
+Select_2.Font = Enum.Font.SourceSans
+Select_2.Text = " "
+Select_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_2.TextSize = 14.000
+
+Text_2.Name = "Text"
+Text_2.Parent = KillAura
+Text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_2.BackgroundTransparency = 1.000
+Text_2.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_2.Size = UDim2.new(0, 42, 0, 8)
+Text_2.Font = Enum.Font.SourceSans
+Text_2.Text = "Kill Aura"
+Text_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_2.TextSize = 15.000
+
+MineAura.Name = "MineAura"
+MineAura.Parent = Holder
+MineAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MineAura.BackgroundTransparency = 1.000
+MineAura.Position = UDim2.new(0, 10, 0, 75)
+MineAura.Size = UDim2.new(0, 19, 0, 8)
+MineAura.Image = "rbxassetid://3570695787"
+MineAura.ScaleType = Enum.ScaleType.Slice
+MineAura.SliceCenter = Rect.new(100, 100, 100, 100)
+MineAura.SliceScale = 0.060
+
+Select_3.Name = "Select"
+Select_3.Parent = MineAura
+Select_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_3.BackgroundTransparency = 1.000
+Select_3.Position = UDim2.new(0, -7, 0, -6)
+Select_3.Size = UDim2.new(0, 32, 0, 19)
+Select_3.Font = Enum.Font.SourceSans
+Select_3.Text = " "
+Select_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_3.TextSize = 14.000
+
+Text_3.Name = "Text"
+Text_3.Parent = MineAura
+Text_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_3.BackgroundTransparency = 1.000
+Text_3.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_3.Size = UDim2.new(0, 42, 0, 8)
+Text_3.Font = Enum.Font.SourceSans
+Text_3.Text = "Mine Aura"
+Text_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_3.TextSize = 15.000
+
+TreeAura.Name = "TreeAura"
+TreeAura.Parent = Holder
+TreeAura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TreeAura.BackgroundTransparency = 1.000
+TreeAura.Position = UDim2.new(0, 10, 0, 100)
+TreeAura.Size = UDim2.new(0, 19, 0, 8)
+TreeAura.Image = "rbxassetid://3570695787"
+TreeAura.ScaleType = Enum.ScaleType.Slice
+TreeAura.SliceCenter = Rect.new(100, 100, 100, 100)
+TreeAura.SliceScale = 0.060
+
+Select_4.Name = "Select"
+Select_4.Parent = TreeAura
+Select_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_4.BackgroundTransparency = 1.000
+Select_4.Position = UDim2.new(0, -7, 0, -6)
+Select_4.Size = UDim2.new(0, 32, 0, 19)
+Select_4.Font = Enum.Font.SourceSans
+Select_4.Text = " "
+Select_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_4.TextSize = 14.000
+
+Text_4.Name = "Text"
+Text_4.Parent = TreeAura
+Text_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_4.BackgroundTransparency = 1.000
+Text_4.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_4.Size = UDim2.new(0, 42, 0, 8)
+Text_4.Font = Enum.Font.SourceSans
+Text_4.Text = "Tree Aura"
+Text_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_4.TextSize = 15.000
+
+Splitter_2.Name = "Splitter"
+Splitter_2.Parent = Holder
+Splitter_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+Splitter_2.BorderSizePixel = 0
+Splitter_2.Position = UDim2.new(0, -1, 0, 124)
+Splitter_2.Size = UDim2.new(0, 163, 0, 2)
+
+RockESP.Name = "RockESP"
+RockESP.Parent = Holder
+RockESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RockESP.BackgroundTransparency = 1.000
+RockESP.Position = UDim2.new(0, 10, 0, 140)
+RockESP.Size = UDim2.new(0, 19, 0, 8)
+RockESP.Image = "rbxassetid://3570695787"
+RockESP.ScaleType = Enum.ScaleType.Slice
+RockESP.SliceCenter = Rect.new(100, 100, 100, 100)
+RockESP.SliceScale = 0.060
+
+Select_5.Name = "Select"
+Select_5.Parent = RockESP
+Select_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_5.BackgroundTransparency = 1.000
+Select_5.Position = UDim2.new(0, -7, 0, -6)
+Select_5.Size = UDim2.new(0, 32, 0, 19)
+Select_5.Font = Enum.Font.SourceSans
+Select_5.Text = " "
+Select_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_5.TextSize = 14.000
+
+Text_5.Name = "Text"
+Text_5.Parent = RockESP
+Text_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_5.BackgroundTransparency = 1.000
+Text_5.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_5.Size = UDim2.new(0, 42, 0, 8)
+Text_5.Font = Enum.Font.SourceSans
+Text_5.Text = "Rock ESP"
+Text_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_5.TextSize = 15.000
+
+TreeESP.Name = "TreeESP"
+TreeESP.Parent = Holder
+TreeESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TreeESP.BackgroundTransparency = 1.000
+TreeESP.Position = UDim2.new(0, 10, 0, 165)
+TreeESP.Size = UDim2.new(0, 19, 0, 8)
+TreeESP.Image = "rbxassetid://3570695787"
+TreeESP.ScaleType = Enum.ScaleType.Slice
+TreeESP.SliceCenter = Rect.new(100, 100, 100, 100)
+TreeESP.SliceScale = 0.060
+
+Select_6.Name = "Select"
+Select_6.Parent = TreeESP
+Select_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_6.BackgroundTransparency = 1.000
+Select_6.Position = UDim2.new(0, -7, 0, -6)
+Select_6.Size = UDim2.new(0, 32, 0, 19)
+Select_6.Font = Enum.Font.SourceSans
+Select_6.Text = " "
+Select_6.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_6.TextSize = 14.000
+
+Text_6.Name = "Text"
+Text_6.Parent = TreeESP
+Text_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_6.BackgroundTransparency = 1.000
+Text_6.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_6.Size = UDim2.new(0, 42, 0, 8)
+Text_6.Font = Enum.Font.SourceSans
+Text_6.Text = "Tree ESP"
+Text_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_6.TextSize = 15.000
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(0, 163, 0, 26)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Main"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 15.000
+
+Teleport.Name = "Teleport"
+Teleport.Parent = Base
+Teleport.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Teleport.BackgroundTransparency = 1.000
+Teleport.Position = UDim2.new(0, 340, 0, 0)
+Teleport.Size = UDim2.new(0, 163, 0, 42)
+Teleport.Image = "rbxassetid://3570695787"
+Teleport.ImageColor3 = Color3.fromRGB(255, 14, 78)
+Teleport.ScaleType = Enum.ScaleType.Slice
+Teleport.SliceCenter = Rect.new(100, 100, 100, 100)
+Teleport.SliceScale = 0.060
+
+Holder_2.Name = "Holder"
+Holder_2.Parent = Teleport
+Holder_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Holder_2.BorderSizePixel = 0
+Holder_2.Position = UDim2.new(0, 0, 0, 26)
+Holder_2.Size = UDim2.new(0, 163, 0, 95)
+
+Worlds.Name = "Worlds"
+Worlds.Parent = Holder_2
+Worlds.Active = true
+Worlds.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Worlds.BackgroundTransparency = 1.000
+Worlds.BorderSizePixel = 0
+Worlds.Position = UDim2.new(0, 0, 0.114070855, 0)
+Worlds.Size = UDim2.new(0, 163, 0, 78)
+Worlds.CanvasSize = UDim2.new(0, 0, 1, 0)
+Worlds.ScrollBarThickness = 5
+
+UIGridLayout.Parent = Worlds
+UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(0, 100, 0, 20)
+UIGridLayout.FillDirectionMaxCells = 1
+
+MainWorld.Name = "MainWorld"
+MainWorld.Parent = Worlds
+MainWorld.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+MainWorld.BorderSizePixel = 0
+MainWorld.Position = UDim2.new(0.190184042, 0, 0, 0)
+MainWorld.Size = UDim2.new(0, 200, 0, 50)
+MainWorld.Font = Enum.Font.SourceSans
+MainWorld.Text = "Main World"
+MainWorld.TextColor3 = Color3.fromRGB(255, 255, 255)
+MainWorld.TextSize = 14.000
+
+VolcanoIsland.Name = "VolcanoIsland"
+VolcanoIsland.Parent = Worlds
+VolcanoIsland.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+VolcanoIsland.BorderSizePixel = 0
+VolcanoIsland.Position = UDim2.new(0.190184042, 0, 0, 0)
+VolcanoIsland.Size = UDim2.new(0, 200, 0, 50)
+VolcanoIsland.Font = Enum.Font.SourceSans
+VolcanoIsland.Text = "Volcano Island"
+VolcanoIsland.TextColor3 = Color3.fromRGB(255, 255, 255)
+VolcanoIsland.TextSize = 14.000
+
+Dungeon.Name = "Dungeon"
+Dungeon.Parent = Worlds
+Dungeon.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Dungeon.BorderSizePixel = 0
+Dungeon.Position = UDim2.new(0.190184042, 0, 0, 0)
+Dungeon.Size = UDim2.new(0, 200, 0, 50)
+Dungeon.Font = Enum.Font.SourceSans
+Dungeon.Text = "Dungeon"
+Dungeon.TextColor3 = Color3.fromRGB(255, 255, 255)
+Dungeon.TextSize = 14.000
+
+Title_2.Name = "Title"
+Title_2.Parent = Teleport
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.Size = UDim2.new(0, 163, 0, 26)
+Title_2.Font = Enum.Font.SourceSansBold
+Title_2.Text = "World Teleports"
+Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.TextSize = 15.000
+
+Secondary.Name = "Secondary"
+Secondary.Parent = Base
+Secondary.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Secondary.BackgroundTransparency = 1.000
+Secondary.Position = UDim2.new(0, 170, 0, 0)
+Secondary.Size = UDim2.new(0, 163, 0, 42)
+Secondary.Image = "rbxassetid://3570695787"
+Secondary.ImageColor3 = Color3.fromRGB(255, 14, 78)
+Secondary.ScaleType = Enum.ScaleType.Slice
+Secondary.SliceCenter = Rect.new(100, 100, 100, 100)
+Secondary.SliceScale = 0.060
+
+Holder_3.Name = "Holder"
+Holder_3.Parent = Secondary
+Holder_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Holder_3.BorderSizePixel = 0
+Holder_3.Position = UDim2.new(0, 0, 0, 26)
+Holder_3.Size = UDim2.new(0, 163, 0, 101)
+
+Splitter_3.Name = "Splitter"
+Splitter_3.Parent = Holder_3
+Splitter_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+Splitter_3.BorderSizePixel = 0
+Splitter_3.Position = UDim2.new(0, -1, 0, 61)
+Splitter_3.Size = UDim2.new(0, 163, 0, 2)
+
+MineFarm.Name = "MineFarm"
+MineFarm.Parent = Holder_3
+MineFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MineFarm.BackgroundTransparency = 1.000
+MineFarm.Position = UDim2.new(0, 10, 0, 41)
+MineFarm.Size = UDim2.new(0, 19, 0, 8)
+MineFarm.Image = "rbxassetid://3570695787"
+MineFarm.ScaleType = Enum.ScaleType.Slice
+MineFarm.SliceCenter = Rect.new(100, 100, 100, 100)
+MineFarm.SliceScale = 0.060
+
+Text_7.Name = "Text"
+Text_7.Parent = MineFarm
+Text_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_7.BackgroundTransparency = 1.000
+Text_7.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_7.Size = UDim2.new(0, 42, 0, 8)
+Text_7.Font = Enum.Font.SourceSans
+Text_7.Text = "Mine Autofarm"
+Text_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_7.TextSize = 15.000
+
+Select_7.Name = "Select"
+Select_7.Parent = MineFarm
+Select_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_7.BackgroundTransparency = 1.000
+Select_7.Position = UDim2.new(0, -7, 0, -6)
+Select_7.Size = UDim2.new(0, 32, 0, 19)
+Select_7.Font = Enum.Font.SourceSans
+Select_7.Text = " "
+Select_7.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_7.TextSize = 14.000
+
+Overrides.Name = "Overrides"
+Overrides.Parent = Holder_3
+Overrides.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Overrides.BackgroundTransparency = 1.000
+Overrides.Position = UDim2.new(0, 10, 0, 75)
+Overrides.Size = UDim2.new(0, 19, 0, 8)
+Overrides.Image = "rbxassetid://3570695787"
+Overrides.ScaleType = Enum.ScaleType.Slice
+Overrides.SliceCenter = Rect.new(100, 100, 100, 100)
+Overrides.SliceScale = 0.060
+
+Text_8.Name = "Text"
+Text_8.Parent = Overrides
+Text_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_8.BackgroundTransparency = 1.000
+Text_8.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_8.Size = UDim2.new(0, 42, 0, 8)
+Text_8.Font = Enum.Font.SourceSans
+Text_8.Text = "Overrides"
+Text_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_8.TextSize = 15.000
+
+Select_8.Name = "Select"
+Select_8.Parent = Overrides
+Select_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_8.BackgroundTransparency = 1.000
+Select_8.Position = UDim2.new(0, -7, 0, -6)
+Select_8.Size = UDim2.new(0, 32, 0, 19)
+Select_8.Font = Enum.Font.SourceSans
+Select_8.Text = " "
+Select_8.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_8.TextSize = 14.000
+
+TreeFarm.Name = "TreeFarm"
+TreeFarm.Parent = Holder_3
+TreeFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TreeFarm.BackgroundTransparency = 1.000
+TreeFarm.Position = UDim2.new(0, 10, 0, 16)
+TreeFarm.Size = UDim2.new(0, 19, 0, 8)
+TreeFarm.Image = "rbxassetid://3570695787"
+TreeFarm.ScaleType = Enum.ScaleType.Slice
+TreeFarm.SliceCenter = Rect.new(100, 100, 100, 100)
+TreeFarm.SliceScale = 0.060
+
+Select_9.Name = "Select"
+Select_9.Parent = TreeFarm
+Select_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_9.BackgroundTransparency = 1.000
+Select_9.Position = UDim2.new(0, -7, 0, -6)
+Select_9.Size = UDim2.new(0, 32, 0, 19)
+Select_9.Font = Enum.Font.SourceSans
+Select_9.Text = " "
+Select_9.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_9.TextSize = 14.000
+
+Text_9.Name = "Text"
+Text_9.Parent = TreeFarm
+Text_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_9.BackgroundTransparency = 1.000
+Text_9.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_9.Size = UDim2.new(0, 42, 0, 8)
+Text_9.Font = Enum.Font.SourceSans
+Text_9.Text = "Tree Autofarm"
+Text_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_9.TextSize = 15.000
+
+Title_3.Name = "Title"
+Title_3.Parent = Secondary
+Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.BackgroundTransparency = 1.000
+Title_3.Size = UDim2.new(0, 163, 0, 26)
+Title_3.Font = Enum.Font.SourceSansBold
+Title_3.Text = "Secondary Main"
+Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.TextSize = 15.000
+
+Settings.Name = "Settings"
+Settings.Parent = Secondary
+Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Settings.BackgroundTransparency = 1.000
+Settings.Size = UDim2.new(0, 163, 0, 30)
+Settings.Visible = false
+Settings.Image = "rbxassetid://3570695787"
+Settings.ImageColor3 = Color3.fromRGB(255, 14, 78)
+Settings.ScaleType = Enum.ScaleType.Slice
+Settings.SliceCenter = Rect.new(100, 100, 100, 100)
+Settings.SliceScale = 0.060
+
+Holder_4.Name = "Holder"
+Holder_4.Parent = Settings
+Holder_4.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Holder_4.BorderSizePixel = 0
+Holder_4.Position = UDim2.new(0, 0, 0, 26)
+Holder_4.Size = UDim2.new(0, 163, 0, 0)
+
+Splitter_4.Name = "Splitter"
+Splitter_4.Parent = Holder_4
+Splitter_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+Splitter_4.BorderSizePixel = 0
+Splitter_4.Position = UDim2.new(0, 0, 0, 115)
+Splitter_4.Size = UDim2.new(0, 163, 0, 2)
+Splitter_4.Visible = false
+
+Rocks.Name = "Rocks"
+Rocks.Parent = Holder_4
+Rocks.Active = true
+Rocks.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rocks.BackgroundTransparency = 1.000
+Rocks.BorderSizePixel = 0
+Rocks.Position = UDim2.new(0, 0, 0.538793087, 0)
+Rocks.Size = UDim2.new(0, 163, 0, 99)
+Rocks.Visible = false
+Rocks.ScrollBarThickness = 5
+
+UIGridLayout_2.Parent = Rocks
+UIGridLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout_2.CellSize = UDim2.new(0, 100, 0, 20)
+UIGridLayout_2.FillDirectionMaxCells = 1
+
+Amethyst.Name = "Amethyst"
+Amethyst.Parent = Rocks
+Amethyst.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Amethyst.BorderSizePixel = 0
+Amethyst.Position = UDim2.new(0.190184042, 0, 0, 0)
+Amethyst.Size = UDim2.new(0, 200, 0, 50)
+Amethyst.Font = Enum.Font.SourceSans
+Amethyst.Text = "Amethyst"
+Amethyst.TextColor3 = Color3.fromRGB(255, 255, 255)
+Amethyst.TextSize = 14.000
+
+Cobalt.Name = "Cobalt"
+Cobalt.Parent = Rocks
+Cobalt.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Cobalt.BorderSizePixel = 0
+Cobalt.Position = UDim2.new(0.190184042, 0, 0, 0)
+Cobalt.Size = UDim2.new(0, 200, 0, 50)
+Cobalt.Font = Enum.Font.SourceSans
+Cobalt.Text = "Cobalt"
+Cobalt.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cobalt.TextSize = 14.000
+
+Diamond.Name = "Diamond"
+Diamond.Parent = Rocks
+Diamond.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Diamond.BorderSizePixel = 0
+Diamond.Position = UDim2.new(0.190184042, 0, 0, 0)
+Diamond.Size = UDim2.new(0, 200, 0, 50)
+Diamond.Font = Enum.Font.SourceSans
+Diamond.Text = "Diamond"
+Diamond.TextColor3 = Color3.fromRGB(255, 255, 255)
+Diamond.TextSize = 14.000
+
+Emerald.Name = "Emerald"
+Emerald.Parent = Rocks
+Emerald.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Emerald.BorderSizePixel = 0
+Emerald.Position = UDim2.new(0.190184042, 0, 0, 0)
+Emerald.Size = UDim2.new(0, 200, 0, 50)
+Emerald.Font = Enum.Font.SourceSans
+Emerald.Text = "Emerald"
+Emerald.TextColor3 = Color3.fromRGB(255, 255, 255)
+Emerald.TextSize = 14.000
+
+EngulfedThermite.Name = "EngulfedThermite"
+EngulfedThermite.Parent = Rocks
+EngulfedThermite.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+EngulfedThermite.BorderSizePixel = 0
+EngulfedThermite.Position = UDim2.new(0.190184042, 0, 0, 0)
+EngulfedThermite.Size = UDim2.new(0, 200, 0, 50)
+EngulfedThermite.Font = Enum.Font.SourceSans
+EngulfedThermite.Text = "Engulfed Thermite"
+EngulfedThermite.TextColor3 = Color3.fromRGB(255, 255, 255)
+EngulfedThermite.TextSize = 14.000
+
+Gold.Name = "Gold"
+Gold.Parent = Rocks
+Gold.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Gold.BorderSizePixel = 0
+Gold.Position = UDim2.new(0.190184042, 0, 0, 0)
+Gold.Size = UDim2.new(0, 200, 0, 50)
+Gold.Font = Enum.Font.SourceSans
+Gold.Text = "Gold"
+Gold.TextColor3 = Color3.fromRGB(255, 255, 255)
+Gold.TextSize = 14.000
+
+HardenedMagma.Name = "HardenedMagma"
+HardenedMagma.Parent = Rocks
+HardenedMagma.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+HardenedMagma.BorderSizePixel = 0
+HardenedMagma.Position = UDim2.new(0.190184042, 0, 0, 0)
+HardenedMagma.Size = UDim2.new(0, 200, 0, 50)
+HardenedMagma.Font = Enum.Font.SourceSans
+HardenedMagma.Text = "Hardened Magma"
+HardenedMagma.TextColor3 = Color3.fromRGB(255, 255, 255)
+HardenedMagma.TextSize = 14.000
+
+InfractedGolemCore.Name = "InfractedGolemCore"
+InfractedGolemCore.Parent = Rocks
+InfractedGolemCore.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+InfractedGolemCore.BorderSizePixel = 0
+InfractedGolemCore.Position = UDim2.new(0.190184042, 0, 0, 0)
+InfractedGolemCore.Size = UDim2.new(0, 200, 0, 50)
+InfractedGolemCore.Font = Enum.Font.SourceSans
+InfractedGolemCore.Text = "Inf. Golem Core"
+InfractedGolemCore.TextColor3 = Color3.fromRGB(255, 255, 255)
+InfractedGolemCore.TextSize = 14.000
+
+Kranite.Name = "Kranite"
+Kranite.Parent = Rocks
+Kranite.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Kranite.BorderSizePixel = 0
+Kranite.Position = UDim2.new(0.190184042, 0, 0, 0)
+Kranite.Size = UDim2.new(0, 200, 0, 50)
+Kranite.Font = Enum.Font.SourceSans
+Kranite.Text = "Kranite"
+Kranite.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kranite.TextSize = 14.000
+
+Magmatite.Name = "Magmatite"
+Magmatite.Parent = Rocks
+Magmatite.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Magmatite.BorderSizePixel = 0
+Magmatite.Position = UDim2.new(0.190184042, 0, 0, 0)
+Magmatite.Size = UDim2.new(0, 200, 0, 50)
+Magmatite.Font = Enum.Font.SourceSans
+Magmatite.Text = "Magmatite"
+Magmatite.TextColor3 = Color3.fromRGB(255, 255, 255)
+Magmatite.TextSize = 14.000
+
+Marble.Name = "Marble"
+Marble.Parent = Rocks
+Marble.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Marble.BorderSizePixel = 0
+Marble.Position = UDim2.new(0.190184042, 0, 0, 0)
+Marble.Size = UDim2.new(0, 200, 0, 50)
+Marble.Font = Enum.Font.SourceSans
+Marble.Text = "Marble"
+Marble.TextColor3 = Color3.fromRGB(255, 255, 255)
+Marble.TextSize = 14.000
+
+Obisidian.Name = "Obisidian"
+Obisidian.Parent = Rocks
+Obisidian.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Obisidian.BorderSizePixel = 0
+Obisidian.Position = UDim2.new(0.190184042, 0, 0, 0)
+Obisidian.Size = UDim2.new(0, 200, 0, 50)
+Obisidian.Font = Enum.Font.SourceSans
+Obisidian.Text = "Obsidian"
+Obisidian.TextColor3 = Color3.fromRGB(255, 255, 255)
+Obisidian.TextSize = 14.000
+
+Phiodide.Name = "Phiodide"
+Phiodide.Parent = Rocks
+Phiodide.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Phiodide.BorderSizePixel = 0
+Phiodide.Position = UDim2.new(0.190184042, 0, 0, 0)
+Phiodide.Size = UDim2.new(0, 200, 0, 50)
+Phiodide.Font = Enum.Font.SourceSans
+Phiodide.Text = "Phiodide"
+Phiodide.TextColor3 = Color3.fromRGB(255, 255, 255)
+Phiodide.TextSize = 14.000
+
+Ruby.Name = "Ruby"
+Ruby.Parent = Rocks
+Ruby.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Ruby.BorderSizePixel = 0
+Ruby.Position = UDim2.new(0.190184042, 0, 0, 0)
+Ruby.Size = UDim2.new(0, 200, 0, 50)
+Ruby.Font = Enum.Font.SourceSans
+Ruby.Text = "Ruby"
+Ruby.TextColor3 = Color3.fromRGB(255, 255, 255)
+Ruby.TextSize = 14.000
+
+Sandstone.Name = "Sandstone"
+Sandstone.Parent = Rocks
+Sandstone.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Sandstone.BorderSizePixel = 0
+Sandstone.Position = UDim2.new(0.190184042, 0, 0, 0)
+Sandstone.Size = UDim2.new(0, 200, 0, 50)
+Sandstone.Font = Enum.Font.SourceSans
+Sandstone.Text = "Standstone"
+Sandstone.TextColor3 = Color3.fromRGB(255, 255, 255)
+Sandstone.TextSize = 14.000
+
+Silver.Name = "Silver"
+Silver.Parent = Rocks
+Silver.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Silver.BorderSizePixel = 0
+Silver.Position = UDim2.new(0.190184042, 0, 0, 0)
+Silver.Size = UDim2.new(0, 200, 0, 50)
+Silver.Font = Enum.Font.SourceSans
+Silver.Text = "Silver"
+Silver.TextColor3 = Color3.fromRGB(255, 255, 255)
+Silver.TextSize = 14.000
+
+Stone.Name = "Stone"
+Stone.Parent = Rocks
+Stone.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Stone.BorderSizePixel = 0
+Stone.Position = UDim2.new(0.190184042, 0, 0, 0)
+Stone.Size = UDim2.new(0, 200, 0, 50)
+Stone.Font = Enum.Font.SourceSans
+Stone.Text = "Stone"
+Stone.TextColor3 = Color3.fromRGB(255, 255, 255)
+Stone.TextSize = 14.000
+
+Toxinite.Name = "Toxinite"
+Toxinite.Parent = Rocks
+Toxinite.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Toxinite.BorderSizePixel = 0
+Toxinite.Position = UDim2.new(0.190184042, 0, 0, 0)
+Toxinite.Size = UDim2.new(0, 200, 0, 50)
+Toxinite.Font = Enum.Font.SourceSans
+Toxinite.Text = "Toxinite"
+Toxinite.TextColor3 = Color3.fromRGB(255, 255, 255)
+Toxinite.TextSize = 14.000
+
+Trees.Name = "Trees"
+Trees.Parent = Holder_4
+Trees.Active = true
+Trees.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Trees.BackgroundTransparency = 1.000
+Trees.BorderSizePixel = 0
+Trees.Position = UDim2.new(0, 0, 0.0510203876, 0)
+Trees.Size = UDim2.new(0, 163, 0, 97)
+Trees.Visible = false
+Trees.CanvasSize = UDim2.new(0, 0, 1, 0)
+Trees.ScrollBarThickness = 5
+
+UIGridLayout_3.Parent = Trees
+UIGridLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout_3.CellSize = UDim2.new(0, 100, 0, 20)
+UIGridLayout_3.FillDirectionMaxCells = 1
+
+DeadTree.Name = "DeadTree"
+DeadTree.Parent = Trees
+DeadTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+DeadTree.BorderSizePixel = 0
+DeadTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+DeadTree.Size = UDim2.new(0, 200, 0, 50)
+DeadTree.Font = Enum.Font.SourceSans
+DeadTree.Text = "Dead Tree"
+DeadTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+DeadTree.TextSize = 14.000
+
+GhostTree.Name = "GhostTree"
+GhostTree.Parent = Trees
+GhostTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+GhostTree.BorderSizePixel = 0
+GhostTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+GhostTree.Size = UDim2.new(0, 200, 0, 50)
+GhostTree.Font = Enum.Font.SourceSans
+GhostTree.Text = "Ghost Tree"
+GhostTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+GhostTree.TextSize = 14.000
+
+JungleTree.Name = "JungleTree"
+JungleTree.Parent = Trees
+JungleTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+JungleTree.BorderSizePixel = 0
+JungleTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+JungleTree.Size = UDim2.new(0, 200, 0, 50)
+JungleTree.Font = Enum.Font.SourceSans
+JungleTree.Text = "JungleTree"
+JungleTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+JungleTree.TextSize = 14.000
+
+GoldPalmTree.Name = "GoldPalmTree"
+GoldPalmTree.Parent = Trees
+GoldPalmTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+GoldPalmTree.BorderSizePixel = 0
+GoldPalmTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+GoldPalmTree.Size = UDim2.new(0, 200, 0, 50)
+GoldPalmTree.Font = Enum.Font.SourceSans
+GoldPalmTree.Text = "Ghost Palm Tree"
+GoldPalmTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+GoldPalmTree.TextSize = 14.000
+
+LavaTree.Name = "LavaTree"
+LavaTree.Parent = Trees
+LavaTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+LavaTree.BorderSizePixel = 0
+LavaTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+LavaTree.Size = UDim2.new(0, 200, 0, 50)
+LavaTree.Font = Enum.Font.SourceSans
+LavaTree.Text = "Lava Tree"
+LavaTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+LavaTree.TextSize = 14.000
+
+MagmaPalmTree.Name = "MagmaPalmTree"
+MagmaPalmTree.Parent = Trees
+MagmaPalmTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+MagmaPalmTree.BorderSizePixel = 0
+MagmaPalmTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+MagmaPalmTree.Size = UDim2.new(0, 200, 0, 50)
+MagmaPalmTree.Font = Enum.Font.SourceSans
+MagmaPalmTree.Text = "Magma Palm Tree"
+MagmaPalmTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+MagmaPalmTree.TextSize = 14.000
+
+PalmTree.Name = "PalmTree"
+PalmTree.Parent = Trees
+PalmTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+PalmTree.BorderSizePixel = 0
+PalmTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+PalmTree.Size = UDim2.new(0, 200, 0, 50)
+PalmTree.Font = Enum.Font.SourceSans
+PalmTree.Text = "Palm Tree"
+PalmTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+PalmTree.TextSize = 14.000
+
+PineTree.Name = "PineTree"
+PineTree.Parent = Trees
+PineTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+PineTree.BorderSizePixel = 0
+PineTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+PineTree.Size = UDim2.new(0, 200, 0, 50)
+PineTree.Font = Enum.Font.SourceSans
+PineTree.Text = "PineTree"
+PineTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+PineTree.TextSize = 14.000
+
+SpruceTree.Name = "SpruceTree"
+SpruceTree.Parent = Trees
+SpruceTree.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+SpruceTree.BorderSizePixel = 0
+SpruceTree.Position = UDim2.new(0.190184042, 0, 0, 0)
+SpruceTree.Size = UDim2.new(0, 200, 0, 50)
+SpruceTree.Font = Enum.Font.SourceSans
+SpruceTree.Text = "SpruceTree"
+SpruceTree.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpruceTree.TextSize = 14.000
+
+Trees_2.Name = "Trees"
+Trees_2.Parent = Holder_4
+Trees_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Trees_2.BackgroundTransparency = 1.000
+Trees_2.Position = UDim2.new(-0.24539876, 0, 0.193965495, 0)
+Trees_2.Rotation = 270.000
+Trees_2.Size = UDim2.new(0, 112, 0, 31)
+Trees_2.Visible = false
+Trees_2.Font = Enum.Font.SourceSansBold
+Trees_2.Text = "T R E E S"
+Trees_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Trees_2.TextSize = 14.000
+
+Rocks_2.Name = "Rocks"
+Rocks_2.Parent = Holder_4
+Rocks_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rocks_2.BackgroundTransparency = 1.000
+Rocks_2.Position = UDim2.new(-0.24539876, 0, 0.689655185, 0)
+Rocks_2.Rotation = 270.000
+Rocks_2.Size = UDim2.new(0, 112, 0, 31)
+Rocks_2.Visible = false
+Rocks_2.Font = Enum.Font.SourceSansBold
+Rocks_2.Text = "R O C K S"
+Rocks_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Rocks_2.TextSize = 14.000
+
+Title_4.Name = "Title"
+Title_4.Parent = Settings
+Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.BackgroundTransparency = 1.000
+Title_4.Size = UDim2.new(0, 163, 0, 26)
+Title_4.Font = Enum.Font.SourceSansBold
+Title_4.Text = "Settings"
+Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.TextSize = 15.000
+
+AxeEquipped.Name = "AxeEquipped"
+AxeEquipped.Parent = eScriptsKnightFall
+AxeEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AxeEquipped.BackgroundTransparency = 1.000
+AxeEquipped.Position = UDim2.new(0, 684, 0, -200)
+AxeEquipped.Size = UDim2.new(0, 80, 0, 50)
+AxeEquipped.Font = Enum.Font.SourceSans
+AxeEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
+AxeEquipped.TextSize = 14.000
+
+PickEquipped.Name = "PickEquipped"
+PickEquipped.Parent = eScriptsKnightFall
+PickEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PickEquipped.BackgroundTransparency = 1.000
+PickEquipped.Position = UDim2.new(0, 684, 0, -200)
+PickEquipped.Size = UDim2.new(0, 80, 0, 50)
+PickEquipped.Font = Enum.Font.SourceSans
+PickEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
+PickEquipped.TextSize = 14.000
+
+SwordEquipped.Name = "SwordEquipped"
+SwordEquipped.Parent = eScriptsKnightFall
+SwordEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SwordEquipped.BackgroundTransparency = 1.000
+SwordEquipped.Position = UDim2.new(0, 684, 0, -200)
+SwordEquipped.Size = UDim2.new(0, 80, 0, 50)
+SwordEquipped.Font = Enum.Font.SourceSans
+SwordEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
+SwordEquipped.TextSize = 14.000
+
+local function ControlScript()
+	local script = Instance.new('LocalScript', eScriptsKnightFall)
+
+	local Base = script.Parent.Base
+	local UIS = game:GetService("UserInputService")
+	
+	local Tabs = {
+		Base.Main.Holder;
+		Base.Secondary.Holder;
+		Base.Secondary.Settings.Holder;
+		Base.Teleport.Holder;
+	}
+	
+	local MainOpts = {
+		Tabs[1].Autofarm.Select;
+		Tabs[1].KillAura.Select;
+		Tabs[1].MineAura.Select;
+		Tabs[1].TreeAura.Select;
+		Tabs[1].RockESP.Select;
+		Tabs[1].TreeESP.Select;
+	}
+	
+	local Secondary = {
+		Tabs[2].TreeFarm.Select;
+		Tabs[2].MineFarm.Select;
+		Tabs[2].Overrides.Select;
+	}
+	
+	local Teleport = {
+		Tabs[4].Worlds.MainWorld;
+		Tabs[4].Worlds.VolcanoIsland;
+		Tabs[4].Worlds.Dungeon;
+	}
+	
+	for i, Tab in pairs(Base:GetChildren()) do
+		Tab.Active = true
+		Tab.Selectable = true
+		Tab.Draggable = true
+	end
+	
+	HiddenTabs = true
+	UIS.InputBegan:Connect(function(k, gameProcessedEvent)
+		if k.KeyCode == Enum.KeyCode.RightShift and not gameProcessedEvent then
+			if HiddenTabs then
+				for i, tab in pairs(Base:GetChildren()) do
+					tab.Visible = false
+				end
+				HiddenTabs = false wait(1)
+			else
+				for i, tab in pairs(Base:GetChildren()) do
+					tab.Visible = true
+				end
+				HiddenTabs = true wait(1)
+			end
+		end
+	end)
+	
+	local StartTime = 0
+	local TimeOut = 5
+	local MainOpts1 = true
+	MainOpts[1].MouseButton1Up:Connect(function()
+		if MainOpts then
+			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			MainOpts = false
+			_G.Autofarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
+				if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
+					script.Parent.SwordEquipped.Text = t1.Name
+				end
+			end)
+			
+			game.Workspace.ChildAdded:Connect(function(p)
+				if p.Name == game.Players.LocalPlayer.Name then
+					wait(0.5)
+					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+				end
+			end)
+			
+			repeat wait()
+				if script.Parent.SwordEquipped.Text ~= "Label" then
+				for i,v in pairs(game.Workspace.Creatures:GetChildren()) do
+					local Plat = Instance.new("Part", game.Workspace)
+					Plat.Anchored = true
+					Plat.Transparency = 1
+					Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
+					
+					repeat wait(0.1)
+						StartTime = StartTime + 1
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Plat.CFrame
+						if MainOpts == true then return end
+					until StartTime == TimeOut or v.Humanoid.Health <= 0 or MainOpts == true
+					StartTime = 0
+					Plat:Destroy()
+				end
+				end
+			until not _G.Autofarm
+		else
+			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			game.Players.LocalPlayer.Character.Humanoid.Health = 0
+			MainOpts = true
+			_G.Autofarm = false
+			_G.AutoKillAura = false
+		end
+	end)
+	
+	KillAura = true
+	MainOpts[2].MouseButton1Up:Connect(function()
+		if KillAura then
+			Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			KillAura = false
+			_G.KillAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
+				if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
+					script.Parent.SwordEquipped.Text = t1.Name
+				end
+			end)
+			local Killrange = 100
+			local Plr = game:GetService("Players").LocalPlayer
+			local Event = game:GetService("ReplicatedStorage").Events
+			while _G.KillAura do
+				local Creatures = game.Workspace.Creatures:GetChildren()
+				for i = 1, #Creatures do
+					local Mob = Creatures[i]
+					local Mesh = Mob:FindFirstChildOfClass("MeshPart")
+					if Mesh and Plr:DistanceFromCharacter(Mesh.Position) < Killrange then
+						Event.SwingValue:FireServer()
+						Event.SwordTouched:FireServer(Mesh, Mesh)
+						Event.ClearHitTable:FireServer()
+						game:GetService("RunService").RenderStepped:wait()
+					end
+				end
+				game:GetService("RunService").RenderStepped:wait()
+			end
+		else
+			Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			KillAura = true
+			_G.KillAura = false
+		end
+	end)
+	
+	MineAura = true
+	MainOpts[3].MouseButton1Up:Connect(function()
+		if MineAura then
+			Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			MineAura = false
+			_G.MineAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t2)
+				if t2:IsA("Tool") and t2:FindFirstChild("PickaxeScript") then
+					script.Parent.PickEquipped.Text = t2.Name
+				end
+			end)
+			
+			while _G.MineAura do wait()
+				if script.Parent.PickEquipped.Text ~= "Label" then
+				for i,rock in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
+					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - rock.DisplayBlock.Position).magnitude
+					if Distance <= 15 then
+						game.ReplicatedStorage.Events.hitObject:FireServer(rock,tostring(script.Parent.PickEquipped.Text))
+					end
+				end
+				end
+			end
+		else
+			Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			MineAura = true
+			_G.MineAura = false
+		end
+	end)
+	
+	TreeAura = true
+	MainOpts[4].MouseButton1Up:Connect(function()
+		if TreeAura then
+			Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			TreeAura = false
+			_G.TreeAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
+					script.Parent.AxeEquipped.Text = t3.Name
+				end
+			end)
+			
+			while _G.TreeAura do wait()
+				if script.Parent.AxeEquipped.Text ~= "Label" then
+				for i,tree in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
+					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - tree.DisplayBlock.Position).magnitude
+					if Distance <= 15 then
+						game.ReplicatedStorage.Events.hitObject:FireServer(tree, tostring(script.Parent.AxeEquipped.Text), "Axes")
+					end
+				end
+				end
+			end
+		else
+			Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			TreeAura = true
+			_G.TreeAura = false
+		end
+	end)
+	
+	RockESP = true
+	_G.RockESP = true
+	MainOpts[5].MouseButton1Up:Connect(function()
+		if RockESP then
+			for i,v in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
+				local ESP = Instance.new("BillboardGui")
+				local Frame = Instance.new("Frame")
+				local Frame_2 = Instance.new("Frame")
+				local Frame_3 = Instance.new("Frame")
+				local Frame_4 = Instance.new("Frame")
+				ESP.Name = "ESP"
+				ESP.Parent = v.Hitbox
+				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ESP.Active = true
+				ESP.AlwaysOnTop = true
+				ESP.Size = UDim2.new(10, 0, 10, 0)
+				Frame.Parent = ESP
+				Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame.BorderSizePixel = 0
+				Frame.Size = UDim2.new(1, 0, 0, 2)
+				Frame_2.Parent = ESP
+				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_2.BorderSizePixel = 0
+				Frame_2.Position = UDim2.new(0, 0, 1, 0)
+				Frame_2.Size = UDim2.new(1, 0, 0, -2)
+				Frame_3.Parent = ESP
+				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_3.BorderSizePixel = 0
+				Frame_3.Size = UDim2.new(0, 2, 1, 0)
+				Frame_4.Parent = ESP
+				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_4.BorderSizePixel = 0
+				Frame_4.Position = UDim2.new(1, 0, 0, 0)
+				Frame_4.Size = UDim2.new(0, -2, 1, 0)
+				
+				local ObjectName = Instance.new("BillboardGui")
+				local Name = Instance.new("TextLabel")
+				ObjectName.Name = "ObjectName"
+				ObjectName.Parent = v.Hitbox
+				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ObjectName.Active = true
+				ObjectName.AlwaysOnTop = true
+				ObjectName.LightInfluence = 1.000
+				ObjectName.Size = UDim2.new(0, 100, 0, 100)
+				Name.Name = "Name"
+				Name.Parent = ObjectName
+				Name.Text = v.Name
+				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Name.BackgroundTransparency = 1.000
+				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Name.Size = UDim2.new(1, 0, 1, 0)
+				Name.Font = Enum.Font.SourceSansSemibold
+				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Name.TextSize = 20.000
+				Name.TextStrokeTransparency = 0.000
+			end
+			
+			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
+				wait(1)
+				local ESP = Instance.new("BillboardGui")
+				local Frame = Instance.new("Frame")
+				local Frame_2 = Instance.new("Frame")
+				local Frame_3 = Instance.new("Frame")
+				local Frame_4 = Instance.new("Frame")
+				ESP.Name = "ESP"
+				ESP.Parent = child.Hitbox
+				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ESP.Active = true
+				ESP.AlwaysOnTop = true
+				ESP.Size = UDim2.new(10, 0, 10, 0)
+				Frame.Parent = ESP
+				Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame.BorderSizePixel = 0
+				Frame.Size = UDim2.new(1, 0, 0, 2)
+				Frame_2.Parent = ESP
+				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_2.BorderSizePixel = 0
+				Frame_2.Position = UDim2.new(0, 0, 1, 0)
+				Frame_2.Size = UDim2.new(1, 0, 0, -2)
+				Frame_3.Parent = ESP
+				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_3.BorderSizePixel = 0
+				Frame_3.Size = UDim2.new(0, 2, 1, 0)
+				Frame_4.Parent = ESP
+				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Frame_4.BorderSizePixel = 0
+				Frame_4.Position = UDim2.new(1, 0, 0, 0)
+				Frame_4.Size = UDim2.new(0, -2, 1, 0)
+				
+				local ObjectName = Instance.new("BillboardGui")
+				local Name = Instance.new("TextLabel")
+				ObjectName.Name = "ObjectName"
+				ObjectName.Parent = child.Hitbox
+				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ObjectName.Active = true
+				ObjectName.AlwaysOnTop = true
+				ObjectName.LightInfluence = 1.000
+				ObjectName.Size = UDim2.new(0, 100, 0, 100)
+				Name.Name = "Name"
+				Name.Parent = ObjectName
+				Name.Text = child.Name
+				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Name.BackgroundTransparency = 1.000
+				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Name.Size = UDim2.new(1, 0, 1, 0)
+				Name.Font = Enum.Font.SourceSansSemibold
+				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Name.TextSize = 20.000
+				Name.TextStrokeTransparency = 0.000
+			end)
+			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			RockESP = false
+		else
+			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			RockESP = true
+			for i,v in pairs(game.Workspace:GetDescendants()) do
+				if v.Name == "ESP" or v.Name == "ObjectName" then
+					v:Destroy()
+				end
+			end
+		end
+	end)
+	
+	TreeESP = true
+	MainOpts[6].MouseButton1Up:Connect(function()
+			if TreeESP then
+			for i,v in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
+				local ESP = Instance.new("BillboardGui")
+				local Frame = Instance.new("Frame")
+				local Frame_2 = Instance.new("Frame")
+				local Frame_3 = Instance.new("Frame")
+				local Frame_4 = Instance.new("Frame")
+				ESP.Name = "ESP"
+				ESP.Parent = v.Hitbox
+				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ESP.Active = true
+				ESP.AlwaysOnTop = true
+				ESP.Size = UDim2.new(10, 0, 10, 0)
+				Frame.Parent = ESP
+				Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame.BorderSizePixel = 0
+				Frame.Size = UDim2.new(1, 0, 0, 2)
+				Frame_2.Parent = ESP
+				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_2.BorderSizePixel = 0
+				Frame_2.Position = UDim2.new(0, 0, 1, 0)
+				Frame_2.Size = UDim2.new(1, 0, 0, -2)
+				Frame_3.Parent = ESP
+				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_3.BorderSizePixel = 0
+				Frame_3.Size = UDim2.new(0, 2, 1, 0)
+				Frame_4.Parent = ESP
+				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_4.BorderSizePixel = 0
+				Frame_4.Position = UDim2.new(1, 0, 0, 0)
+				Frame_4.Size = UDim2.new(0, -2, 1, 0)
+				
+				local ObjectName = Instance.new("BillboardGui")
+				local Name = Instance.new("TextLabel")
+				ObjectName.Name = "ObjectName"
+				ObjectName.Parent = v.Hitbox
+				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ObjectName.Active = true
+				ObjectName.AlwaysOnTop = true
+				ObjectName.LightInfluence = 1.000
+				ObjectName.Size = UDim2.new(0, 100, 0, 100)
+				Name.Name = "Name"
+				Name.Parent = ObjectName
+				Name.Text = v.Name
+				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Name.BackgroundTransparency = 1.000
+				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Name.Size = UDim2.new(1, 0, 1, 0)
+				Name.Font = Enum.Font.SourceSansSemibold
+				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Name.TextSize = 20.000
+				Name.TextStrokeTransparency = 0.000
+			end
+			
+			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
+				wait(1)
+				local ESP = Instance.new("BillboardGui")
+				local Frame = Instance.new("Frame")
+				local Frame_2 = Instance.new("Frame")
+				local Frame_3 = Instance.new("Frame")
+				local Frame_4 = Instance.new("Frame")
+				ESP.Name = "ESP"
+				ESP.Parent = child.Hitbox
+				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ESP.Active = true
+				ESP.AlwaysOnTop = true
+				ESP.Size = UDim2.new(10, 0, 10, 0)
+				Frame.Parent = ESP
+				Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame.BorderSizePixel = 0
+				Frame.Size = UDim2.new(1, 0, 0, 2)
+				Frame_2.Parent = ESP
+				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_2.BorderSizePixel = 0
+				Frame_2.Position = UDim2.new(0, 0, 1, 0)
+				Frame_2.Size = UDim2.new(1, 0, 0, -2)
+				Frame_3.Parent = ESP
+				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_3.BorderSizePixel = 0
+				Frame_3.Size = UDim2.new(0, 2, 1, 0)
+				Frame_4.Parent = ESP
+				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+				Frame_4.BorderSizePixel = 0
+				Frame_4.Position = UDim2.new(1, 0, 0, 0)
+				Frame_4.Size = UDim2.new(0, -2, 1, 0)
+				
+				local ObjectName = Instance.new("BillboardGui")
+				local Name = Instance.new("TextLabel")
+				ObjectName.Name = "ObjectName"
+				ObjectName.Parent = child.Hitbox
+				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				ObjectName.Active = true
+				ObjectName.AlwaysOnTop = true
+				ObjectName.LightInfluence = 1.000
+				ObjectName.Size = UDim2.new(0, 100, 0, 100)
+				Name.Name = "Name"
+				Name.Parent = ObjectName
+				Name.Text = child.Name
+				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Name.BackgroundTransparency = 1.000
+				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Name.Size = UDim2.new(1, 0, 1, 0)
+				Name.Font = Enum.Font.SourceSansSemibold
+				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Name.TextSize = 20.000
+				Name.TextStrokeTransparency = 0.000
+			end)
+			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			TreeESP = false
+		else
+			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			TreeESP = true
+			for i,v in pairs(game.Workspace:GetDescendants()) do
+				if v.Name == "ESP" or v.Name == "ObjectName" then
+					v:Destroy()
+				end
+			end
+		end
+	end)
+	
+	AutoTreeFarm = true
+	Secondary[1].MouseButton1Up:Connect(function()
+		if AutoTreeFarm then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			AutoTreeFarm = false
+			_G.AutoTreeFarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
+					script.Parent.AxeEquipped.Text = t3.Name
+				end
+			end)
+			
+			while _G.AutoTreeFarm and Tabs[2].TreeFarm.ImageColor3 == Color3.fromRGB(255, 14, 78) do wait()
+				local TreePicker = math.random(1,9)
+				if TreePicker == 1 then TreePicker = "Dead Tree" elseif TreePicker == 2 then TreePicker = "Ghost Tree" elseif TreePicker == 3 then TreePicker = "Gold Palm Tree" elseif TreePicker == 4 then TreePicker = "JungleTree" elseif TreePicker == 5 then TreePicker = "LavaTree" elseif TreePicker == 6 then TreePicker = "Magma Palm Tree" elseif TreePicker == 7 then TreePicker = "PalmTree" elseif TreePicker == 8 then TreePicker = "PineTree"  elseif TreePicker == 9 then TreePicker = "SpruceTree" end
+				pcall(function()
+					wait()
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(TreePicker).Hitbox.CFrame*CFrame.new(0,0,5)
+					if TreePicker then _G.AutoTreeFarm = false end
+				end)
+				if not _G.AutoTreeFarm then
+					repeat wait()
+						game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
+							if tree.Name == TreePicker then
+							_G.AutoTreeFarm = true
+						end
+						game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+							wait(5)
+							_G.AutoTreeFarm = true
+							game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+						end)
+					end)
+				until _G.AutoTreeFarm
+			end
+		end
+	else
+		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+		_G.AutoTreeFarm = false
+		AutoTreeFarm = true
+	end
+	end)
+	
+	AutoRockFarm = true
+	Secondary[2].MouseButton1Up:Connect(function()
+		if AutoRockFarm then
+			Overrides = false
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			AutoRockFarm = false
+			_G.AutoRockFarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("PickaxeScript") then
+					script.Parent.AxeEquipped.Text = t3.Name
+				end
+			end)
+			
+			while _G.AutoRockFarm and Tabs[2].MineFarm.ImageColor3 == Color3.fromRGB(255, 14, 78) do wait()
+				local RockPicker = math.random(1,18)
+				if RockPicker == 1 then RockPicker = "Amethyst" elseif RockPicker == 2 then RockPicker = "Cobalt" elseif RockPicker == 3 then RockPicker = "Diamond" elseif RockPicker == 4 then RockPicker = "Emerald" elseif RockPicker == 5 then RockPicker = "Engulfed Thermite" elseif RockPicker == 6 then RockPicker = "Gold" elseif RockPicker == 7 then RockPicker = "Hardened Magma" elseif RockPicker == 8 then RockPicker = "Infracted Golem Core"  elseif RockPicker == 9 then RockPicker = "Kranite"  elseif RockPicker == 10 then RockPicker = "Magmatite" elseif RockPicker == 11 then RockPicker = "Marble" elseif RockPicker == 12 then RockPicker = "Obsidian" elseif RockPicker == 13 then RockPicker = "Phiodide" elseif RockPicker == 14 then RockPicker = "Ruby" elseif RockPicker == 15 then RockPicker = "Sandstone" elseif RockPicker == 16 then RockPicker = "Silver" elseif RockPicker == 17 then RockPicker = "Stone" elseif RockPicker == 18 then RockPicker = "Toxinite" end
+				pcall(function()
+					wait()
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(RockPicker).Hitbox.CFrame*CFrame.new(0,0,5)
+					if RockPicker then _G.AutoRockFarm = false end
+				end)
+				if not _G.AutoRockFarm then
+					repeat wait()
+						game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
+							if rock.Name == RockPicker then
+							_G.AutoRockFarm = true
+						end
+						game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+							wait(5)
+							_G.AutoRockFarm = true
+							game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+						end)
+					end)
+				until _G.AutoRockFarm
+			end
+		end
+	else
+		Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+		_G.AutoRockFarm = false
+		AutoRockFarm = true
+	end
+	end)
+	
+	Overrides = true
+	Secondary[3].MouseButton1Up:Connect(function()
+		if Overrides then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			Overrides = false
+			Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+			_G.Overrides = true
+			if script.Parent.Base.Teleport.Position == UDim2.new(0, 340, 0, 0) then
+				script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 510, 0, 0), "Out", "Quad", 0.5, true)
+			end
+			wait(0.2)
+			script.Parent.Base.Secondary.Settings.Visible = true
+			script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 169, 0, 0), "Out", "Quad", 0.5, true)
+			wait(0.3)
+			script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 42), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 232), "Out", "Quad", 0.5, true)
+			wait(0.5)
+			for i, v in pairs(Tabs[3]:GetChildren()) do
+				v.Visible = true
+			end
+			for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+				if v.Name ~= "UIGridLayout" then
+					v.MouseButton1Up:Connect(function()
+						for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+							if v.Name ~= "UIGridLayout" then
+								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							end
+						end
+							
+						if v.BackgroundColor3 ~= Color3.fromRGB(255, 14, 78) then
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedRock = v.Text
+						else
+							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							_G.SpecifiedRock = nil
+						end
+					end)
+				end
+			end
+			
+			for i,v in pairs(Tabs[3].Trees:GetChildren()) do
+				if v.Name ~= "UIGridLayout" then
+					v.MouseButton1Up:Connect(function()
+						for i,v in pairs(Tabs[3].Trees:GetChildren()) do
+							if v.Name ~= "UIGridLayout" then
+								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							end
+						end
+							
+						if v.BackgroundColor3 ~= Color3.fromRGB(255, 14, 78) then
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedTree = v.Text
+						else
+							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							_G.SpecifiedTree = nil
+						end
+					end)
+				end
+			end
+			
+			while _G.Overrides do wait()
+				if _G.SpecifiedTree ~= nil then
+					pcall(function()
+						if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame;
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame;
+						end
+					end)
+				end
+			end
+		else
+			_G.Overrides = false
+			for i, v in pairs(Tabs[3]:GetChildren()) do
+				v.Visible = true
+			end
+			Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 0), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 30), "Out", "Quad", 0.5, true)
+			wait(0.3)
+			script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings.Visible = false
+			Overrides = true
+			if script.Parent.Base.Teleport.Position == UDim2.new(0, 510, 0, 0) then
+				script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 340, 0, 0), "Out", "Quad", 0.5, true)
+			end
+			wait(1)
+		end
+	end)
+	
+	Teleport[1].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(2897314781)
+	end)
+	
+	Teleport[2].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(3624193198)
+	end)
+	
+	Teleport[3].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(3219354523)
+	end)
+end
+coroutine.wrap(ControlScript)()
