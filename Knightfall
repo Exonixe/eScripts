@@ -1039,6 +1039,14 @@ local function ControlScript()
 	local MainOpts1 = true
 	MainOpts[1].MouseButton1Up:Connect(function()
 		if MainOpts then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
+			
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+			
 			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
 			MainOpts = false
 			_G.Autofarm = true
