@@ -1424,6 +1424,9 @@ local function ControlScript()
 	AutoTreeFarm = true
 	Secondary[1].MouseButton1Up:Connect(function()
 		if AutoTreeFarm then
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
 			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
 			AutoTreeFarm = false
 			_G.AutoTreeFarm = true
@@ -1467,6 +1470,10 @@ local function ControlScript()
 	AutoRockFarm = true
 	Secondary[2].MouseButton1Up:Connect(function()
 		if AutoRockFarm then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
+			
 			Overrides = false
 			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
 			AutoRockFarm = false
