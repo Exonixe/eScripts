@@ -1592,7 +1592,7 @@ local function ControlScript()
 				if _G.SpecifiedTree ~= nil then
 					pcall(function()
 						if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame;
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame*CFrame.new(0, 0, 5);
 						end
 					end)
 				end
@@ -1600,7 +1600,7 @@ local function ControlScript()
 				if _G.SpecifiedRock ~= nil then
 					pcall(function()
 						if game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock) then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame;
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame*CFrame.new(0, 0, 5);
 						end
 					end)
 				end
