@@ -1548,52 +1548,58 @@ local function ControlScript()
 			for i, v in pairs(Tabs[3]:GetChildren()) do
 				v.Visible = true
 			end
-			for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
-				if v.Name ~= "UIGridLayout" then
-					v.MouseButton1Up:Connect(function()
-						for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
-							if v.Name ~= "UIGridLayout" then
-								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-							end
-						end
-							
-						if v.BackgroundColor3 ~= Color3.fromRGB(255, 14, 78) then
-							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-							_G.SpecifiedRock = v.Text
-						else
-							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-							_G.SpecifiedRock = nil
-						end
-					end)
-				end
-			end
 			
 			for i,v in pairs(Tabs[3].Trees:GetChildren()) do
 				if v.Name ~= "UIGridLayout" then
 					v.MouseButton1Up:Connect(function()
-						for i,v in pairs(Tabs[3].Trees:GetChildren()) do
-							if v.Name ~= "UIGridLayout" then
-								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-							end
-						end
-							
-						if v.BackgroundColor3 ~= Color3.fromRGB(255, 14, 78) then
-							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-							_G.SpecifiedTree = v.Text
-						else
+						if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
 							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
 							_G.SpecifiedTree = nil
+						else
+							pcall(function()
+								for i,v in pairs(Tabs[3].Trees:GetChildren()) do
+									if v.Name ~= "UIGridLayout" then
+									v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
+								end
+							end)
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedTree = v.Text
 						end
 					end)
 				end
 			end
 			
+			for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+				if v.Name ~= "UIGridLayout" then
+					v.MouseButton1Up:Connect(function()
+						if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
+							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							_G.SpecifiedRock = nil
+						else
+							pcall(function()
+								for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+									if v.Name ~= "UIGridLayout" then
+									v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
+								end
+							end)
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedRock = v.Text
+						end
+					end)
+				end
+			end
 			while _G.Overrides do wait()
 				if _G.SpecifiedTree ~= nil then
 					pcall(function()
 						if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame;
-						else
+						end
+					end)
+				end
+				
+				if _G.SpecifiedRock ~= nil then
+					pcall(function()
+						if game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock) then
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame;
 						end
 					end)
