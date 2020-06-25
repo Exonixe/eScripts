@@ -1474,7 +1474,7 @@ local function ControlScript()
 			
 			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
 				if t3:IsA("Tool") and t3:FindFirstChild("PickaxeScript") then
-					script.Parent.AxeEquipped.Text = t3.Name
+					script.Parent.Pickaxe.Text = t3.Name
 				end
 			end)
 			
