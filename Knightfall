@@ -1142,7 +1142,7 @@ local function ControlScript()
 				if script.Parent.PickEquipped.Text ~= "Label" then
 				for i,rock in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
 					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - rock.DisplayBlock.Position).magnitude
-					if Distance <= 15 then
+					if Distance <= 25 then
 						game.ReplicatedStorage.Events.hitObject:FireServer(rock,tostring(script.Parent.PickEquipped.Text))
 					end
 				end
