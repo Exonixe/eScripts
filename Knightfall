@@ -1070,7 +1070,7 @@ local function ControlScript()
 					local Plat = Instance.new("Part", game.Workspace)
 					Plat.Anchored = true
 					Plat.Transparency = 1
-					Plat.CFrame = v:WaitForChild("HumanoidRootPart").CFrame*CFrame.new(0, -18, 0)
+					Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
 					
 					repeat wait(0.1)
 						StartTime = StartTime + 1
@@ -1142,7 +1142,7 @@ local function ControlScript()
 				if script.Parent.PickEquipped.Text ~= "Label" then
 				for i,rock in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
 					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - rock.DisplayBlock.Position).magnitude
-					if Distance <= 25 then
+					if Distance <= 15 then
 						game.ReplicatedStorage.Events.hitObject:FireServer(rock,tostring(script.Parent.PickEquipped.Text))
 					end
 				end
@@ -1194,7 +1194,7 @@ local function ControlScript()
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "ESP"
+				ESP.Name = "RockESP"
 				ESP.Parent = v.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
@@ -1221,7 +1221,7 @@ local function ControlScript()
 				
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "ObjectName"
+				ObjectName.Name = "RockObjectName"
 				ObjectName.Parent = v.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
@@ -1248,7 +1248,7 @@ local function ControlScript()
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "ESP"
+				ESP.Name = "RockESP"
 				ESP.Parent = child.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
@@ -1275,7 +1275,7 @@ local function ControlScript()
 				
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "ObjectName"
+				ObjectName.Name = "RockObjectName"
 				ObjectName.Parent = child.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
@@ -1300,7 +1300,7 @@ local function ControlScript()
 			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
 			RockESP = true
 			for i,v in pairs(game.Workspace:GetDescendants()) do
-				if v.Name == "ESP" or v.Name == "ObjectName" then
+				if v.Name == "RockESP" or v.Name == "RockObjectName" then
 					v:Destroy()
 				end
 			end
@@ -1316,7 +1316,7 @@ local function ControlScript()
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "ESP"
+				ESP.Name = "TreeESP"
 				ESP.Parent = v.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
@@ -1343,7 +1343,7 @@ local function ControlScript()
 				
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "ObjectName"
+				ObjectName.Name = "TreeObjectName"
 				ObjectName.Parent = v.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
@@ -1370,7 +1370,7 @@ local function ControlScript()
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "ESP"
+				ESP.Name = "TreeESP"
 				ESP.Parent = child.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
@@ -1397,7 +1397,7 @@ local function ControlScript()
 				
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "ObjectName"
+				ObjectName.Name = "TreeObjectName"
 				ObjectName.Parent = child.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
@@ -1422,7 +1422,7 @@ local function ControlScript()
 			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
 			TreeESP = true
 			for i,v in pairs(game.Workspace:GetDescendants()) do
-				if v.Name == "ESP" or v.Name == "ObjectName" then
+				if v.Name == "TreeESP" or v.Name == "TreeObjectName" then
 					v:Destroy()
 				end
 			end
@@ -1584,6 +1584,9 @@ local function ControlScript()
 							end)
 							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
 							_G.SpecifiedRock = v.Text
+							if _G.SpecifiedRock == "Inf. Golem Core" then
+								_G.SpecifiedRock = "Infracted Golem Core"
+							end
 						end
 					end)
 				end
@@ -1592,7 +1595,7 @@ local function ControlScript()
 				if _G.SpecifiedTree ~= nil then
 					pcall(function()
 						if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame*CFrame.new(0, -3, 8);
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame*CFrame.new(0, -5, 4);
 						end
 					end)
 				end
@@ -1600,7 +1603,7 @@ local function ControlScript()
 				if _G.SpecifiedRock ~= nil then
 					pcall(function()
 						if game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock) then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame*CFrame.new(0, 5, 8);
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame*CFrame.new(0,5,8);
 						end
 					end)
 				end
