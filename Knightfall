@@ -852,7 +852,7 @@ GoldPalmTree.BorderSizePixel = 0
 GoldPalmTree.Position = UDim2.new(0.190184042, 0, 0, 0)
 GoldPalmTree.Size = UDim2.new(0, 200, 0, 50)
 GoldPalmTree.Font = Enum.Font.SourceSans
-GoldPalmTree.Text = "Gold Palm Tree"
+GoldPalmTree.Text = "Golden Palm Tree"
 GoldPalmTree.TextColor3 = Color3.fromRGB(255, 255, 255)
 GoldPalmTree.TextSize = 14.000
 
@@ -977,8 +977,7 @@ SwordEquipped.Font = Enum.Font.SourceSans
 SwordEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
 SwordEquipped.TextSize = 14.000
 
-
-local function ControlScript() 
+local function ControlScript()
 	local script = Instance.new('LocalScript', eScriptsKnightFall)
 
 	local Base = script.Parent.Base
@@ -1090,7 +1089,7 @@ local function ControlScript()
 			_G.Autofarm = false
 			_G.AutoKillAura = false
 			wait(0.3)
-			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace:FindFirstChild("Plat").CFrame*CFrame.new(0, 25, 10)
+			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace:FindFirstChild("Plat").CFrame*CFrame.new(0, 20, 10)
 		end
 	end)
 	
