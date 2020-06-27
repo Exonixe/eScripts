@@ -1242,7 +1242,7 @@ local function ControlScript()
 			end
 			
 			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-				if child.Parent == "Rocks" then
+				if child.Parent == game.Workspace.Destroyable.Rocks then
 					wait(1)
 					local ESP = Instance.new("BillboardGui")
 					local Frame = Instance.new("Frame")
@@ -1365,8 +1365,8 @@ local function ControlScript()
 				Name.TextStrokeTransparency = 0.000
 			end
 			
-			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-				if child.Parent == "Trees" then
+			game.Workspace.Destroyable.Trees.ChildAdded:Connect(function(child)
+				if child.Parent == game.Workspace.Destroyable.Trees then
 					wait(1)
 					local ESP = Instance.new("BillboardGui")
 					local Frame = Instance.new("Frame")
