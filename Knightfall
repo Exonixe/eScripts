@@ -1564,6 +1564,7 @@ local function ControlScript()
 							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
 							_G.SpecifiedTree = nil
 						else
+							_G.Overrides = true
 							pcall(function()
 								for i,v in pairs(Tabs[3].Trees:GetChildren()) do
 									if v.Name ~= "UIGridLayout" then
