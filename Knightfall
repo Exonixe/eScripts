@@ -1,4 +1,4 @@
-local eScriptsKnightFall = Instance.new("ScreenGui")
+local eScriptsKnightfall = Instance.new("ScreenGui")
 local Base = Instance.new("Frame")
 local Main = Instance.new("ImageLabel")
 local Holder = Instance.new("Frame")
@@ -43,6 +43,9 @@ local Select_8 = Instance.new("TextButton")
 local TreeFarm = Instance.new("ImageLabel")
 local Select_9 = Instance.new("TextButton")
 local Text_9 = Instance.new("TextLabel")
+local PVP = Instance.new("ImageLabel")
+local Text_10 = Instance.new("TextLabel")
+local Select_10 = Instance.new("TextButton")
 local Title_3 = Instance.new("TextLabel")
 local Settings = Instance.new("ImageLabel")
 local Holder_4 = Instance.new("Frame")
@@ -85,12 +88,12 @@ local AxeEquipped = Instance.new("TextLabel")
 local PickEquipped = Instance.new("TextLabel")
 local SwordEquipped = Instance.new("TextLabel")
 
-eScriptsKnightFall.Name = "eScripts/KnightFall"
-eScriptsKnightFall.Parent = game.CoreGui
-eScriptsKnightFall.ResetOnSpawn = false
+eScriptsKnightfall.Name = "eScripts/Knightfall"
+eScriptsKnightfall.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+eScriptsKnightfall.ResetOnSpawn = false
 
 Base.Name = "Base"
-Base.Parent = eScriptsKnightFall
+Base.Parent = eScriptsKnightfall
 Base.AnchorPoint = Vector2.new(0.5, 0.5)
 Base.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Base.BackgroundTransparency = 1.000
@@ -434,13 +437,13 @@ Holder_3.Parent = Secondary
 Holder_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Holder_3.BorderSizePixel = 0
 Holder_3.Position = UDim2.new(0, 0, 0, 26)
-Holder_3.Size = UDim2.new(0, 163, 0, 101)
+Holder_3.Size = UDim2.new(0, 163, 0, 126)
 
 Splitter_3.Name = "Splitter"
 Splitter_3.Parent = Holder_3
 Splitter_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
 Splitter_3.BorderSizePixel = 0
-Splitter_3.Position = UDim2.new(0, -1, 0, 61)
+Splitter_3.Position = UDim2.new(0, -1, 0, 88)
 Splitter_3.Size = UDim2.new(0, 163, 0, 2)
 
 MineFarm.Name = "MineFarm"
@@ -480,7 +483,7 @@ Overrides.Name = "Overrides"
 Overrides.Parent = Holder_3
 Overrides.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Overrides.BackgroundTransparency = 1.000
-Overrides.Position = UDim2.new(0, 10, 0, 75)
+Overrides.Position = UDim2.new(0, 10, 0, 100)
 Overrides.Size = UDim2.new(0, 19, 0, 8)
 Overrides.Image = "rbxassetid://3570695787"
 Overrides.ScaleType = Enum.ScaleType.Slice
@@ -541,6 +544,39 @@ Text_9.Font = Enum.Font.SourceSans
 Text_9.Text = "Tree Autofarm"
 Text_9.TextColor3 = Color3.fromRGB(255, 255, 255)
 Text_9.TextSize = 15.000
+
+PVP.Name = "PVP"
+PVP.Parent = Holder_3
+PVP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PVP.BackgroundTransparency = 1.000
+PVP.Position = UDim2.new(0, 10, 0, 66)
+PVP.Size = UDim2.new(0, 19, 0, 8)
+PVP.Image = "rbxassetid://3570695787"
+PVP.ScaleType = Enum.ScaleType.Slice
+PVP.SliceCenter = Rect.new(100, 100, 100, 100)
+PVP.SliceScale = 0.060
+
+Text_10.Name = "Text"
+Text_10.Parent = PVP
+Text_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Text_10.BackgroundTransparency = 1.000
+Text_10.Position = UDim2.new(2.63157892, 0, 0, 0)
+Text_10.Size = UDim2.new(0, 42, 0, 8)
+Text_10.Font = Enum.Font.SourceSans
+Text_10.Text = "Toggle PVP"
+Text_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_10.TextSize = 15.000
+
+Select_10.Name = "Select"
+Select_10.Parent = PVP
+Select_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Select_10.BackgroundTransparency = 1.000
+Select_10.Position = UDim2.new(0, -7, 0, -6)
+Select_10.Size = UDim2.new(0, 32, 0, 19)
+Select_10.Font = Enum.Font.SourceSans
+Select_10.Text = " "
+Select_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_10.TextSize = 14.000
 
 Title_3.Name = "Title"
 Title_3.Parent = Secondary
@@ -948,7 +984,7 @@ Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title_4.TextSize = 15.000
 
 AxeEquipped.Name = "AxeEquipped"
-AxeEquipped.Parent = eScriptsKnightFall
+AxeEquipped.Parent = eScriptsKnightfall
 AxeEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AxeEquipped.BackgroundTransparency = 1.000
 AxeEquipped.Position = UDim2.new(0, 684, 0, -200)
@@ -958,7 +994,7 @@ AxeEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
 AxeEquipped.TextSize = 14.000
 
 PickEquipped.Name = "PickEquipped"
-PickEquipped.Parent = eScriptsKnightFall
+PickEquipped.Parent = eScriptsKnightfall
 PickEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PickEquipped.BackgroundTransparency = 1.000
 PickEquipped.Position = UDim2.new(0, 684, 0, -200)
@@ -968,7 +1004,7 @@ PickEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
 PickEquipped.TextSize = 14.000
 
 SwordEquipped.Name = "SwordEquipped"
-SwordEquipped.Parent = eScriptsKnightFall
+SwordEquipped.Parent = eScriptsKnightfall
 SwordEquipped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SwordEquipped.BackgroundTransparency = 1.000
 SwordEquipped.Position = UDim2.new(0, 684, 0, -200)
@@ -978,7 +1014,7 @@ SwordEquipped.TextColor3 = Color3.fromRGB(0, 0, 0)
 SwordEquipped.TextSize = 14.000
 
 local function ControlScript()
-	local script = Instance.new('LocalScript', eScriptsKnightFall)
+	local script = Instance.new('LocalScript', eScriptsKnightfall)
 
 	local Base = script.Parent.Base
 	local UIS = game:GetService("UserInputService")
@@ -1003,6 +1039,7 @@ local function ControlScript()
 		Tabs[2].TreeFarm.Select;
 		Tabs[2].MineFarm.Select;
 		Tabs[2].Overrides.Select;
+		Tabs[2].PVP.Select;
 	}
 	
 	local Teleport = {
@@ -1670,6 +1707,23 @@ local function ControlScript()
 				script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 340, 0, 0), "Out", "Quad", 0.5, true)
 			end
 			wait(1)
+		end
+	end)
+	
+	PVP = true
+	Secondary[4].MouseButton1Up:Connect(function()
+		if PVP then
+			Tabs[2].PVP.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			PVP = false
+			pcall(function()
+				game.ReplicatedStorage.Events.ServerTogglePVP:FireServer(game.Players.LocalPlayer)
+			end)
+		else
+			Tabs[2].PVP.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			PVP = true
+			pcall(function()
+				game.ReplicatedStorage.Events.ServerTogglePVP:FireServer(game.Players.LocalPlayer)
+			end)
 		end
 	end)
 	
