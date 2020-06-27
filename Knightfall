@@ -1071,6 +1071,7 @@ local function ControlScript()
 					local Plat = Instance.new("Part", game.Workspace)
 					Plat.Anchored = true
 					Plat.Transparency = 1
+					Plat.Name = "Plat"
 					Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
 					
 					repeat wait(0.1)
@@ -1085,10 +1086,11 @@ local function ControlScript()
 			until not _G.Autofarm
 		else
 			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-			game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			MainOpts = true
 			_G.Autofarm = false
 			_G.AutoKillAura = false
+			wait(0.3)
+			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace:FindFirstChild("Plat").CFrame*CFrame.new(0, 25, 10)
 		end
 	end)
 	
