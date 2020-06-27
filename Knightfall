@@ -1188,6 +1188,7 @@ local function ControlScript()
 	_G.RockESP = true
 	MainOpts[5].MouseButton1Up:Connect(function()
 		if RockESP then
+			_G.RockESP = true
 			for i,v in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
 				local ESP = Instance.new("BillboardGui")
 				local Frame = Instance.new("Frame")
@@ -1242,7 +1243,7 @@ local function ControlScript()
 			end
 			
 			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-				if child.Parent == game.Workspace.Destroyable.Rocks then
+				if child.Parent == game.Workspace.Destroyable.Rocks and _G.RockESP then
 					wait(1)
 					local ESP = Instance.new("BillboardGui")
 					local Frame = Instance.new("Frame")
@@ -1301,6 +1302,7 @@ local function ControlScript()
 		else
 			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
 			RockESP = true
+			_G.RockESP = false
 			for i,v in pairs(game.Workspace:GetDescendants()) do
 				if v.Name == "RockESP" or v.Name == "RockObjectName" then
 					v:Destroy()
@@ -1311,7 +1313,8 @@ local function ControlScript()
 	
 	TreeESP = true
 	MainOpts[6].MouseButton1Up:Connect(function()
-			if TreeESP then
+		if TreeESP then
+			_G.TreeESP = true
 			for i,v in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
 				local ESP = Instance.new("BillboardGui")
 				local Frame = Instance.new("Frame")
@@ -1364,9 +1367,9 @@ local function ControlScript()
 				Name.TextSize = 20.000
 				Name.TextStrokeTransparency = 0.000
 			end
-			
+	
 			game.Workspace.Destroyable.Trees.ChildAdded:Connect(function(child)
-				if child.Parent == game.Workspace.Destroyable.Trees then
+				if child.Parent == game.Workspace.Destroyable.Trees and _G.TreeESP then
 					wait(1)
 					local ESP = Instance.new("BillboardGui")
 					local Frame = Instance.new("Frame")
@@ -1425,6 +1428,7 @@ local function ControlScript()
 		else
 			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
 			TreeESP = true
+			_G.TreeESP = false
 			for i,v in pairs(game.Workspace:GetDescendants()) do
 				if v.Name == "TreeESP" or v.Name == "TreeObjectName" then
 					v:Destroy()
