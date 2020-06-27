@@ -1464,18 +1464,17 @@ local function ControlScript()
 					if TreePicker then _G.AutoTreeFarm = false end
 				end)
 				if not _G.AutoTreeFarm then
-					repeat wait()
-						game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
-							if tree.Name == TreePicker then
-							_G.AutoTreeFarm = true
-						end
-						game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-							wait(5)
-							_G.AutoTreeFarm = true
-							game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-						end)
+					game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+						wait(5)
+						_G.AutoTreeFarm = true
+						game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
 					end)
-				until _G.AutoTreeFarm
+					
+					game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
+						if tree.Name == TreePicker then
+						_G.AutoTreeFarm = true
+					end
+				end)
 			end
 		end
 	else
@@ -1512,18 +1511,17 @@ local function ControlScript()
 					if RockPicker then _G.AutoRockFarm = false end
 				end)
 				if not _G.AutoRockFarm then
-					repeat wait()
-						game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
-							if rock.Name == RockPicker then
-							_G.AutoRockFarm = true
-						end
-						game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-							wait(5)
-							_G.AutoRockFarm = true
-							game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-						end)
+					game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+						wait(5)
+						_G.AutoRockFarm = true
+						game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
 					end)
-				until _G.AutoRockFarm
+				
+					game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
+						if rock.Name == RockPicker then
+						_G.AutoRockFarm = true
+					end
+				end)
 			end
 		end
 	else
@@ -1620,25 +1618,23 @@ local function ControlScript()
 				end)
 				
 				if not _G.Overrides then
-					repeat wait()
-						game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
-							if rock.Name == _G.SpecifiedRock then
-								_G.Overrides = true
-							end
-						end)
-						
-						game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
-							if tree.Name == _G.SpecifiedTree then
-								_G.Overrides = true
-							end
-						end)
-	
-						game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-							wait(5)
+					game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+						wait(5)
+						_G.Overrides = true
+						game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+					end)	
+					
+					game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
+						if rock.Name == _G.SpecifiedRock then
 							_G.Overrides = true
-							game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-						end)	
-				until _G.Overrides
+						end
+					end)
+					
+					game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
+						if tree.Name == _G.SpecifiedTree then
+							_G.Overrides = true
+						end
+					end)
 				end
 			end
 		else
