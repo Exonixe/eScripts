@@ -1242,57 +1242,59 @@ local function ControlScript()
 			end
 			
 			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-				wait(1)
-				local ESP = Instance.new("BillboardGui")
-				local Frame = Instance.new("Frame")
-				local Frame_2 = Instance.new("Frame")
-				local Frame_3 = Instance.new("Frame")
-				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "RockESP"
-				ESP.Parent = child.Hitbox
-				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-				ESP.Active = true
-				ESP.AlwaysOnTop = true
-				ESP.Size = UDim2.new(10, 0, 10, 0)
-				Frame.Parent = ESP
-				Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Frame.BorderSizePixel = 0
-				Frame.Size = UDim2.new(1, 0, 0, 2)
-				Frame_2.Parent = ESP
-				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Frame_2.BorderSizePixel = 0
-				Frame_2.Position = UDim2.new(0, 0, 1, 0)
-				Frame_2.Size = UDim2.new(1, 0, 0, -2)
-				Frame_3.Parent = ESP
-				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Frame_3.BorderSizePixel = 0
-				Frame_3.Size = UDim2.new(0, 2, 1, 0)
-				Frame_4.Parent = ESP
-				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Frame_4.BorderSizePixel = 0
-				Frame_4.Position = UDim2.new(1, 0, 0, 0)
-				Frame_4.Size = UDim2.new(0, -2, 1, 0)
-				
-				local ObjectName = Instance.new("BillboardGui")
-				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "RockObjectName"
-				ObjectName.Parent = child.Hitbox
-				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-				ObjectName.Active = true
-				ObjectName.AlwaysOnTop = true
-				ObjectName.LightInfluence = 1.000
-				ObjectName.Size = UDim2.new(0, 100, 0, 100)
-				Name.Name = "Name"
-				Name.Parent = ObjectName
-				Name.Text = child.Name
-				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Name.BackgroundTransparency = 1.000
-				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Name.Size = UDim2.new(1, 0, 1, 0)
-				Name.Font = Enum.Font.SourceSansSemibold
-				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-				Name.TextSize = 20.000
-				Name.TextStrokeTransparency = 0.000
+				if child.Parent == "Rocks" then
+					wait(1)
+					local ESP = Instance.new("BillboardGui")
+					local Frame = Instance.new("Frame")
+					local Frame_2 = Instance.new("Frame")
+					local Frame_3 = Instance.new("Frame")
+					local Frame_4 = Instance.new("Frame")
+					ESP.Name = "RockESP"
+					ESP.Parent = child.Hitbox
+					ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ESP.Active = true
+					ESP.AlwaysOnTop = true
+					ESP.Size = UDim2.new(10, 0, 10, 0)
+					Frame.Parent = ESP
+					Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame.BorderSizePixel = 0
+					Frame.Size = UDim2.new(1, 0, 0, 2)
+					Frame_2.Parent = ESP
+					Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_2.BorderSizePixel = 0
+					Frame_2.Position = UDim2.new(0, 0, 1, 0)
+					Frame_2.Size = UDim2.new(1, 0, 0, -2)
+					Frame_3.Parent = ESP
+					Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_3.BorderSizePixel = 0
+					Frame_3.Size = UDim2.new(0, 2, 1, 0)
+					Frame_4.Parent = ESP
+					Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_4.BorderSizePixel = 0
+					Frame_4.Position = UDim2.new(1, 0, 0, 0)
+					Frame_4.Size = UDim2.new(0, -2, 1, 0)
+					
+					local ObjectName = Instance.new("BillboardGui")
+					local Name = Instance.new("TextLabel")
+					ObjectName.Name = "RockObjectName"
+					ObjectName.Parent = child.Hitbox
+					ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ObjectName.Active = true
+					ObjectName.AlwaysOnTop = true
+					ObjectName.LightInfluence = 1.000
+					ObjectName.Size = UDim2.new(0, 100, 0, 100)
+					Name.Name = "Name"
+					Name.Parent = ObjectName
+					Name.Text = child.Name
+					Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Name.BackgroundTransparency = 1.000
+					Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Name.Size = UDim2.new(1, 0, 1, 0)
+					Name.Font = Enum.Font.SourceSansSemibold
+					Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Name.TextSize = 20.000
+					Name.TextStrokeTransparency = 0.000
+				end
 			end)
 			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
 			RockESP = false
@@ -1364,57 +1366,59 @@ local function ControlScript()
 			end
 			
 			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-				wait(1)
-				local ESP = Instance.new("BillboardGui")
-				local Frame = Instance.new("Frame")
-				local Frame_2 = Instance.new("Frame")
-				local Frame_3 = Instance.new("Frame")
-				local Frame_4 = Instance.new("Frame")
-				ESP.Name = "TreeESP"
-				ESP.Parent = child.Hitbox
-				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-				ESP.Active = true
-				ESP.AlwaysOnTop = true
-				ESP.Size = UDim2.new(10, 0, 10, 0)
-				Frame.Parent = ESP
-				Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-				Frame.BorderSizePixel = 0
-				Frame.Size = UDim2.new(1, 0, 0, 2)
-				Frame_2.Parent = ESP
-				Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-				Frame_2.BorderSizePixel = 0
-				Frame_2.Position = UDim2.new(0, 0, 1, 0)
-				Frame_2.Size = UDim2.new(1, 0, 0, -2)
-				Frame_3.Parent = ESP
-				Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-				Frame_3.BorderSizePixel = 0
-				Frame_3.Size = UDim2.new(0, 2, 1, 0)
-				Frame_4.Parent = ESP
-				Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-				Frame_4.BorderSizePixel = 0
-				Frame_4.Position = UDim2.new(1, 0, 0, 0)
-				Frame_4.Size = UDim2.new(0, -2, 1, 0)
-				
-				local ObjectName = Instance.new("BillboardGui")
-				local Name = Instance.new("TextLabel")
-				ObjectName.Name = "TreeObjectName"
-				ObjectName.Parent = child.Hitbox
-				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-				ObjectName.Active = true
-				ObjectName.AlwaysOnTop = true
-				ObjectName.LightInfluence = 1.000
-				ObjectName.Size = UDim2.new(0, 100, 0, 100)
-				Name.Name = "Name"
-				Name.Parent = ObjectName
-				Name.Text = child.Name
-				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Name.BackgroundTransparency = 1.000
-				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Name.Size = UDim2.new(1, 0, 1, 0)
-				Name.Font = Enum.Font.SourceSansSemibold
-				Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-				Name.TextSize = 20.000
-				Name.TextStrokeTransparency = 0.000
+				if child.Parent == "Trees" then
+					wait(1)
+					local ESP = Instance.new("BillboardGui")
+					local Frame = Instance.new("Frame")
+					local Frame_2 = Instance.new("Frame")
+					local Frame_3 = Instance.new("Frame")
+					local Frame_4 = Instance.new("Frame")
+					ESP.Name = "TreeESP"
+					ESP.Parent = child.Hitbox
+					ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ESP.Active = true
+					ESP.AlwaysOnTop = true
+					ESP.Size = UDim2.new(10, 0, 10, 0)
+					Frame.Parent = ESP
+					Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame.BorderSizePixel = 0
+					Frame.Size = UDim2.new(1, 0, 0, 2)
+					Frame_2.Parent = ESP
+					Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_2.BorderSizePixel = 0
+					Frame_2.Position = UDim2.new(0, 0, 1, 0)
+					Frame_2.Size = UDim2.new(1, 0, 0, -2)
+					Frame_3.Parent = ESP
+					Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_3.BorderSizePixel = 0
+					Frame_3.Size = UDim2.new(0, 2, 1, 0)
+					Frame_4.Parent = ESP
+					Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_4.BorderSizePixel = 0
+					Frame_4.Position = UDim2.new(1, 0, 0, 0)
+					Frame_4.Size = UDim2.new(0, -2, 1, 0)
+					
+					local ObjectName = Instance.new("BillboardGui")
+					local Name = Instance.new("TextLabel")
+					ObjectName.Name = "TreeObjectName"
+					ObjectName.Parent = child.Hitbox
+					ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ObjectName.Active = true
+					ObjectName.AlwaysOnTop = true
+					ObjectName.LightInfluence = 1.000
+					ObjectName.Size = UDim2.new(0, 100, 0, 100)
+					Name.Name = "Name"
+					Name.Parent = ObjectName
+					Name.Text = child.Name
+					Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Name.BackgroundTransparency = 1.000
+					Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Name.Size = UDim2.new(1, 0, 1, 0)
+					Name.Font = Enum.Font.SourceSansSemibold
+					Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Name.TextSize = 20.000
+					Name.TextStrokeTransparency = 0.000
+				end
 			end)
 			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
 			TreeESP = false
