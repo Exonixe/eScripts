@@ -1457,11 +1457,10 @@ local function ControlScript()
 			
 			game.Workspace.ChildAdded:Connect(function(p)
 				if p.Name == game.Players.LocalPlayer.Name then
+					local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 					wait(0.5)
 					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-					_G.AutoTreeFarm = false
-					wait(1)
-					_G.AutoTreeFarm = true
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition
 				end
 			end)
 			
@@ -1510,11 +1509,10 @@ local function ControlScript()
 			
 			game.Workspace.ChildAdded:Connect(function(p)
 				if p.Name == game.Players.LocalPlayer.Name then
+					local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 					wait(0.5)
 					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-					_G.AutoRockFarm = false
-					wait(1)
-					_G.AutoRockFarm = true
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition
 				end
 			end)
 			
@@ -1616,11 +1614,10 @@ local function ControlScript()
 			
 			game.Workspace.ChildAdded:Connect(function(p)
 				if p.Name == game.Players.LocalPlayer.Name then
+					local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 					wait(0.5)
 					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-					_G.Overrides = false
-					wait(1)
-					_G.Overrides = true
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition
 				end
 			end)
 			
