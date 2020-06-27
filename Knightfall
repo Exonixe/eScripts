@@ -1457,10 +1457,10 @@ local function ControlScript()
 			
 			game.Workspace.ChildAdded:Connect(function(p)
 				if p.Name == game.Players.LocalPlayer.Name then
-					local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					local LastPosition2 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 					wait(0.5)
 					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition2
 				end
 			end)
 			
@@ -1509,10 +1509,10 @@ local function ControlScript()
 			
 			game.Workspace.ChildAdded:Connect(function(p)
 				if p.Name == game.Players.LocalPlayer.Name then
-					local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					local LastPosition3 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 					wait(0.5)
 					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = LastPosition3
 				end
 			end)
 			
