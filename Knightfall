@@ -980,280 +980,225 @@ SwordEquipped.TextSize = 14.000
 local function ControlScript()
 	local script = Instance.new('LocalScript', eScriptsKnightFall)
 
-local Base = script.Parent.Base
-local UIS = game:GetService("UserInputService")
-
-local Tabs = {
-	Base.Main.Holder;
-	Base.Secondary.Holder;
-	Base.Secondary.Settings.Holder;
-	Base.Teleport.Holder;
-}
-
-local MainOpts = {
-	Tabs[1].Autofarm.Select;
-	Tabs[1].KillAura.Select;
-	Tabs[1].MineAura.Select;
-	Tabs[1].TreeAura.Select;
-	Tabs[1].RockESP.Select;
-	Tabs[1].TreeESP.Select;
-}
-
-local Secondary = {
-	Tabs[2].TreeFarm.Select;
-	Tabs[2].MineFarm.Select;
-	Tabs[2].Overrides.Select;
-}
-
-local Teleport = {
-	Tabs[4].Worlds.MainWorld;
-	Tabs[4].Worlds.VolcanoIsland;
-	Tabs[4].Worlds.Dungeon;
-}
-
-for i, Tab in pairs(Base:GetChildren()) do
-	Tab.Active = true
-	Tab.Selectable = true
-	Tab.Draggable = true
-end
-
-HiddenTabs = true
-UIS.InputBegan:Connect(function(k, gameProcessedEvent)
-	if k.KeyCode == Enum.KeyCode.RightShift and not gameProcessedEvent then
-		if HiddenTabs then
-			for i, tab in pairs(Base:GetChildren()) do
-				tab.Visible = false
-			end
-			HiddenTabs = false wait(1)
-		else
-			for i, tab in pairs(Base:GetChildren()) do
-				tab.Visible = true
-			end
-			HiddenTabs = true wait(1)
-		end
+	local Base = script.Parent.Base
+	local UIS = game:GetService("UserInputService")
+	
+	local Tabs = {
+		Base.Main.Holder;
+		Base.Secondary.Holder;
+		Base.Secondary.Settings.Holder;
+		Base.Teleport.Holder;
+	}
+	
+	local MainOpts = {
+		Tabs[1].Autofarm.Select;
+		Tabs[1].KillAura.Select;
+		Tabs[1].MineAura.Select;
+		Tabs[1].TreeAura.Select;
+		Tabs[1].RockESP.Select;
+		Tabs[1].TreeESP.Select;
+	}
+	
+	local Secondary = {
+		Tabs[2].TreeFarm.Select;
+		Tabs[2].MineFarm.Select;
+		Tabs[2].Overrides.Select;
+	}
+	
+	local Teleport = {
+		Tabs[4].Worlds.MainWorld;
+		Tabs[4].Worlds.VolcanoIsland;
+		Tabs[4].Worlds.Dungeon;
+	}
+	
+	for i, Tab in pairs(Base:GetChildren()) do
+		Tab.Active = true
+		Tab.Selectable = true
+		Tab.Draggable = true
 	end
-end)
-
-local StartTime = 0
-local TimeOut = 5
-local MainOpts1 = true
-MainOpts[1].MouseButton1Up:Connect(function()
-	if MainOpts then
-		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		_G.AutoTreeFarm = false
-		AutoTreeFarm = true
-		
-		Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		_G.AutoRockFarm = false
-		AutoRockFarm = true
-		
-		Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		MainOpts = false
-		_G.Autofarm = true
-		
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
-			if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
-				script.Parent.SwordEquipped.Text = t1.Name
-			end
-		end)
-		
-		game.Workspace.ChildAdded:Connect(function(p)
-			if p.Name == game.Players.LocalPlayer.Name then
-				wait(0.5)
-				game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-			end
-		end)
-		
-		repeat wait()
-			if script.Parent.SwordEquipped.Text ~= "Label" then
-			for i,v in pairs(game.Workspace.Creatures:GetChildren()) do
-				local Plat = Instance.new("Part", game.Workspace)
-				Plat.Anchored = true
-				Plat.Transparency = 1
-				Plat.Name = "Plat"
-				Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
-				
-				repeat wait(0.1)
-					StartTime = StartTime + 1
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Plat.CFrame
-					if MainOpts == true then return end
-				until StartTime == TimeOut or v.Humanoid.Health <= 0 or MainOpts == true
-				StartTime = 0
-				Plat:Destroy()
-			end
-			end
-		until not _G.Autofarm
-	else
-		Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		MainOpts = true
-		_G.Autofarm = false
-		_G.AutoKillAura = false
-		wait(0.3)
-		game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace:FindFirstChild("Plat").CFrame*CFrame.new(0, 20, 10)
-	end
-end)
-
-KillAura = true
-MainOpts[2].MouseButton1Up:Connect(function()
-	if KillAura then
-		Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		KillAura = false
-		_G.KillAura = true
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
-			if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
-				script.Parent.SwordEquipped.Text = t1.Name
-			end
-		end)
-		local Killrange = 100
-		local Plr = game:GetService("Players").LocalPlayer
-		local Event = game:GetService("ReplicatedStorage").Events
-		while _G.KillAura do
-			local Creatures = game.Workspace.Creatures:GetChildren()
-			for i = 1, #Creatures do
-				local Mob = Creatures[i]
-				local Mesh = Mob:FindFirstChildOfClass("MeshPart")
-				if Mesh and Plr:DistanceFromCharacter(Mesh.Position) < Killrange then
-					Event.SwingValue:FireServer()
-					Event.SwordTouched:FireServer(Mesh, Mesh)
-					Event.ClearHitTable:FireServer()
-					game:GetService("RunService").RenderStepped:wait()
+	
+	HiddenTabs = true
+	UIS.InputBegan:Connect(function(k, gameProcessedEvent)
+		if k.KeyCode == Enum.KeyCode.RightShift and not gameProcessedEvent then
+			if HiddenTabs then
+				for i, tab in pairs(Base:GetChildren()) do
+					tab.Visible = false
 				end
-			end
-			game:GetService("RunService").RenderStepped:wait()
-		end
-	else
-		Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		KillAura = true
-		_G.KillAura = false
-	end
-end)
-
-MineAura = true
-MainOpts[3].MouseButton1Up:Connect(function()
-	if MineAura then
-		Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		MineAura = false
-		_G.MineAura = true
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t2)
-			if t2:IsA("Tool") and t2:FindFirstChild("PickaxeScript") then
-				script.Parent.PickEquipped.Text = t2.Name
-			end
-		end)
-		
-		while _G.MineAura do wait()
-			if script.Parent.PickEquipped.Text ~= "Label" then
-			for i,rock in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
-				local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - rock.DisplayBlock.Position).magnitude
-				if Distance <= 15 then
-					game.ReplicatedStorage.Events.hitObject:FireServer(rock,tostring(script.Parent.PickEquipped.Text))
+				HiddenTabs = false wait(1)
+			else
+				for i, tab in pairs(Base:GetChildren()) do
+					tab.Visible = true
 				end
-			end
-			end
-		end
-	else
-		Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		MineAura = true
-		_G.MineAura = false
-	end
-end)
-
-TreeAura = true
-MainOpts[4].MouseButton1Up:Connect(function()
-	if TreeAura then
-		Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		TreeAura = false
-		_G.TreeAura = true
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
-			if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
-				script.Parent.AxeEquipped.Text = t3.Name
-			end
-		end)
-		
-		while _G.TreeAura do wait()
-			if script.Parent.AxeEquipped.Text ~= "Label" then
-			for i,tree in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
-				local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - tree.DisplayBlock.Position).magnitude
-				if Distance <= 15 then
-					game.ReplicatedStorage.Events.hitObject:FireServer(tree, tostring(script.Parent.AxeEquipped.Text), "Axes")
-				end
-			end
+				HiddenTabs = true wait(1)
 			end
 		end
-	else
-		Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		TreeAura = true
-		_G.TreeAura = false
-	end
-end)
-
-RockESP = true
-_G.RockESP = true
-MainOpts[5].MouseButton1Up:Connect(function()
-	if RockESP then
-		_G.RockESP = true
-		for i,v in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
-			local ESP = Instance.new("BillboardGui")
-			local Frame = Instance.new("Frame")
-			local Frame_2 = Instance.new("Frame")
-			local Frame_3 = Instance.new("Frame")
-			local Frame_4 = Instance.new("Frame")
-			ESP.Name = "RockESP"
-			ESP.Parent = v.Hitbox
-			ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-			ESP.Active = true
-			ESP.AlwaysOnTop = true
-			ESP.Size = UDim2.new(10, 0, 10, 0)
-			Frame.Parent = ESP
-			Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Frame.BorderSizePixel = 0
-			Frame.Size = UDim2.new(1, 0, 0, 2)
-			Frame_2.Parent = ESP
-			Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Frame_2.BorderSizePixel = 0
-			Frame_2.Position = UDim2.new(0, 0, 1, 0)
-			Frame_2.Size = UDim2.new(1, 0, 0, -2)
-			Frame_3.Parent = ESP
-			Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Frame_3.BorderSizePixel = 0
-			Frame_3.Size = UDim2.new(0, 2, 1, 0)
-			Frame_4.Parent = ESP
-			Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Frame_4.BorderSizePixel = 0
-			Frame_4.Position = UDim2.new(1, 0, 0, 0)
-			Frame_4.Size = UDim2.new(0, -2, 1, 0)
+	end)
+	
+	local StartTime = 0
+	local TimeOut = 5
+	local MainOpts1 = true
+	MainOpts[1].MouseButton1Up:Connect(function()
+		if MainOpts then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
 			
-			local ObjectName = Instance.new("BillboardGui")
-			local Name = Instance.new("TextLabel")
-			ObjectName.Name = "RockObjectName"
-			ObjectName.Parent = v.Hitbox
-			ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-			ObjectName.Active = true
-			ObjectName.AlwaysOnTop = true
-			ObjectName.LightInfluence = 1.000
-			ObjectName.Size = UDim2.new(0, 100, 0, 100)
-			Name.Name = "Name"
-			Name.Parent = ObjectName
-			Name.Text = v.Name
-			Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Name.BackgroundTransparency = 1.000
-			Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Name.Size = UDim2.new(1, 0, 1, 0)
-			Name.Font = Enum.Font.SourceSansSemibold
-			Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Name.TextSize = 20.000
-			Name.TextStrokeTransparency = 0.000
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+			
+			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			MainOpts = false
+			_G.Autofarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
+				if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
+					script.Parent.SwordEquipped.Text = t1.Name
+				end
+			end)
+			
+			game.Workspace.ChildAdded:Connect(function(p)
+				if p.Name == game.Players.LocalPlayer.Name then
+					wait(0.5)
+					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+				end
+			end)
+			
+			repeat wait()
+				if script.Parent.SwordEquipped.Text ~= "Label" then
+				for i,v in pairs(game.Workspace.Creatures:GetChildren()) do
+					local Plat = Instance.new("Part", game.Workspace)
+					Plat.Anchored = true
+					Plat.Transparency = 1
+					Plat.Name = "Plat"
+					Plat.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0, -18, 0)
+					
+					repeat wait(0.1)
+						StartTime = StartTime + 1
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Plat.CFrame
+						if MainOpts == true then return end
+					until StartTime == TimeOut or v.Humanoid.Health <= 0 or MainOpts == true
+					StartTime = 0
+					Plat:Destroy()
+				end
+				end
+			until not _G.Autofarm
+		else
+			Tabs[1].Autofarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			MainOpts = true
+			_G.Autofarm = false
+			_G.AutoKillAura = false
+			wait(0.3)
+			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace:FindFirstChild("Plat").CFrame*CFrame.new(0, 20, 10)
 		end
-		
-		game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
-			if child.Parent == game.Workspace.Destroyable.Rocks and _G.RockESP then
-				wait(1)
+	end)
+	
+	KillAura = true
+	MainOpts[2].MouseButton1Up:Connect(function()
+		if KillAura then
+			Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			KillAura = false
+			_G.KillAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t1)
+				if t1:IsA("Tool") and t1:FindFirstChild("SwordScript") then
+					script.Parent.SwordEquipped.Text = t1.Name
+				end
+			end)
+			local Killrange = 100
+			local Plr = game:GetService("Players").LocalPlayer
+			local Event = game:GetService("ReplicatedStorage").Events
+			while _G.KillAura do
+				local Creatures = game.Workspace.Creatures:GetChildren()
+				for i = 1, #Creatures do
+					local Mob = Creatures[i]
+					local Mesh = Mob:FindFirstChildOfClass("MeshPart")
+					if Mesh and Plr:DistanceFromCharacter(Mesh.Position) < Killrange then
+						Event.SwingValue:FireServer()
+						Event.SwordTouched:FireServer(Mesh, Mesh)
+						Event.ClearHitTable:FireServer()
+						game:GetService("RunService").RenderStepped:wait()
+					end
+				end
+				game:GetService("RunService").RenderStepped:wait()
+			end
+		else
+			Tabs[1].KillAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			KillAura = true
+			_G.KillAura = false
+		end
+	end)
+	
+	MineAura = true
+	MainOpts[3].MouseButton1Up:Connect(function()
+		if MineAura then
+			Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			MineAura = false
+			_G.MineAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t2)
+				if t2:IsA("Tool") and t2:FindFirstChild("PickaxeScript") then
+					script.Parent.PickEquipped.Text = t2.Name
+				end
+			end)
+			
+			while _G.MineAura do wait()
+				if script.Parent.PickEquipped.Text ~= "Label" then
+				for i,rock in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
+					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - rock.DisplayBlock.Position).magnitude
+					if Distance <= 15 then
+						game.ReplicatedStorage.Events.hitObject:FireServer(rock,tostring(script.Parent.PickEquipped.Text))
+					end
+				end
+				end
+			end
+		else
+			Tabs[1].MineAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			MineAura = true
+			_G.MineAura = false
+		end
+	end)
+	
+	TreeAura = true
+	MainOpts[4].MouseButton1Up:Connect(function()
+		if TreeAura then
+			Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			TreeAura = false
+			_G.TreeAura = true
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
+					script.Parent.AxeEquipped.Text = t3.Name
+				end
+			end)
+			
+			while _G.TreeAura do wait()
+				if script.Parent.AxeEquipped.Text ~= "Label" then
+				for i,tree in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
+					local Distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - tree.DisplayBlock.Position).magnitude
+					if Distance <= 15 then
+						game.ReplicatedStorage.Events.hitObject:FireServer(tree, tostring(script.Parent.AxeEquipped.Text), "Axes")
+					end
+				end
+				end
+			end
+		else
+			Tabs[1].TreeAura.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			TreeAura = true
+			_G.TreeAura = false
+		end
+	end)
+	
+	RockESP = true
+	_G.RockESP = true
+	MainOpts[5].MouseButton1Up:Connect(function()
+		if RockESP then
+			_G.RockESP = true
+			for i,v in pairs(game.Workspace.Destroyable.Rocks:GetChildren()) do
 				local ESP = Instance.new("BillboardGui")
 				local Frame = Instance.new("Frame")
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
 				ESP.Name = "RockESP"
-				ESP.Parent = child.Hitbox
+				ESP.Parent = v.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
 				ESP.AlwaysOnTop = true
@@ -1280,7 +1225,7 @@ MainOpts[5].MouseButton1Up:Connect(function()
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
 				ObjectName.Name = "RockObjectName"
-				ObjectName.Parent = child.Hitbox
+				ObjectName.Parent = v.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
 				ObjectName.AlwaysOnTop = true
@@ -1288,7 +1233,7 @@ MainOpts[5].MouseButton1Up:Connect(function()
 				ObjectName.Size = UDim2.new(0, 100, 0, 100)
 				Name.Name = "Name"
 				Name.Parent = ObjectName
-				Name.Text = child.Name
+				Name.Text = v.Name
 				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Name.BackgroundTransparency = 1.000
 				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1298,88 +1243,88 @@ MainOpts[5].MouseButton1Up:Connect(function()
 				Name.TextSize = 20.000
 				Name.TextStrokeTransparency = 0.000
 			end
-		end)
-		Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		RockESP = false
-	else
-		Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		RockESP = true
-		_G.RockESP = false
-		for i,v in pairs(game.Workspace:GetDescendants()) do
-			if v.Name == "RockESP" or v.Name == "RockObjectName" then
-				v:Destroy()
+			
+			game.Workspace.Destroyable.Rocks.ChildAdded:Connect(function(child)
+				if child.Parent == game.Workspace.Destroyable.Rocks and _G.RockESP then
+					wait(1)
+					local ESP = Instance.new("BillboardGui")
+					local Frame = Instance.new("Frame")
+					local Frame_2 = Instance.new("Frame")
+					local Frame_3 = Instance.new("Frame")
+					local Frame_4 = Instance.new("Frame")
+					ESP.Name = "RockESP"
+					ESP.Parent = child.Hitbox
+					ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ESP.Active = true
+					ESP.AlwaysOnTop = true
+					ESP.Size = UDim2.new(10, 0, 10, 0)
+					Frame.Parent = ESP
+					Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame.BorderSizePixel = 0
+					Frame.Size = UDim2.new(1, 0, 0, 2)
+					Frame_2.Parent = ESP
+					Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_2.BorderSizePixel = 0
+					Frame_2.Position = UDim2.new(0, 0, 1, 0)
+					Frame_2.Size = UDim2.new(1, 0, 0, -2)
+					Frame_3.Parent = ESP
+					Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_3.BorderSizePixel = 0
+					Frame_3.Size = UDim2.new(0, 2, 1, 0)
+					Frame_4.Parent = ESP
+					Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Frame_4.BorderSizePixel = 0
+					Frame_4.Position = UDim2.new(1, 0, 0, 0)
+					Frame_4.Size = UDim2.new(0, -2, 1, 0)
+					
+					local ObjectName = Instance.new("BillboardGui")
+					local Name = Instance.new("TextLabel")
+					ObjectName.Name = "RockObjectName"
+					ObjectName.Parent = child.Hitbox
+					ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ObjectName.Active = true
+					ObjectName.AlwaysOnTop = true
+					ObjectName.LightInfluence = 1.000
+					ObjectName.Size = UDim2.new(0, 100, 0, 100)
+					Name.Name = "Name"
+					Name.Parent = ObjectName
+					Name.Text = child.Name
+					Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Name.BackgroundTransparency = 1.000
+					Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Name.Size = UDim2.new(1, 0, 1, 0)
+					Name.Font = Enum.Font.SourceSansSemibold
+					Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Name.TextSize = 20.000
+					Name.TextStrokeTransparency = 0.000
+				end
+			end)
+			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			RockESP = false
+		else
+			Tabs[1].RockESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			RockESP = true
+			_G.RockESP = false
+			for i,v in pairs(game.Workspace:GetDescendants()) do
+				if v.Name == "RockESP" or v.Name == "RockObjectName" then
+					v:Destroy()
+				end
 			end
 		end
-	end
-end)
-
-TreeESP = true
-MainOpts[6].MouseButton1Up:Connect(function()
-	if TreeESP then
-		_G.TreeESP = true
-		for i,v in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
-			local ESP = Instance.new("BillboardGui")
-			local Frame = Instance.new("Frame")
-			local Frame_2 = Instance.new("Frame")
-			local Frame_3 = Instance.new("Frame")
-			local Frame_4 = Instance.new("Frame")
-			ESP.Name = "TreeESP"
-			ESP.Parent = v.Hitbox
-			ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-			ESP.Active = true
-			ESP.AlwaysOnTop = true
-			ESP.Size = UDim2.new(10, 0, 10, 0)
-			Frame.Parent = ESP
-			Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-			Frame.BorderSizePixel = 0
-			Frame.Size = UDim2.new(1, 0, 0, 2)
-			Frame_2.Parent = ESP
-			Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-			Frame_2.BorderSizePixel = 0
-			Frame_2.Position = UDim2.new(0, 0, 1, 0)
-			Frame_2.Size = UDim2.new(1, 0, 0, -2)
-			Frame_3.Parent = ESP
-			Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-			Frame_3.BorderSizePixel = 0
-			Frame_3.Size = UDim2.new(0, 2, 1, 0)
-			Frame_4.Parent = ESP
-			Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-			Frame_4.BorderSizePixel = 0
-			Frame_4.Position = UDim2.new(1, 0, 0, 0)
-			Frame_4.Size = UDim2.new(0, -2, 1, 0)
-			
-			local ObjectName = Instance.new("BillboardGui")
-			local Name = Instance.new("TextLabel")
-			ObjectName.Name = "TreeObjectName"
-			ObjectName.Parent = v.Hitbox
-			ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-			ObjectName.Active = true
-			ObjectName.AlwaysOnTop = true
-			ObjectName.LightInfluence = 1.000
-			ObjectName.Size = UDim2.new(0, 100, 0, 100)
-			Name.Name = "Name"
-			Name.Parent = ObjectName
-			Name.Text = v.Name
-			Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Name.BackgroundTransparency = 1.000
-			Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Name.Size = UDim2.new(1, 0, 1, 0)
-			Name.Font = Enum.Font.SourceSansSemibold
-			Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Name.TextSize = 20.000
-			Name.TextStrokeTransparency = 0.000
-		end
-
-		game.Workspace.Destroyable.Trees.ChildAdded:Connect(function(child)
-			if child.Parent == game.Workspace.Destroyable.Trees and _G.TreeESP then
-				wait(1)
+	end)
+	
+	TreeESP = true
+	MainOpts[6].MouseButton1Up:Connect(function()
+		if TreeESP then
+			_G.TreeESP = true
+			for i,v in pairs(game.Workspace.Destroyable.Trees:GetChildren()) do
 				local ESP = Instance.new("BillboardGui")
 				local Frame = Instance.new("Frame")
 				local Frame_2 = Instance.new("Frame")
 				local Frame_3 = Instance.new("Frame")
 				local Frame_4 = Instance.new("Frame")
 				ESP.Name = "TreeESP"
-				ESP.Parent = child.Hitbox
+				ESP.Parent = v.Hitbox
 				ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ESP.Active = true
 				ESP.AlwaysOnTop = true
@@ -1406,7 +1351,7 @@ MainOpts[6].MouseButton1Up:Connect(function()
 				local ObjectName = Instance.new("BillboardGui")
 				local Name = Instance.new("TextLabel")
 				ObjectName.Name = "TreeObjectName"
-				ObjectName.Parent = child.Hitbox
+				ObjectName.Parent = v.Hitbox
 				ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 				ObjectName.Active = true
 				ObjectName.AlwaysOnTop = true
@@ -1414,7 +1359,7 @@ MainOpts[6].MouseButton1Up:Connect(function()
 				ObjectName.Size = UDim2.new(0, 100, 0, 100)
 				Name.Name = "Name"
 				Name.Parent = ObjectName
-				Name.Text = child.Name
+				Name.Text = v.Name
 				Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Name.BackgroundTransparency = 1.000
 				Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1424,255 +1369,323 @@ MainOpts[6].MouseButton1Up:Connect(function()
 				Name.TextSize = 20.000
 				Name.TextStrokeTransparency = 0.000
 			end
-		end)
-		Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		TreeESP = false
-	else
-		Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		TreeESP = true
-		_G.TreeESP = false
-		for i,v in pairs(game.Workspace:GetDescendants()) do
-			if v.Name == "TreeESP" or v.Name == "TreeObjectName" then
-				v:Destroy()
+	
+			game.Workspace.Destroyable.Trees.ChildAdded:Connect(function(child)
+				if child.Parent == game.Workspace.Destroyable.Trees and _G.TreeESP then
+					wait(1)
+					local ESP = Instance.new("BillboardGui")
+					local Frame = Instance.new("Frame")
+					local Frame_2 = Instance.new("Frame")
+					local Frame_3 = Instance.new("Frame")
+					local Frame_4 = Instance.new("Frame")
+					ESP.Name = "TreeESP"
+					ESP.Parent = child.Hitbox
+					ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ESP.Active = true
+					ESP.AlwaysOnTop = true
+					ESP.Size = UDim2.new(10, 0, 10, 0)
+					Frame.Parent = ESP
+					Frame.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame.BorderSizePixel = 0
+					Frame.Size = UDim2.new(1, 0, 0, 2)
+					Frame_2.Parent = ESP
+					Frame_2.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_2.BorderSizePixel = 0
+					Frame_2.Position = UDim2.new(0, 0, 1, 0)
+					Frame_2.Size = UDim2.new(1, 0, 0, -2)
+					Frame_3.Parent = ESP
+					Frame_3.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_3.BorderSizePixel = 0
+					Frame_3.Size = UDim2.new(0, 2, 1, 0)
+					Frame_4.Parent = ESP
+					Frame_4.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+					Frame_4.BorderSizePixel = 0
+					Frame_4.Position = UDim2.new(1, 0, 0, 0)
+					Frame_4.Size = UDim2.new(0, -2, 1, 0)
+					
+					local ObjectName = Instance.new("BillboardGui")
+					local Name = Instance.new("TextLabel")
+					ObjectName.Name = "TreeObjectName"
+					ObjectName.Parent = child.Hitbox
+					ObjectName.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+					ObjectName.Active = true
+					ObjectName.AlwaysOnTop = true
+					ObjectName.LightInfluence = 1.000
+					ObjectName.Size = UDim2.new(0, 100, 0, 100)
+					Name.Name = "Name"
+					Name.Parent = ObjectName
+					Name.Text = child.Name
+					Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Name.BackgroundTransparency = 1.000
+					Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Name.Size = UDim2.new(1, 0, 1, 0)
+					Name.Font = Enum.Font.SourceSansSemibold
+					Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Name.TextSize = 20.000
+					Name.TextStrokeTransparency = 0.000
+				end
+			end)
+			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			TreeESP = false
+		else
+			Tabs[1].TreeESP.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			TreeESP = true
+			_G.TreeESP = false
+			for i,v in pairs(game.Workspace:GetDescendants()) do
+				if v.Name == "TreeESP" or v.Name == "TreeObjectName" then
+					v:Destroy()
+				end
 			end
 		end
-	end
-end)
-
-AutoTreeFarm = true
-Secondary[1].MouseButton1Up:Connect(function()
-	if AutoTreeFarm then
-		Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		_G.AutoRockFarm = false
-		AutoRockFarm = true
-		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		AutoTreeFarm = false
-		_G.AutoTreeFarm = true
-		
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
-			if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
-				script.Parent.AxeEquipped.Text = t3.Name
-			end
-		end)
-		
-		game.Workspace.ChildAdded:Connect(function(p)
-			if p.Name == game.Players.LocalPlayer.Name then
-				wait(0.5)
-				game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-			end
-		end)
-		
-		while _G.AutoTreeFarm and Tabs[2].TreeFarm.ImageColor3 == Color3.fromRGB(255, 14, 78) do wait()
-			local TreePicker = math.random(1,9)
-			if TreePicker == 1 then TreePicker = "Dead Tree" elseif TreePicker == 2 then TreePicker = "Ghost Tree" elseif TreePicker == 3 then TreePicker = "Gold Palm Tree" elseif TreePicker == 4 then TreePicker = "JungleTree" elseif TreePicker == 5 then TreePicker = "LavaTree" elseif TreePicker == 6 then TreePicker = "Magma Palm Tree" elseif TreePicker == 7 then TreePicker = "PalmTree" elseif TreePicker == 8 then TreePicker = "PineTree"  elseif TreePicker == 9 then TreePicker = "SpruceTree" end
-			pcall(function()
-				wait()
-				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(TreePicker).Hitbox.CFrame*CFrame.new(0,0,5)
-				if TreePicker then _G.AutoTreeFarm = false end
+	end)
+	
+	AutoTreeFarm = true
+	Secondary[1].MouseButton1Up:Connect(function()
+		if AutoTreeFarm then
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			AutoTreeFarm = false
+			_G.AutoTreeFarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("AxeScript") then
+					script.Parent.AxeEquipped.Text = t3.Name
+				end
 			end)
-			if not _G.AutoTreeFarm then				
-				repeat wait()
-					game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
-						if tree.Name == TreePicker then
-							_G.AutoTreeFarm = true
-						end
-					end)
-				until _G.AutoTreeFarm
+			
+			game.Workspace.ChildAdded:Connect(function(p)
+				if p.Name == game.Players.LocalPlayer.Name then
+					wait(0.5)
+					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+					_G.AutoTreeFarm = false
+					wait(1)
+					_G.AutoTreeFarm = true
+				end
+			end)
+			
+			while _G.AutoTreeFarm and Tabs[2].TreeFarm.ImageColor3 == Color3.fromRGB(255, 14, 78) do wait()
+				local TreePicker = math.random(1,9)
+				if TreePicker == 1 then TreePicker = "Dead Tree" elseif TreePicker == 2 then TreePicker = "Ghost Tree" elseif TreePicker == 3 then TreePicker = "Gold Palm Tree" elseif TreePicker == 4 then TreePicker = "JungleTree" elseif TreePicker == 5 then TreePicker = "LavaTree" elseif TreePicker == 6 then TreePicker = "Magma Palm Tree" elseif TreePicker == 7 then TreePicker = "PalmTree" elseif TreePicker == 8 then TreePicker = "PineTree"  elseif TreePicker == 9 then TreePicker = "SpruceTree" end
+				pcall(function()
+					wait()
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(TreePicker).Hitbox.CFrame*CFrame.new(0,0,5)
+					if TreePicker then _G.AutoTreeFarm = false end
+				end)
+				if not _G.AutoTreeFarm then				
+					repeat wait()
+						game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
+							if tree.Name == TreePicker then
+								_G.AutoTreeFarm = true
+							end
+						end)
+					until _G.AutoTreeFarm
+				end
 			end
+		else
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
 		end
-	else
-		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		_G.AutoTreeFarm = false
-		AutoTreeFarm = true
-	end
-end)
-
-AutoRockFarm = true
-Secondary[2].MouseButton1Up:Connect(function()
-	if AutoRockFarm then
-		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		_G.AutoTreeFarm = false
-		AutoTreeFarm = true
-		
-		Overrides = false
-		Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		AutoRockFarm = false
-		_G.AutoRockFarm = true
-		
-		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
-			if t3:IsA("Tool") and t3:FindFirstChild("PickaxeScript") then
-				script.Parent.Pickaxe.Text = t3.Name
-			end
-		end)
-		
-		game.Workspace.ChildAdded:Connect(function(p)
-			if p.Name == game.Players.LocalPlayer.Name then
-				wait(0.5)
-				game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-			end
-		end)
-		
-		while _G.AutoRockFarm and Tabs[2].MineFarm.ImageColor3 == Color3.fromRGB(255, 14, 78) do wait()
-			local RockPicker = math.random(1,18)
-			if RockPicker == 1 then RockPicker = "Amethyst" elseif RockPicker == 2 then RockPicker = "Cobalt" elseif RockPicker == 3 then RockPicker = "Diamond" elseif RockPicker == 4 then RockPicker = "Emerald" elseif RockPicker == 5 then RockPicker = "Engulfed Thermite" elseif RockPicker == 6 then RockPicker = "Gold" elseif RockPicker == 7 then RockPicker = "Hardened Magma" elseif RockPicker == 8 then RockPicker = "Infracted Golem Core"  elseif RockPicker == 9 then RockPicker = "Kranite"  elseif RockPicker == 10 then RockPicker = "Magmatite" elseif RockPicker == 11 then RockPicker = "Marble" elseif RockPicker == 12 then RockPicker = "Obsidian" elseif RockPicker == 13 then RockPicker = "Phiodide" elseif RockPicker == 14 then RockPicker = "Ruby" elseif RockPicker == 15 then RockPicker = "Sandstone" elseif RockPicker == 16 then RockPicker = "Silver" elseif RockPicker == 17 then RockPicker = "Stone" elseif RockPicker == 18 then RockPicker = "Toxinite" end
-			pcall(function()
-				wait()
-				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(RockPicker).Hitbox.CFrame*CFrame.new(0,0,5)
-				if RockPicker then _G.AutoRockFarm = false end
+	end)
+	
+	AutoRockFarm = true
+	Secondary[2].MouseButton1Up:Connect(function()
+		if AutoRockFarm then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
+			
+			Overrides = false
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			AutoRockFarm = false
+			_G.AutoRockFarm = true
+			
+			game.Players.LocalPlayer.Character.ChildAdded:Connect(function(t3)
+				if t3:IsA("Tool") and t3:FindFirstChild("PickaxeScript") then
+					script.Parent.Pickaxe.Text = t3.Name
+				end
 			end)
-			if not _G.AutoRockFarm then			
-				game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
-					if rock.Name == RockPicker then
+			
+			game.Workspace.ChildAdded:Connect(function(p)
+				if p.Name == game.Players.LocalPlayer.Name then
+					wait(0.5)
+					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+					_G.AutoRockFarm = false
+					wait(1)
 					_G.AutoRockFarm = true
 				end
 			end)
-		end
-	end
-else
-	Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-	_G.AutoRockFarm = false
-	AutoRockFarm = true
-end
-end)
-
-Overrides = true
-Secondary[3].MouseButton1Up:Connect(function()
-	if Overrides then
-		Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		Overrides = false
-		Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 14, 78)
-		_G.AutoTreeFarm = false
-		AutoTreeFarm = true
-		_G.AutoRockFarm = false
-		AutoRockFarm = true
-		_G.Overrides = true
-		if script.Parent.Base.Teleport.Position == UDim2.new(0, 340, 0, 0) then
-			script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 510, 0, 0), "Out", "Quad", 0.5, true)
-		end
-		wait(0.2)
-		script.Parent.Base.Secondary.Settings.Visible = true
-		script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 169, 0, 0), "Out", "Quad", 0.5, true)
-		wait(0.3)
-		script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 42), "Out", "Quad", 0.5, true)
-		script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 232), "Out", "Quad", 0.5, true)
-		wait(0.5)
-		for i, v in pairs(Tabs[3]:GetChildren()) do
-			v.Visible = true
-		end
-		
-		for i,v in pairs(Tabs[3].Trees:GetChildren()) do
-			if v.Name ~= "UIGridLayout" then
-				v.MouseButton1Up:Connect(function()
-					if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
-						v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-						_G.SpecifiedTree = nil
-					else
-						_G.Overrides = true
-						pcall(function()
-							for i,v in pairs(Tabs[3].Trees:GetChildren()) do
-								if v.Name ~= "UIGridLayout" then
-								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
-							end
-						end)
-						v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-						_G.SpecifiedTree = v.Text
-					end
+			
+			while _G.AutoRockFarm do wait()
+				local RockPicker = math.random(1,18)
+				if RockPicker == 1 then RockPicker = "Amethyst" elseif RockPicker == 2 then RockPicker = "Cobalt" elseif RockPicker == 3 then RockPicker = "Diamond" elseif RockPicker == 4 then RockPicker = "Emerald" elseif RockPicker == 5 then RockPicker = "Engulfed Thermite" elseif RockPicker == 6 then RockPicker = "Gold" elseif RockPicker == 7 then RockPicker = "Hardened Magma" elseif RockPicker == 8 then RockPicker = "Infracted Golem Core"  elseif RockPicker == 9 then RockPicker = "Kranite"  elseif RockPicker == 10 then RockPicker = "Magmatite" elseif RockPicker == 11 then RockPicker = "Marble" elseif RockPicker == 12 then RockPicker = "Obsidian" elseif RockPicker == 13 then RockPicker = "Phiodide" elseif RockPicker == 14 then RockPicker = "Ruby" elseif RockPicker == 15 then RockPicker = "Sandstone" elseif RockPicker == 16 then RockPicker = "Silver" elseif RockPicker == 17 then RockPicker = "Stone" elseif RockPicker == 18 then RockPicker = "Toxinite" end
+				pcall(function()
+					wait()
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(RockPicker).Hitbox.CFrame*CFrame.new(0,0,5)
+					if RockPicker then _G.AutoRockFarm = false end
 				end)
-			end
-		end
-		
-		for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
-			if v.Name ~= "UIGridLayout" then
-				v.MouseButton1Up:Connect(function()
-					if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
-						v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-						_G.SpecifiedRock = nil
-					else
-						_G.Overrides = true
-						pcall(function()
-							for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
-								if v.Name ~= "UIGridLayout" then
-								v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
+				if not _G.AutoRockFarm then	
+					repeat wait()	
+						game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
+							if rock.Name == RockPicker then
+								_G.AutoRockFarm = true
 							end
 						end)
-						v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
-						_G.SpecifiedRock = v.Text
-						if _G.SpecifiedRock == "Inf. Golem Core" then
-							_G.SpecifiedRock = "Infracted Golem Core"
+					until _G.AutoRockFarm
+				end
+			end
+		else
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+		end
+	end)
+	
+	Overrides = true
+	Secondary[3].MouseButton1Up:Connect(function()
+		if Overrides then
+			Tabs[2].TreeFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			Tabs[2].MineFarm.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			Overrides = false
+			Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 14, 78)
+			_G.AutoTreeFarm = false
+			AutoTreeFarm = true
+			_G.AutoRockFarm = false
+			AutoRockFarm = true
+			_G.Overrides = true
+			if script.Parent.Base.Teleport.Position == UDim2.new(0, 340, 0, 0) then
+				script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 510, 0, 0), "Out", "Quad", 0.5, true)
+			end
+			wait(0.2)
+			script.Parent.Base.Secondary.Settings.Visible = true
+			script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 169, 0, 0), "Out", "Quad", 0.5, true)
+			wait(0.3)
+			script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 42), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 232), "Out", "Quad", 0.5, true)
+			wait(0.5)
+			for i, v in pairs(Tabs[3]:GetChildren()) do
+				v.Visible = true
+			end
+			
+			for i,v in pairs(Tabs[3].Trees:GetChildren()) do
+				if v.Name ~= "UIGridLayout" then
+					v.MouseButton1Up:Connect(function()
+						if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
+							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							_G.SpecifiedTree = nil
+						else
+							_G.Overrides = true
+							pcall(function()
+								for i,v in pairs(Tabs[3].Trees:GetChildren()) do
+									if v.Name ~= "UIGridLayout" then
+									v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
+								end
+							end)
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedTree = v.Text
 						end
-					end
-				end)
-			end
-		end
-		
-		game.Workspace.ChildAdded:Connect(function(p)
-			if p.Name == game.Players.LocalPlayer.Name then
-				wait(0.5)
-				game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
-			end
-		end)
-		
-		while _G.Overrides do wait()
- 			pcall(function()
-				if game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock) then
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame*CFrame.new(0,0,5)
+					end)
 				end
-				if _G.SpecifiedRock ~= nil then _G.Overrides = false end
+			end
+			
+			for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+				if v.Name ~= "UIGridLayout" then
+					v.MouseButton1Up:Connect(function()
+						if v.BackgroundColor3 == Color3.fromRGB(255, 14, 78) then
+							v.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+							_G.SpecifiedRock = nil
+						else
+							_G.Overrides = true
+							pcall(function()
+								for i,v in pairs(Tabs[3].Rocks:GetChildren()) do
+									if v.Name ~= "UIGridLayout" then
+									v.BackgroundColor3 = Color3.fromRGB(53, 53, 53) end
+								end
+							end)
+							v.BackgroundColor3 = Color3.fromRGB(255, 14, 78)
+							_G.SpecifiedRock = v.Text
+							if _G.SpecifiedRock == "Inf. Golem Core" then
+								_G.SpecifiedRock = "Infracted Golem Core"
+							end
+						end
+					end)
+				end
+			end
+			
+			game.Workspace.ChildAdded:Connect(function(p)
+				if p.Name == game.Players.LocalPlayer.Name then
+					wait(0.5)
+					game.ReplicatedStorage.Events.Equip:FireServer(tostring(script.Parent.SwordEquipped.Text))
+					_G.Overrides = false
+					wait(1)
+					_G.Overrides = true
+				end
 			end)
 			
-			pcall(function()
-				if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame*CFrame.new(0,0,5)
-				end
-				if _G.SpecifiedTree ~= nil then _G.Overrides = false end
-			end)
-			
-			repeat wait()
-				game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
-					if rock.Name == _G.SpecifiedRock then
-						_G.Overrides = true
+			while _G.Overrides do wait()
+	 			pcall(function()
+					if game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock) then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Rocks:FindFirstChild(_G.SpecifiedRock).Hitbox.CFrame*CFrame.new(0,0,5)
 					end
+					if _G.SpecifiedRock ~= nil then _G.Overrides = false end
 				end)
-			until _G.Overrides
 				
-			repeat wait()
-				game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
-					if tree.Name == _G.SpecifiedTree then
-						_G.Overrides = true
+				pcall(function()
+					if game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree) then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Destroyable.Trees:FindFirstChild(_G.SpecifiedTree).Hitbox.CFrame*CFrame.new(0,0,5)
 					end
+					if _G.SpecifiedTree ~= nil then _G.Overrides = false end
 				end)
-			until _G.Overrides
+				
+				if not _G.Overrides then
+					repeat wait()
+						game.Workspace.Destroyable.Rocks.ChildRemoved:Connect(function(rock)
+							if rock.Name == _G.SpecifiedRock then
+								_G.Overrides = true
+							end
+						end)
+					until _G.Overrides
+						
+					repeat wait()
+						game.Workspace.Destroyable.Trees.ChildRemoved:Connect(function(tree)
+							if tree.Name == _G.SpecifiedTree then
+								_G.Overrides = true
+							end
+						end)
+					until _G.Overrides
+				end
+			end
+		else
+			_G.Overrides = false
+			for i, v in pairs(Tabs[3]:GetChildren()) do
+				v.Visible = true
+			end
+			Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 255, 255)
+			script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 0), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 30), "Out", "Quad", 0.5, true)
+			wait(0.3)
+			script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 0.5, true)
+			script.Parent.Base.Secondary.Settings.Visible = false
+			Overrides = true
+			if script.Parent.Base.Teleport.Position == UDim2.new(0, 510, 0, 0) then
+				script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 340, 0, 0), "Out", "Quad", 0.5, true)
+			end
+			wait(1)
 		end
-	else
-		_G.Overrides = false
-		for i, v in pairs(Tabs[3]:GetChildren()) do
-			v.Visible = true
-		end
-		Tabs[2].Overrides.ImageColor3 = Color3.fromRGB(255, 255, 255)
-		script.Parent.Base.Secondary.Settings.Holder:TweenSize(UDim2.new(0, 163, 0, 0), "Out", "Quad", 0.5, true)
-		script.Parent.Base.Secondary.Settings:TweenSize(UDim2.new(0, 163, 0, 30), "Out", "Quad", 0.5, true)
-		wait(0.3)
-		script.Parent.Base.Secondary.Settings:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 0.5, true)
-		script.Parent.Base.Secondary.Settings.Visible = false
-		Overrides = true
-		if script.Parent.Base.Teleport.Position == UDim2.new(0, 510, 0, 0) then
-			script.Parent.Base.Teleport:TweenPosition(UDim2.new(0, 340, 0, 0), "Out", "Quad", 0.5, true)
-		end
-		wait(1)
-	end
-end)
-
-Teleport[1].MouseButton1Up:Connect(function()
-	game:GetService("TeleportService"):Teleport(2897314781)
-end)
-
-Teleport[2].MouseButton1Up:Connect(function()
-	game:GetService("TeleportService"):Teleport(3624193198)
-end)
-
-Teleport[3].MouseButton1Up:Connect(function()
-	game:GetService("TeleportService"):Teleport(3219354523)
-end)
+	end)
+	
+	Teleport[1].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(2897314781)
+	end)
+	
+	Teleport[2].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(3624193198)
+	end)
+	
+	Teleport[3].MouseButton1Up:Connect(function()
+		game:GetService("TeleportService"):Teleport(3219354523)
+	end)
 end
 coroutine.wrap(ControlScript)()
