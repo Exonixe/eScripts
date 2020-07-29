@@ -505,9 +505,10 @@ local function Control()
 						    if tonumber(game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Text) >= tonumber(CC[5].Text) then
 						        for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
 									   	for I2,V2 in pairs(V:GetChildren()) do
-										for i = 1, 100 do
+										for i = 1, 1000 do
 											wait()
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+											print("Reached)
 										end
 						            end
 						        end
