@@ -620,7 +620,7 @@ local function Control()
 		else
 			script.Parent.Main.Capsules.Round:TweenSizeAndPosition(
 				UDim2.new(1, 0, 4.281, 0),
-				UDim2.new(0.5, 0, 2.358, 0),
+				UDim2.new(0.5, 0, 2.14, 0),
 				"Out",
 				"Quad",
 				0.3,
