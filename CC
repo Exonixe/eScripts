@@ -129,7 +129,7 @@ Drag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Drag.BorderSizePixel = 0
 Drag.Size = UDim2.new(0, 67, 0, 19)
 Drag.Font = Enum.Font.SourceSansBold
-Drag.Text = "5000"
+Drag.Text = "50"
 Drag.TextColor3 = Color3.fromRGB(255, 135, 137)
 Drag.TextSize = 15.000
 
