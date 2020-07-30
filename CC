@@ -429,7 +429,7 @@ Gacha.Text = "Machine Capsules"
 Gacha.TextColor3 = Color3.fromRGB(255, 255, 255)
 Gacha.TextSize = 14.000
 
-local function Control()
+local function Control() 
 	local script = Instance.new('LocalScript', ChibiCrossing)
 
 	local UIS = game:GetService("UserInputService")
@@ -478,20 +478,8 @@ local function Control()
 	
 	local CC1 = true
 	local function ChibiHopAutofarm()
-		local PlayButton = game.Players.LocalPlayer.PlayerGui.Minigame.main.loading.buttons.play.main.hitbox
-		PlayButton.BackgroundTransparency = 1
-		PlayButton.Size = UDim2.new(40,0,40,0)
-		PlayButton.AnchorPoint = Vector2.new(0.5, 0.5)
-		
-		local PlayImage = game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.play
-		PlayImage.ImageTransparency = 1
-		PlayImage.Size = UDim2.new(40, 0, 40, 0)
-		PlayImage.AnchorPoint = Vector2.new(0.5, 0.5)
-		
 		game.Workspace.MinigameContainer.ChildAdded:Connect(function(Child)
 			if Child.Name == "Shiro_100" then
-				local Finished = Instance.new("BoolValue", game.Workspace.MinigameContainer)
-				Finished.Value = false
 				if not CC1 then
 					pcall(function()
 						local Loop = game:GetService("RunService").Stepped:Connect(function()
@@ -514,7 +502,6 @@ local function Control()
 									for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do
 										for I2,V2 in pairs(V:GetChildren()) do
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
-											Finished.Value = true
 										end
 									end
 									if not Down then break end
@@ -531,34 +518,14 @@ local function Control()
 						game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Changed:Connect(function()
 						    if tonumber(game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Text) >= tonumber(CC[5].Text) then
 						        for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
-									for I2,V2 in pairs(V:GetChildren()) do
+									   	for I2,V2 in pairs(V:GetChildren()) do
 										for i = 1, 1000 do
 											wait()
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
-											print("Reached")
-											Finished.Value = true
 										end
 						            end
 						        end
 						    end
-						end)
-						
-						Finished.Changed:Connect(function()
-							if Finished.Value == true then
-								wait(10)
-								local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
-								firesignal(Exit.Activated)		
-								if not CC1 then
-									pcall(function()
-										keypress(0x45)
-										keyrelease(0x45)
-										wait(1)
-										mouse1click()
-										wait(1)
-										mouse1click()
-									end)
-								end
-							end
 						end)
 					end)
 				end
