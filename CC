@@ -535,6 +535,7 @@ local function Control()
 										for i = 1, 1000 do
 											wait()
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+											print("Reached")
 											Finished.Value = true
 										end
 						            end
