@@ -547,7 +547,7 @@ local function Control()
 						game.Workspace.MinigameContainer.ChildRemoved:Connect(function(Child)
 							if Child.Name == "FloorClone" then
 								if not CC1 then
-									wait(5)
+									wait(10)
 									local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
 									firesignal(Exit.Activated)
 									wait(1)
@@ -560,7 +560,7 @@ local function Control()
 										mouse1click()
 									end)
 								else
-									wait(5)
+									wait(10)
 									local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
 									firesignal(Exit.Activated)
 								end
