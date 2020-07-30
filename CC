@@ -490,9 +490,9 @@ local function Control()
 		
 		game.Workspace.MinigameContainer.ChildAdded:Connect(function(Child)
 			if Child.Name == "Shiro_100" then
+				local Finished = Instance.new("BoolValue", game.Workspace.MinigameContainer)
+				Finished.Value = false
 				if not CC1 then
-					local Finished = Instance.new("BoolValue", game.Workspace.MinigameContainer)
-					Finished.Value = false
 					pcall(function()
 						local Loop = game:GetService("RunService").Stepped:Connect(function()
 						pcall(function()
