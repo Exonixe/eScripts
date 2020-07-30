@@ -28,10 +28,12 @@ local Type_7 = Instance.new("TextButton")
 local Scale_2 = Instance.new("TextButton")
 local AutoOpen = Instance.new("TextButton")
 local Holder_5 = Instance.new("ImageLabel")
-local AutoOpen_2 = Instance.new("TextButton")
+local Inventory = Instance.new("TextButton")
+local Gacha = Instance.new("TextButton")
 
 ChibiCrossing.Name = game:GetService("HttpService"):GenerateGUID(false)
 ChibiCrossing.Parent = game.CoreGui
+
 Main.Name = "Main"
 Main.Parent = ChibiCrossing
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -217,9 +219,9 @@ Round_2.Active = true
 Round_2.AnchorPoint = Vector2.new(0.5, 0.5)
 Round_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Round_2.BackgroundTransparency = 1.000
-Round_2.Position = UDim2.new(0.5, 0, 2.14037466, 0)
+Round_2.Position = UDim2.new(0.5, 0, 2.4625001, 0)
 Round_2.Selectable = true
-Round_2.Size = UDim2.new(1, 0, 4.28074932, 0)
+Round_2.Size = UDim2.new(1, 0, 4.92500019, 0)
 Round_2.Image = "rbxassetid://3570695787"
 Round_2.ImageColor3 = Color3.fromRGB(25, 25, 25)
 Round_2.ScaleType = Enum.ScaleType.Slice
@@ -396,27 +398,38 @@ Holder_5.Active = true
 Holder_5.AnchorPoint = Vector2.new(0.5, 0.5)
 Holder_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Holder_5.BackgroundTransparency = 1.000
-Holder_5.Position = UDim2.new(0.5, 0, 1.25479126, 0)
+Holder_5.Position = UDim2.new(0.5, 0, 1.79166663, 0)
 Holder_5.Selectable = true
-Holder_5.Size = UDim2.new(1, 0, 2.50958323, 0)
+Holder_5.Size = UDim2.new(1, 0, 3.58333397, 0)
 Holder_5.Image = "rbxassetid://3570695787"
 Holder_5.ImageColor3 = Color3.fromRGB(35, 35, 35)
 Holder_5.ScaleType = Enum.ScaleType.Slice
 Holder_5.SliceCenter = Rect.new(100, 100, 100, 100)
 Holder_5.SliceScale = 0.040
 
-AutoOpen_2.Name = "AutoOpen"
-AutoOpen_2.Parent = Holder_5
-AutoOpen_2.BackgroundColor3 = Color3.fromRGB(255, 135, 137)
-AutoOpen_2.BorderSizePixel = 0
-AutoOpen_2.Position = UDim2.new(0, 16, 0, 28)
-AutoOpen_2.Size = UDim2.new(0, 134, 0, 17)
-AutoOpen_2.Font = Enum.Font.SourceSans
-AutoOpen_2.Text = "AutoOpen"
-AutoOpen_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-AutoOpen_2.TextSize = 14.000
+Inventory.Name = "Inventory"
+Inventory.Parent = Holder_5
+Inventory.BackgroundColor3 = Color3.fromRGB(255, 135, 137)
+Inventory.BorderSizePixel = 0
+Inventory.Position = UDim2.new(0, 16, 0, 50)
+Inventory.Size = UDim2.new(0, 134, 0, 17)
+Inventory.Font = Enum.Font.SourceSans
+Inventory.Text = "Inventory Capsules"
+Inventory.TextColor3 = Color3.fromRGB(255, 255, 255)
+Inventory.TextSize = 14.000
 
-local function Control()
+Gacha.Name = "Gacha"
+Gacha.Parent = Holder_5
+Gacha.BackgroundColor3 = Color3.fromRGB(255, 135, 137)
+Gacha.BorderSizePixel = 0
+Gacha.Position = UDim2.new(0, 16, 0, 28)
+Gacha.Size = UDim2.new(0, 134, 0, 17)
+Gacha.Font = Enum.Font.SourceSans
+Gacha.Text = "Machine Capsules"
+Gacha.TextColor3 = Color3.fromRGB(255, 255, 255)
+Gacha.TextSize = 14.000
+
+local function Control() 
 	local script = Instance.new('LocalScript', ChibiCrossing)
 
 	local UIS = game:GetService("UserInputService")
@@ -434,9 +447,10 @@ local function Control()
 	}
 	
 	local Capsules = {
-		script.Parent.Main.Capsules.AutoOpen.Holder.AutoOpen,
+		script.Parent.Main.Capsules.AutoOpen.Holder.Gacha,
 		script.Parent.Main.Capsules.Capsules.Holder.Type,
-		script.Parent.Main.Capsules.Scale
+		script.Parent.Main.Capsules.Scale,
+		script.Parent.Main.Capsules.AutoOpen.Holder.Inventory
 	}
 	
 	script.Parent.Main.CC.Draggable = true
@@ -505,7 +519,7 @@ local function Control()
 						    if tonumber(game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Text) >= tonumber(CC[5].Text) then
 						        for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
 									   	for I2,V2 in pairs(V:GetChildren()) do
-										for i = 1, 400 do
+										for i = 1, 1000 do
 											wait()
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
 										end
@@ -541,11 +555,37 @@ local function Control()
 	        if not Capsules1 then
 	            if Child.Name == "RollingGui" then
 	                wait(7)
-	                game.ReplicatedStorage.Aero.AeroRemoteServices.GachaService.PurchaseCapsule:InvokeServer(tostring(Capsules[2].Text))
+					game.ReplicatedStorage.Aero.AeroRemoteServices.GachaService.PurchaseCapsule:InvokeServer(tostring(Capsules[2].Text))
+					wait(0.7)
+					mouse1click()
 	            end
 	        end
 	    end)
 	end
+	
+	local Capsules4 = true
+	local function CapsuleInventoryAutoOpen()
+		local Main = game.Players.LocalPlayer.PlayerGui.interface.hud
+		local Buttons = {
+			Main.buttons.inventory.hitbox,
+			Main.pages.inventory.main.container.display.capsules.roll.hitbox
+		}
+		
+		game.Players.LocalPlayer.PlayerGui.ChildRemoved:Connect(function(Child)
+			if not Capsules4 then
+				if Child.Name == "RollingGui" then
+					wait(7)
+					firesignal(Buttons[1].Activated)
+					wait(1)
+					firesignal(Buttons[2].Activated)
+					wait(0.7)
+					mouse1click()
+				end
+			end
+		end)
+	end
+	
+	
 	
 	CC[2].Changed:Connect(function()
 		CC[2].Text = CC[2].Text:sub(0, 1)
@@ -619,8 +659,8 @@ local function Control()
 			Capsules3 = false
 		else
 			script.Parent.Main.Capsules.Round:TweenSizeAndPosition(
-				UDim2.new(1, 0, 4.281, 0),
-				UDim2.new(0.5, 0, 2.14, 0),
+				UDim2.new(1, 0, 4.925, 0),
+				UDim2.new(0.5, 0, 2.463, 0),
 				"Out",
 				"Quad",
 				0.3,
@@ -736,6 +776,21 @@ local function Control()
 			UnSelect()
 			
 			Capsules1 = true
+		end
+	end)
+	
+	Capsules[4].MouseButton1Up:Connect(function()
+		if Capsules4 then
+			Button = Capsules[4]
+			Select()
+			CapsuleInventoryAutoOpen()
+			
+			Capsules4 = false
+		else
+			Button = Capsules[4]
+			UnSelect()
+			
+			Capsules4 = true
 		end
 	end)
 end
