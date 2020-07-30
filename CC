@@ -574,7 +574,7 @@ local function Control()
 		game.Players.LocalPlayer.PlayerGui.ChildRemoved:Connect(function(Child)
 			if not Capsules4 then
 				if Child.Name == "RollingGui" then
-					wait(7)
+					wait(5)
 					firesignal(Buttons[1].Activated)
 					wait(1)
 					firesignal(Buttons[2].Activated)
