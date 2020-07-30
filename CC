@@ -491,6 +491,8 @@ local function Control()
 		game.Workspace.MinigameContainer.ChildAdded:Connect(function(Child)
 			if Child.Name == "Shiro_100" then
 				if not CC1 then
+					local Finished = Instance.new("BoolValue", game.Workspace.MinigameContainer)
+					Finished.Value = false
 					pcall(function()
 						local Loop = game:GetService("RunService").Stepped:Connect(function()
 						pcall(function()
@@ -512,9 +514,7 @@ local function Control()
 									for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do
 										for I2,V2 in pairs(V:GetChildren()) do
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
-											pcall(function()
-												game.Workspace.MinigameContainer:FindFirstChild("FloorClone"):Destroy()
-											end)
+											Finished.Value = true
 										end
 									end
 									if not Down then break end
@@ -531,26 +531,23 @@ local function Control()
 						game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Changed:Connect(function()
 						    if tonumber(game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Text) >= tonumber(CC[5].Text) then
 						        for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
-									for I2,V2 in pairs(V:GetChildren()) do
+									   	for I2,V2 in pairs(V:GetChildren()) do
 										for i = 1, 1000 do
 											wait()
 											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
-											pcall(function()
-												game.Workspace.MinigameContainer:FindFirstChild("FloorClone"):Destroy()
-											end)
+											Finished.Value = true
 										end
 						            end
 						        end
 						    end
 						end)
 						
-						game.Workspace.MinigameContainer.ChildRemoved:Connect(function(Child)
-							if Child.Name == "FloorClone" then
+						Finished.Changed:Connect(function()
+							if Finished.Value == true then
+								wait(10)
+								local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
+								firesignal(Exit.Activated)		
 								if not CC1 then
-									wait(10)
-									local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
-									firesignal(Exit.Activated)
-									wait(1)
 									pcall(function()
 										keypress(0x45)
 										keyrelease(0x45)
@@ -559,10 +556,6 @@ local function Control()
 										wait(1)
 										mouse1click()
 									end)
-								else
-									wait(10)
-									local Exit = game.Players.LocalPlayer.PlayerGui.MinigameEndscreen.main.dropdown.accept.main.hitbox
-									firesignal(Exit.Activated)
 								end
 							end
 						end)
