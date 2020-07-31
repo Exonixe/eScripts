@@ -429,7 +429,7 @@ Gacha.Text = "Machine Capsules"
 Gacha.TextColor3 = Color3.fromRGB(255, 255, 255)
 Gacha.TextSize = 14.000
 
-local function Control() 
+local function Control()
 	local script = Instance.new('LocalScript', ChibiCrossing)
 
 	local UIS = game:GetService("UserInputService")
@@ -499,11 +499,13 @@ local function Control()
 								Loop:Disconnect()
 								while Down do
 									wait()
-									for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do
-										for I2,V2 in pairs(V:GetChildren()) do
-											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+									pcall(function()
+										for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do
+											for I2,V2 in pairs(V:GetChildren()) do
+												game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+											end
 										end
-									end
+									end)
 									if not Down then break end
 								end
 							end
@@ -517,15 +519,20 @@ local function Control()
 						
 						game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Changed:Connect(function()
 						    if tonumber(game.Players.LocalPlayer.PlayerGui.MinigameHUD.main.score.container.header.Text) >= tonumber(CC[5].Text) then
-						        for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
-									   	for I2,V2 in pairs(V:GetChildren()) do
-										for i = 1, 1000 do
-											wait()
-											game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+								Loop:Disconnect()
+					        	for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do 
+							   		for I2,V2 in pairs(V:GetChildren()) do
+										while wait() do
+											pcall(function()
+												game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
+											end)
+											if not game.Workspace.MinigameContainer:FindFirstChild("Shiro_100") then
+												break
+											end
 										end
-						            end
-						        end
-						    end
+					           		end
+					       		end
+					    	end
 						end)
 					end)
 				end
