@@ -479,7 +479,7 @@ local function Control()
 	local CC1 = true
 	local function ChibiHopAutofarm()
 		game.Workspace.MinigameContainer.ChildAdded:Connect(function(Child)
-			if Child.Name == "Shiro_100" then
+			if Child.Name == "ObstaclesFolder" then
 				if not CC1 then
 					pcall(function()
 						local Loop = game:GetService("RunService").Stepped:Connect(function()
