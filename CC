@@ -502,7 +502,7 @@ local function Control()
 									pcall(function()
 										for I,V in pairs(game.Workspace.MinigameContainer.ObstaclesFolder:GetChildren()) do
 											for I2,V2 in pairs(V:GetChildren()) do
-												game.Workspace.MinigameContainer.ChibiHop.BaseTarget.CFrame = V2.CFrame
+												game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
 											end
 										end
 									end)
@@ -524,7 +524,7 @@ local function Control()
 							   		for I2,V2 in pairs(V:GetChildren()) do
 										while wait() do
 											pcall(function()
-												game.Workspace.MinigameContainer.ChibiHop.BaseTarget.CFrame = V2.CFrame
+												game.Workspace.MinigameContainer.Shiro_100.HumanoidRootPart.CFrame = V2.CFrame
 											end)
 											if not game.Workspace.MinigameContainer:FindFirstChild("Shiro_100") then
 												break
