@@ -1,0 +1,65 @@
+local function ESP(ObjParent, ObjText)
+	local BBG = Instance.new("BillboardGui")
+	local Text = Instance.new("TextLabel")
+	
+	BBG.Name = "BBG"
+	BBG.Parent = ObjParent
+	BBG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	BBG.Active = true
+	BBG.AlwaysOnTop = true
+	BBG.LightInfluence = 1.000
+	BBG.Size = UDim2.new(40, 0, 20, 0)
+
+	Text.Parent = BBG
+	Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Text.BackgroundTransparency = 1.000
+	Text.Size = UDim2.new(1, 0, 1, 0)
+	Text.Font = Enum.Font.SourceSansBold
+	Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Text.Text = ObjText
+	Text.TextSize = 12.000
+	Text.TextStrokeTransparency = 0.000
+	
+	return Text
+end
+
+game.Workspace.Ignore.Items.ChildAdded:Connect(function()
+	for I,V in pairs(game.Workspace.Ignore.Items:GetChildren()) do
+		for I,V2 in pairs(V:GetChildren()) do
+			if V2.ClassName == "Part" then
+				if V2:FindFirstChild("BBG") == nil then
+					local NewESP = ESP(V2, V.Name)
+					
+					if V.Name == "Medkit" or V.Name == "Bandages" then
+						NewESP.TextColor3 = Color3.fromRGB(255, 102, 102)
+					end
+					if V.Name == "Energy Drink" or V.Name == "Body Armor" or V.Name == "Ammo" then
+						NewESP.TextColor3 = Color3.fromRGB(119, 219, 255)
+					end
+					if V.Name == "Nerve Gas" or V.Name == "Frag" or V.Name == "Molotov" then
+						NewESP.TextColor3 = Color3.fromRGB(207, 139, 255)
+					end
+					if V.Name == "Jack" or V.Name == "Barbed Wire" or V.Name == "Clap Bomb" then
+						NewESP.TextColor3 = Color3.fromRGB(255, 125, 195)
+					end
+					if V.Name == "50 Cal" then
+					    NewESP.TextColor3 = Color3.fromRGB(255, 139, 38)
+					end
+				end
+			end
+		end
+	end
+end)
+
+game.Workspace.World.Objectives.ChildAdded:Connect(function()	
+	for I,V in pairs(game.Workspace.World.Objectives:GetChildren()) do
+		if V:IsA("Model") then
+			local ObjESP = ESP(V, "OBJ")
+			ObjESP.TextColor3 = Color3.fromRGB(135, 255, 133)
+		end
+	end
+end)
+
+game.Workspace.Ignore.Ragdolls.ChildAdded:Connect(function(Ragdoll)
+    local DeadESP = ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
+end)
