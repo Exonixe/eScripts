@@ -19,8 +19,6 @@ local function ESP(ObjParent, ObjText)
 	Text.Text = ObjText
 	Text.TextSize = 12.000
 	Text.TextStrokeTransparency = 0.000
-	
-	return Text
 end
 
 game.Workspace.Ignore.Items.ChildAdded:Connect(function()
@@ -61,5 +59,5 @@ game.Workspace.World.Objectives.ChildAdded:Connect(function()
 end)
 
 game.Workspace.Ignore.Ragdolls.ChildAdded:Connect(function(Ragdoll)
-    local DeadESP = ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
+    ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
 end)
