@@ -19,6 +19,8 @@ local function ESP(ObjParent, ObjText)
 	Text.Text = ObjText
 	Text.TextSize = 12.000
 	Text.TextStrokeTransparency = 0.000
+	
+	return Text
 end
 
 game.Workspace.Ignore.Items.ChildAdded:Connect(function()
