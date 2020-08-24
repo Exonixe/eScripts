@@ -1,3 +1,5 @@
+local StarterGui = game:GetService("StarterGui")
+
 local function ESP(ObjParent, ObjText)
 	local BBG = Instance.new("BillboardGui")
 	local Text = Instance.new("TextLabel")
@@ -63,6 +65,19 @@ end)
 game.Workspace.Ignore.Ragdolls.ChildAdded:Connect(function(Ragdoll)
     local Name = tostring(Ragdoll.Name)
     if Name:find("Ragdoll") then
-        ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
+        ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " ")) wait(0.1)
+        if Ragdoll:FindFirstChild("Revivable") then
+            StarterGui:SetCore("SendNotification", {
+    			Title = "[Death] " .. string.gsub(tostring(Ragdoll), "Ragdoll", " "),
+    			Text = "REVIVABLE",
+    			Duration = 3
+    		})
+    	else
+    	    StarterGui:SetCore("SendNotification", {
+    			Title = "[Death] " .. string.gsub(tostring(Ragdoll), "Ragdoll", " "),
+    			Text = "NOT REVIVABLE",
+    			Duration = 3
+    		})
+        end
     end
 end)
