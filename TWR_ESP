@@ -78,6 +78,7 @@ game.Workspace.Ignore.Ragdolls.ChildAdded:Connect(function(Ragdoll)
     			Text = "NOT REVIVABLE",
     			Duration = 3
     		})
+		Ragdoll:FindFirstChild("BBG"):Destroy()
         end
     end
 end)
