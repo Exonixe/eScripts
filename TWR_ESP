@@ -29,7 +29,7 @@ game.Workspace.Ignore.Items.ChildAdded:Connect(function()
 	for I,V in pairs(game.Workspace.Ignore.Items:GetChildren()) do
 		for I,V2 in pairs(V:GetChildren()) do
 			if V2.ClassName == "Part" then
-				if V2:FindFirstChild("BBG") == nil then
+				if not V2:FindFirstChild("BBG") then
 					local NewESP = ESP(V2, V.Name)
 					
 					if V.Name == "Medkit" or V.Name == "Bandages" then
