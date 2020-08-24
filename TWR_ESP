@@ -61,5 +61,8 @@ game.Workspace.World.Objectives.ChildAdded:Connect(function()
 end)
 
 game.Workspace.Ignore.Ragdolls.ChildAdded:Connect(function(Ragdoll)
-    ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
+    local Name = tostring(Ragdoll.Name)
+    if Name:find("Ragdoll") then
+        ESP(Ragdoll, string.gsub(tostring(Ragdoll), "Ragdoll", " "))
+    end
 end)
