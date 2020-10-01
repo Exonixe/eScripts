@@ -1,8 +1,6 @@
 local Players = game:GetService("Players")
 local WS = game:GetService("Workspace")
 local RS = game:GetService("RunService")
-_G.HeadSize = 20
-_G.HeadTransparency = 0
 
 if game.CoreGui:FindFirstChild("Injected") then wait(9e9) end
 local Injected = Instance.new("BoolValue", game.CoreGui)
