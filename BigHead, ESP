@@ -1,0 +1,62 @@
+local Players = game:GetService("Players")
+local WS = game:GetService("Workspace")
+local RS = game:GetService("RunService")
+_G.HeadSize = 20
+
+if game.CoreGui:FindFirstChild("Injected") then wait(9e9) end
+local Injected = Instance.new("BoolValue", game.CoreGui)
+Injected.Name = "Injected"
+
+local function boxhandleadornmentESP(player)
+    for I,V in pairs(player.Character:GetChildren()) do
+        if V:IsA("BasePart") then
+            local BHA = Instance.new("BoxHandleAdornment", V)
+            BHA.Color = player.TeamColor
+            BHA.Adornee = V
+            BHA.Size = V.Size
+            BHA.Transparency = 0.3
+            BHA.ZIndex = 10
+            BHA.AlwaysOnTop = true
+        end
+    end
+end
+
+local function bigHead(player)
+    player.Character.Head.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+    player.Character.Head.Massless = true
+    local Loop = RS.Stepped:Connect(function()
+        if player.Character.Humanoid.Health <= 0 then
+            player.Character.Head.Size = Vector3.new(1, 1, 1)
+        elseif player.Character:FindFirstChild("Head") then
+            player.Character.Head.CanCollide = false
+        end
+    end)
+    WS.ChildRemoved:Connect(function(object)
+        if object == player.Character then
+            Loop:Disconnect()
+        end
+    end)
+end
+
+for I,V in pairs(Players:GetChildren()) do
+    if V ~= Players.LocalPlayer then
+        pcall(function()
+            boxhandleadornmentESP(V)
+            bigHead(V)
+        end)
+        
+        V.CharacterAdded:Connect(function() wait(0.5)
+            boxhandleadornmentESP(V)
+            bigHead(V)
+        end)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character) wait(0.5)
+        if character ~= Players.LocalPlayer.Character then
+            boxhandleadornmentESP(player)
+            bigHead(player)
+        end
+    end)
+end)
