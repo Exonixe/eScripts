@@ -1,0 +1,24 @@
+getgenv().Settings = {
+	Keybind = Enum.KeyCode.LeftControl,
+	identifyPart = true,
+	destroyPart = false,
+	teleportPart = false
+}
+
+local UIS = game:GetService("UserInputService")
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+
+Mouse.Button1Down:Connect(function()
+	if UIS:IsKeyDown(getgenv().Settings.Keybind) and Mouse.Target then
+		if getgenv().Settings.identifyPart then
+			print(Mouse.Target:GetFullName())
+		end
+		if getgenv().Settings.destroyPart then
+			Mouse.Target:Destroy()
+		end
+		if getgenv().Settings.teleportPart and Player.Character ~= nil then
+			Player.Character:MoveTo(Mouse.Hit.p)
+		end
+	end
+end)
