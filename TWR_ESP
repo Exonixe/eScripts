@@ -1,3 +1,9 @@
+if _G.Inject then
+	error("Already Injected")
+else
+	_G.Inject = true
+end
+
 local StarterGui = game:GetService("StarterGui")
 
 local function ESP(ObjParent, ObjText)
