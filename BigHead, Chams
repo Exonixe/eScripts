@@ -2,9 +2,11 @@ local Players = game:GetService("Players")
 local WS = game:GetService("Workspace")
 local RS = game:GetService("RunService")
 
-if game.CoreGui:FindFirstChild("Injected") then wait(9e9) end
-local Injected = Instance.new("BoolValue", game.CoreGui)
-Injected.Name = "Injected"
+if _G.Injected then
+    error("Script Already Injected")
+else
+    _G.Injected = true
+end
 
 local function boxhandleadornmentESP(player)
     for I,V in pairs(player.Character:GetChildren()) do
